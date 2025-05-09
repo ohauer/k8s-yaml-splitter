@@ -4,8 +4,8 @@ import (
 	"bufio"
 	"bytes"
 	"fmt"
-	"github.com/pkg/errors"
-	"gopkg.in/yaml.v2"
+	"log"
+	"gopkg.in/yaml.v3"
 	"io/ioutil"
 	"os"
 	"path"
@@ -64,7 +64,7 @@ type baseObject struct {
 func unmarshalObject(bytez []byte, dryRun bool, outputDir string) error {
 	var base = baseObject{bytes: bytez}
 	if err := yaml.Unmarshal(bytez, &base); err != nil {
-		return makeUnmarshalObjectErr(err)
+		log.Fatalf("Could not parse, malformed %v", err)
 	}
 	if len(base.Kind) > 0 && len(base.ApiVer) > 0 {
 		fileName := ""
@@ -101,10 +101,6 @@ func unmarshalObject(bytez []byte, dryRun bool, outputDir string) error {
 		fmt.Printf("* Wrote %d bytes to %s\n", byteWrote, absolutePath)
 	}
 	return nil
-}
-
-func makeUnmarshalObjectErr(err error) error {
-	return errors.New("Could not parse. This likely means it is malformed YAML.")
 }
 
 func main() {
