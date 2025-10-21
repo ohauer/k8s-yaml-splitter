@@ -1,0 +1,56 @@
+# Test file with various error conditions
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: valid-config
+  namespace: test
+data:
+  key: value
+---
+# This document has invalid YAML syntax
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: invalid-yaml
+  namespace: test
+data:
+  key: value
+  invalid: [unclosed array
+---
+# This document is missing required fields
+apiVersion: v1
+metadata:
+  name: missing-kind
+  namespace: test
+data:
+  key: value
+---
+# This document has no metadata
+apiVersion: v1
+kind: ConfigMap
+data:
+  key: value
+---
+# Valid document after errors
+apiVersion: v1
+kind: Service
+metadata:
+  name: test-service
+  namespace: test
+spec:
+  selector:
+    app: test
+  ports:
+  - port: 80
+---
+# Empty document (should be skipped)
+
+---
+# Document with special characters in names
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: special/chars:config
+  namespace: test-ns/special
+data:
+  key: value
