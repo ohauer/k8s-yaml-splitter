@@ -1,3 +1,64 @@
-k8s-yaml-splitter
+# Development artifacts
+*.json
+todo.md
+conversation.json
+k8s-yaml-splitter-conversation.json
+
+# Editor files
+**.swp
+**.diff
+**diff.*
+*.swp
+*.swo
+*~
+
+.vscode/
+.idea/
+*.sublime-*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.bak
+*.orig
+
+# Kubernetes
+*.kubeconfig
+kubeconfig*
+.kube/
+
+# Go test files
+*_test.go
+coverage.out
+coverage.html
+*.test
+*.prof
+
+# Secrets and credentials
+*.key
+*.pem
+*.crt
+*.p12
+*.pfx
+secrets/
+.env
+.env.*
+**/secrets/
+**/*secret*
+**/*password*
+**/*token*
+
+# Build artifacts
+bin/
+build/
+data/
+dist/
+target/
 vendor/
-/bin/k8s-yaml-splitter
+test-output-*
+checksums.txt

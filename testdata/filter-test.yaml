@@ -1,0 +1,49 @@
+# Test file for filtering functionality
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deployment
+  namespace: production
+spec:
+  replicas: 3
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-service
+  namespace: production
+spec:
+  selector:
+    app: myapp
+  ports:
+  - port: 80
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+  namespace: production
+data:
+  config: value
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: app-secret
+  namespace: production
+type: Opaque
+data:
+  password: c2VjcmV0
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: migration-job
+  namespace: production
+spec:
+  template:
+    spec:
+      containers:
+      - name: migrate
+        image: migrate:latest
+      restartPolicy: Never
