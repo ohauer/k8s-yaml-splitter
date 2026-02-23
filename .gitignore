@@ -33,7 +33,6 @@ kubeconfig*
 .kube/
 
 # Go test files
-*_test.go
 coverage.out
 coverage.html
 *.test
