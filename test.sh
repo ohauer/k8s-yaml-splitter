@@ -1,6 +1,7 @@
 #!/bin/sh
 #
 # Test script for k8s-yaml-splitter
+# POSIX compliant shell script
 #
 
 set -e
@@ -43,9 +44,8 @@ check_binary() {
 test_basic_functionality() {
     log_info "Testing basic functionality..."
     OUTPUT_DIR="${TEST_OUTPUT_BASE}-basic"
-    mkdir -p "$OUTPUT_DIR"
 
-    $BINARY "$TESTDATA_DIR/filter-test.yaml" "$OUTPUT_DIR"
+    $BINARY -f "$TESTDATA_DIR/filter-test.yaml" -d "$OUTPUT_DIR"
 
     if [ ! -d "$OUTPUT_DIR" ]; then
         log_error "Output directory not created"
@@ -61,13 +61,71 @@ test_basic_functionality() {
     log_info "Basic functionality: PASSED"
 }
 
+test_namespace_dirs() {
+    log_info "Testing namespace directories..."
+    OUTPUT_DIR="${TEST_OUTPUT_BASE}-namespace"
+
+    $BINARY -f "$TESTDATA_DIR/multi-namespace.yaml" -namespace-dirs -d "$OUTPUT_DIR"
+
+    if [ ! -d "$OUTPUT_DIR/frontend" ] || [ ! -d "$OUTPUT_DIR/backend" ] || [ ! -d "$OUTPUT_DIR/cluster-scoped" ]; then
+        log_error "Namespace directories not created"
+        return 1
+    fi
+
+    log_info "Namespace directories: PASSED"
+}
+
+test_filtering() {
+    log_info "Testing resource filtering..."
+    OUTPUT_DIR="${TEST_OUTPUT_BASE}-filter"
+
+    $BINARY -f "$TESTDATA_DIR/filter-test.yaml" -include "Deployment,Service" -d "$OUTPUT_DIR"
+
+    file_count=$(find "$OUTPUT_DIR" -name "*.yaml" | wc -l)
+    if [ "$file_count" -ne 2 ]; then
+        log_error "Expected 2 files with include filter, got $file_count"
+        return 1
+    fi
+
+    log_info "Resource filtering: PASSED"
+}
+
+test_stdin() {
+    log_info "Testing stdin input..."
+    OUTPUT_DIR="${TEST_OUTPUT_BASE}-stdin"
+
+    cat "$TESTDATA_DIR/filter-test.yaml" | $BINARY -f - -d "$OUTPUT_DIR"
+
+    file_count=$(find "$OUTPUT_DIR" -name "*.yaml" | wc -l)
+    if [ "$file_count" -ne 5 ]; then
+        log_error "Expected 5 files from stdin, got $file_count"
+        return 1
+    fi
+
+    log_info "Stdin input: PASSED"
+}
+
+test_json_output() {
+    log_info "Testing JSON output..."
+    OUTPUT_DIR="${TEST_OUTPUT_BASE}-json"
+
+    $BINARY -f "$TESTDATA_DIR/filter-test.yaml" -o json -d "$OUTPUT_DIR"
+
+    json_count=$(find "$OUTPUT_DIR" -name "*.json" | wc -l)
+    if [ "$json_count" -ne 5 ]; then
+        log_error "Expected 5 JSON files, got $json_count"
+        return 1
+    fi
+
+    log_info "JSON output: PASSED"
+}
+
 test_error_handling() {
     log_info "Testing error handling..."
     OUTPUT_DIR="${TEST_OUTPUT_BASE}-errors"
-    mkdir -p "$OUTPUT_DIR"
 
     # This should exit with code 1 due to errors but continue processing
-    if $BINARY "$TESTDATA_DIR/with-errors.yaml" "$OUTPUT_DIR" >/dev/null 2>&1; then
+    if $BINARY -f "$TESTDATA_DIR/with-errors.yaml" -d "$OUTPUT_DIR" >/dev/null 2>&1; then
         log_warn "Expected non-zero exit code for malformed YAML"
     fi
 
@@ -81,6 +139,20 @@ test_error_handling() {
     log_info "Error handling: PASSED"
 }
 
+test_dry_run() {
+    log_info "Testing dry run mode..."
+    OUTPUT_DIR="${TEST_OUTPUT_BASE}-dryrun"
+
+    $BINARY -f "$TESTDATA_DIR/filter-test.yaml" -dry-run -d "$OUTPUT_DIR" >/dev/null
+
+    if [ -d "$OUTPUT_DIR" ] && [ "$(find "$OUTPUT_DIR" -name "*.yaml" | wc -l)" -gt 0 ]; then
+        log_error "Files created in dry-run mode"
+        return 1
+    fi
+
+    log_info "Dry run mode: PASSED"
+}
+
 run_all_tests() {
     log_info "Starting k8s-yaml-splitter tests..."
 
@@ -88,7 +160,12 @@ run_all_tests() {
     cleanup
 
     test_basic_functionality
+    test_namespace_dirs
+    test_filtering
+    test_stdin
+    test_json_output
     test_error_handling
+    test_dry_run
 
     cleanup
 
