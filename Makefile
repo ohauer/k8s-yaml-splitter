@@ -43,7 +43,7 @@ build: vendor
 
 test: build
 	@echo "Running integration tests..."
-	@./test.sh
+	@./scripts/test.sh
 
 test-unit:
 	@echo "Running unit tests with race detector..."

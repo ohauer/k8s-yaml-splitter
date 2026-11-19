@@ -1,6 +1,4 @@
 # Development artifacts
-*.json
-todo.md
 conversation.json
 k8s-yaml-splitter-conversation.json
 
@@ -12,7 +10,8 @@ k8s-yaml-splitter-conversation.json
 *.swo
 *~
 
-.vscode/
+.vscode/*
+!.vscode/settings.json
 .idea/
 *.sublime-*
 
@@ -48,9 +47,6 @@ secrets/
 .env
 .env.*
 **/secrets/
-**/*secret*
-**/*password*
-**/*token*
 
 # Build artifacts
 bin/

@@ -12,6 +12,7 @@ CONTRIBUTING.md                   Contribution guide
 docs/
 ├── README.md                     (this file)
 └── development/
+    ├── RELEASING.md              Release process (scripts/release.sh + CI)
     ├── ROADMAP.md                Version planning and remaining work
     └── SECURITY_AUDIT.md         Security audit findings (reference)
 ```
@@ -26,7 +27,8 @@ docs/
 | How do I contribute? | `../CONTRIBUTING.md` |
 | What is planned? | `development/ROADMAP.md` |
 | What was found in the security audit? | `development/SECURITY_AUDIT.md` |
-| Ideas, working notes | `../01_IDEAS/`, `../NOTES/` |
+| How do I make a release? | `development/RELEASING.md` |
+| Ideas | `../01_IDEAS/` |
 
 ## Make targets for developers
 
@@ -35,6 +37,7 @@ docs/
 | `make test-unit` | Unit tests with race detector |
 | `make test` | Integration tests with built binary |
 | `make fuzz` | Fuzz tests (30s each) |
+| `scripts/release.sh vX.Y.Z` | Check, tag and push a release |
 | `make lint` | golangci-lint v2 |
 | `make vuln` | govulncheck |
 

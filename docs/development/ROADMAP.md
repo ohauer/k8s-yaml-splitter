@@ -57,7 +57,6 @@
 
 ### Remaining Items
 - [ ] Review Go security best practices (https://go.dev/doc/security/best-practices) beyond govulncheck
-- [ ] Release workflow references `RELEASE_NOTES.md` which does not exist (use `generate_release_notes` or per-tag file)
 - [ ] Make scanner buffer size configurable (`-max-buffer-size` flag)
 - [ ] Add cleanup-on-error flag (`-cleanup-on-error` flag)
 - [ ] Add validate subcommand
