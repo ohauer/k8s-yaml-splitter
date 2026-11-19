@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - `-h` printed no options (flags were defined after the help call) and differed from the usage shown for invalid flags or missing arguments. All paths now print the same complete help: `-h`/`--help`/`help` to stdout with exit 0, errors to stderr with exit 2
+- Flags after the output directory were ignored and treated as extra directories (e.g. `-f - -d out -s` failed with a usage error). Flags are now accepted anywhere; `--` ends flag parsing. Error messages name the actual problem (missing `-f`, missing or extra `<output-dir>`)
 
 ## [0.2.0-rc3] - 2026-11-19
 

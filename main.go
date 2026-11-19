@@ -601,6 +601,30 @@ func newFlagSet(name string, config *Config, cli *cliFlags) *flag.FlagSet {
 	return fs
 }
 
+// parseArgs parses flags that may appear before or after positional arguments
+// (e.g. "-f in.yaml -d out -s"). The standard flag package stops at the first
+// non-flag argument; this loop collects it and continues parsing the rest.
+// A literal "--" ends flag parsing; everything after it is positional.
+func parseArgs(fs *flag.FlagSet, args []string) ([]string, error) {
+	var positional []string
+	for {
+		if err := fs.Parse(args); err != nil {
+			return nil, err
+		}
+		rest := fs.Args()
+		if len(rest) == 0 {
+			return positional, nil
+		}
+		// fs.Parse consumed "--" if it was the terminator; detect it from the input
+		consumed := len(args) - len(rest)
+		if consumed > 0 && args[consumed-1] == "--" {
+			return append(positional, rest...), nil
+		}
+		positional = append(positional, rest[0])
+		args = rest[1:]
+	}
+}
+
 // writeUsage writes the complete help text (usage, commands, options) to w
 func writeUsage(w io.Writer, fs *flag.FlagSet) {
 	name := fs.Name()
@@ -643,7 +667,8 @@ func main() {
 	}
 
 	// Invalid flags print the same usage to stderr (via fs.Usage) and exit 2
-	if err := fs.Parse(os.Args[1:]); err != nil {
+	args, err := parseArgs(fs, os.Args[1:])
+	if err != nil {
 		if errors.Is(err, flag.ErrHelp) {
 			os.Exit(ExitSuccess)
 		}
@@ -661,9 +686,15 @@ func main() {
 	config.excludeKinds = parseFilterList(cli.excludeFilter)
 
 	// Validate required parameters
-	args := fs.Args()
 	if config.inputFile == "" || len(args) != 1 {
-		fmt.Fprintln(os.Stderr, "Error: -f <input-file> and exactly one <output-dir> are required")
+		switch {
+		case config.inputFile == "":
+			fmt.Fprintln(os.Stderr, "Error: -f <input-file> is required")
+		case len(args) == 0:
+			fmt.Fprintln(os.Stderr, "Error: <output-dir> is required")
+		default:
+			fmt.Fprintf(os.Stderr, "Error: expected exactly one <output-dir>, got %d: %q\n", len(args), args)
+		}
 		fs.Usage()
 		os.Exit(ExitInvalidArgs)
 	}

@@ -772,3 +772,38 @@ func TestUsageConsistent(t *testing.T) {
 		}
 	}
 }
+
+// TestParseArgsInterspersed verifies flags are accepted before and after the output directory
+func TestParseArgsInterspersed(t *testing.T) {
+	tests := []struct {
+		name    string
+		args    []string
+		wantPos []string
+		sort    bool
+		create  bool
+		format  string
+	}{
+		{"flags-first", []string{"-f", "-", "-d", "-s", "out"}, []string{"out"}, true, true, "yaml"},
+		{"flags-after-dir", []string{"-f", "-", "-d", "out", "-s"}, []string{"out"}, true, true, "yaml"},
+		{"mixed", []string{"out", "-f", "in.yaml", "-o", "json"}, []string{"out"}, false, false, "json"},
+		{"terminator", []string{"-f", "-", "--", "-s"}, []string{"-s"}, false, false, "yaml"},
+		{"two-dirs", []string{"-f", "-", "a", "b"}, []string{"a", "b"}, false, false, "yaml"},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			var config Config
+			var cli cliFlags
+			fs := newFlagSet("test", &config, &cli)
+			pos, err := parseArgs(fs, tt.args)
+			if err != nil {
+				t.Fatal(err)
+			}
+			if strings.Join(pos, "|") != strings.Join(tt.wantPos, "|") {
+				t.Errorf("positional = %q, want %q", pos, tt.wantPos)
+			}
+			if config.sortKeys != tt.sort || config.createDir != tt.create || config.outputFormat != tt.format {
+				t.Errorf("flags: sort=%v create=%v format=%q", config.sortKeys, config.createDir, config.outputFormat)
+			}
+		})
+	}
+}
