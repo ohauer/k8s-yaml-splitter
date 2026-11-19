@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
+- CI hardened: least-privilege `permissions`, `persist-credentials: false`, concurrency, `workflow_dispatch`, golangci-lint step, coverage gate (55%), fuzz via `make fuzz FUZZTIME=10s` (anchored target names, `-run='^$'`)
 - Replaced archived `gopkg.in/yaml.v3` with maintained `go.yaml.in/yaml/v3` v3.0.6 (output verified identical for all testdata in yaml, sorted and JSON modes)
 - GitHub Actions updated and pinned by commit SHA (checkout v7, setup-go v7, upload-artifact v7, download-artifact v8, action-gh-release v3)
 - Container image runs as non-root (UID 65534); verified build on Go 1.27.4

@@ -14,7 +14,7 @@ help:
 	@echo "  test-unit    - Run unit tests with race detector"
 	@echo "  test-all     - Run all tests (unit + integration)"
 	@echo "  coverage     - Generate test coverage report"
-	@echo "  fuzz         - Run fuzz tests (30s each)"
+	@echo "  fuzz         - Run fuzz tests (FUZZTIME, default 30s each)"
 	@echo "  fmt          - Format Go source code"
 	@echo "  lint         - Run linter (requires golangci-lint v2)"
 	@echo "  vuln         - Run govulncheck (known vulnerability scan)"
@@ -59,16 +59,16 @@ coverage:
 	@go tool cover -html=coverage.out -o coverage.html
 	@echo "Coverage report: coverage.html"
 
+FUZZTIME?=30s
+FUZZ_TARGETS=FuzzSanitizeFilename FuzzProcessObject FuzzParseFilterList FuzzSplitYAMLDocument \
+	FuzzFormatOutput FuzzShouldIncludeResource FuzzGetOutputPath FuzzProcessObjectList
+
 fuzz:
-	@echo "Running fuzz tests (30s each)..."
-	@go test -fuzz=FuzzSanitizeFilename -fuzztime=30s
-	@go test -fuzz='^FuzzProcessObject$$' -fuzztime=30s
-	@go test -fuzz=FuzzParseFilterList -fuzztime=30s
-	@go test -fuzz=FuzzSplitYAMLDocument -fuzztime=30s
-	@go test -fuzz=FuzzFormatOutput -fuzztime=30s
-	@go test -fuzz=FuzzShouldIncludeResource -fuzztime=30s
-	@go test -fuzz=FuzzGetOutputPath -fuzztime=30s
-	@go test -fuzz=FuzzProcessObjectList -fuzztime=30s
+	@echo "Running fuzz tests ($(FUZZTIME) each)..."
+	@for t in $(FUZZ_TARGETS); do \
+		echo "==> $$t"; \
+		go test -run='^$$' -fuzz="^$$t\$$" -fuzztime=$(FUZZTIME) || exit 1; \
+	done
 	@echo "Fuzzing complete"
 
 lint:
