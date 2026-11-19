@@ -24,7 +24,7 @@ Comprehensive security analysis of k8s-yaml-splitter identified **26 issues** re
 
 ## Critical Findings
 
-### CVE-2026-XXXX: Path Traversal in Filename Sanitization
+### SA-01: Path Traversal in Filename Sanitization
 
 **Severity:** HIGH  
 **CVSS Score:** 7.5 (High)  
@@ -83,7 +83,7 @@ func sanitizeFilename(name string) string {
 
 ---
 
-### CVE-2026-YYYY: Missing Output Path Validation
+### SA-02: Missing Output Path Validation
 
 **Severity:** HIGH  
 **CVSS Score:** 7.3 (High)  
@@ -140,7 +140,7 @@ func getOutputPath(config Config, base baseObject, ext string) (string, error) {
 
 ---
 
-### CVE-2026-ZZZZ: Resource Exhaustion (DoS)
+### SA-03: Resource Exhaustion (DoS)
 
 **Severity:** MEDIUM-HIGH  
 **CVSS Score:** 6.5 (Medium)  

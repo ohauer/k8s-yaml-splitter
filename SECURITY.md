@@ -10,21 +10,23 @@
 
 ## Known Vulnerabilities
 
+IDs `SA-nn` are internal security audit finding IDs (see `docs/development/SECURITY_AUDIT.md`). No CVE has been assigned.
+
 ### Version 0.1.x and Earlier
 
 **Critical vulnerabilities identified on 2026-02-23:**
 
-1. **Path Traversal (CVE-2026-XXXX)** - HIGH
+1. **Path Traversal (SA-01)** - HIGH
    - Attackers can write files outside output directory
    - Fixed in: 0.2.0
    - Workaround: Run in isolated environment with limited permissions
 
-2. **Resource Exhaustion (CVE-2026-ZZZZ)** - MEDIUM-HIGH
+2. **Resource Exhaustion (SA-03)** - MEDIUM-HIGH
    - No limits on document count or size
    - Fixed in: 0.2.0
    - Workaround: Validate input files before processing
 
-3. **Symlink Following (CVE-2026-YYYY)** - MEDIUM
+3. **Symlink Following (SA-02)** - MEDIUM
    - Can write through symlinks to unintended locations
    - Fixed in: 0.2.0
    - Workaround: Ensure output directory has no symlinks

@@ -10,9 +10,9 @@
 
 ### What Was Fixed ✅
 **Security (6 fixes):**
-- Path traversal in `sanitizeFilename()` - CVE-2026-XXXX
-- Output path validation - CVE-2026-YYYY  
-- Resource limits (DoS prevention) - CVE-2026-ZZZZ
+- Path traversal in `sanitizeFilename()` - SA-01
+- Output path validation - SA-02  
+- Resource limits (DoS prevention) - SA-03
 - File type validation (reject symlinks/special files)
 - Atomic writes with random temp files
 - Directory validation
