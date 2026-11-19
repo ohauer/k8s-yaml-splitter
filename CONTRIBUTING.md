@@ -5,7 +5,7 @@ Thank you for your interest in contributing! This document provides guidelines f
 ## Development Setup
 
 1. **Prerequisites**
-   - Go 1.25.7 or later
+   - Go 1.27.4 or later
    - Make
    - Git
 

@@ -148,8 +148,9 @@ ls -la /tmp/isolated-output
 
 1. **Run Security Tests**
    ```bash
-   make test-security
-   make test-fuzz
+   make test-unit
+   make fuzz
+   make vuln
    ```
 
 2. **Use Race Detector**
@@ -300,5 +301,5 @@ We thank the following individuals for responsible disclosure:
 
 ---
 
-**Last Updated:** 2026-02-23  
-**Next Review:** 2026-03-23
+**Last Updated:** 2026-11-19  
+**Next Review:** 2026-12-19

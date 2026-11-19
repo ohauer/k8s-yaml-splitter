@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Updated Go to 1.27.4 (go.mod, Dockerfile, CI, CONTRIBUTING)
+- Applied `go fix` modernizers (`any`, range-over-int); signal handling now uses `signal.NotifyContext` (finishes current document, prints stats, exits 130)
+- Migrated `.golangci.yml` to golangci-lint v2 format; fixed all lint findings (checked `encoder.Close` error)
+- Cleaned up documentation references to removed tracking files
+
+### Added
+- `make vuln` and CI step running `govulncheck` (pinned v1.8.0)
+- `kind: List` support (e.g. `kubectl get -o yaml` output, `*List` kinds with items): each item is split into its own file; filters, namespace dirs, sorting and JSON output apply per item; nesting limited to 2 levels
+- Fuzz test `FuzzProcessObjectList`
+- Fuzz tests: `FuzzSplitYAMLDocument`, `FuzzFormatOutput`, `FuzzShouldIncludeResource`, `FuzzGetOutputPath` (also wired into `make fuzz` and CI)
+
 ### Security - COMPLETED 2026-02-23
 - **AUDIT COMPLETED** - Comprehensive security audit identified 26 issues
 - **FIXES IMPLEMENTED** - All critical and medium security issues resolved
@@ -45,7 +57,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Security
 - See `docs/development/SECURITY_AUDIT.md` for full audit details
 - See `SECURITY.md` for security policy
-- See `FIXPLAN.md` for implementation tracking
+- See `docs/development/ROADMAP.md` for remaining work
 
 ### Planned for 0.3.0 (Best Practices - Remaining)
 - Make scanner buffer size configurable

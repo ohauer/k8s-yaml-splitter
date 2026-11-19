@@ -1,4 +1,4 @@
-FROM golang:1.25.7-bookworm AS builder
+FROM golang:1.27.4-bookworm AS builder
 
 COPY . /go/src/github.com/ohauer/k8s-yaml-splitter
 WORKDIR /go/src/github.com/ohauer/k8s-yaml-splitter

@@ -1,8 +1,8 @@
 # Project Roadmap
 
 **Project:** k8s-yaml-splitter  
-**Last Updated:** 2026-02-23  
-**Next Review:** 2026-03-23
+**Last Updated:** 2026-11-19  
+**Next Review:** 2026-12-19
 
 ---
 
@@ -42,9 +42,22 @@
 
 ---
 
+## Unreleased - Toolchain & Features (2026-11-19) ✅
+
+- Go 1.27.4 (go.mod, Dockerfile, CI), `go fix` modernizers applied (`any`, range-over-int)
+- `kind: List` / `*List` expansion (one file per item)
+- Fuzz tests extended to 8 targets
+- Signal handling via `signal.NotifyContext`
+- `.golangci.yml` migrated to golangci-lint v2, 0 issues
+- `govulncheck` in `make vuln` and CI
+
+---
+
 ## Version 0.3.0 - Polish Release (Future)
 
-### Remaining Items (6 tasks, ~2-3 hours)
+### Remaining Items
+- [ ] Review Go security best practices (https://go.dev/doc/security/best-practices) beyond govulncheck
+- [ ] Release workflow references `RELEASE_NOTES.md` which does not exist (use `generate_release_notes` or per-tag file)
 - [ ] Make scanner buffer size configurable (`-max-buffer-size` flag)
 - [ ] Add cleanup-on-error flag (`-cleanup-on-error` flag)
 - [ ] Add validate subcommand
@@ -56,7 +69,7 @@
 
 ## Version 0.4.0+ - Feature Releases (Future)
 
-See `01_IDEAS.md` for feature ideas:
+Feature ideas (see `01_IDEAS/`):
 - `-strip` parameter (remove runtime fields)
 - `-merge` mode (combine split files)
 - `-validate-k8s` (schema validation)
@@ -72,5 +85,5 @@ See `01_IDEAS.md` for feature ideas:
 
 ---
 
-**Last Updated:** 2026-02-23  
-**Next Review:** 2026-03-23
+**Last Updated:** 2026-11-19  
+**Next Review:** 2026-12-19

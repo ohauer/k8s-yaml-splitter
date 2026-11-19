@@ -119,6 +119,8 @@ k8s-yaml-splitter -f testdata/multi-namespace.yaml -s -o json -namespace-dirs -d
 kubectl get all -n production -o yaml | k8s-yaml-splitter -f - -namespace-dirs ./manifests
 ```
 
+`kind: List` documents (as produced by `kubectl get ... -o yaml`) are expanded automatically: every item is written to its own file.
+
 #### Split Helm templates:
 ```console
 helm template myapp ./chart | k8s-yaml-splitter -f - -exclude Secret ./output
