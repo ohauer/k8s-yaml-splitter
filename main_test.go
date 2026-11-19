@@ -2,6 +2,8 @@ package main
 
 import (
 	"bufio"
+	"bytes"
+	"flag"
 	"os"
 	"path/filepath"
 	"strings"
@@ -736,5 +738,72 @@ func TestProcessObjectVulnList(t *testing.T) {
 	entries, err := os.ReadDir(dir)
 	if err != nil || len(entries) != 11 {
 		t.Errorf("expected 11 files, got %d (err %v)", len(entries), err)
+	}
+}
+
+// TestUsageConsistent ensures help and error paths print the same, complete option list
+func TestUsageConsistent(t *testing.T) {
+	var config Config
+	var cli cliFlags
+	fs := newFlagSet("k8s-yaml-splitter", &config, &cli)
+
+	var help bytes.Buffer
+	writeUsage(&help, fs)
+
+	var errOut bytes.Buffer
+	fs.SetOutput(&errOut)
+	if err := fs.Parse([]string{"-invalid"}); err == nil {
+		t.Fatal("expected error for undefined flag")
+	}
+	got := strings.Replace(errOut.String(), "flag provided but not defined: -invalid\n", "", 1)
+	if got != help.String() {
+		t.Errorf("usage on invalid flag differs from help:\n--- help\n%s\n--- invalid\n%s", help.String(), got)
+	}
+
+	// Every defined flag must appear in the help text
+	fs.VisitAll(func(f *flag.Flag) {
+		if !strings.Contains(help.String(), "-"+f.Name) {
+			t.Errorf("flag -%s missing from help", f.Name)
+		}
+	})
+	for _, want := range []string{"Usage:", "Commands:", "Options:"} {
+		if !strings.Contains(help.String(), want) {
+			t.Errorf("help missing %q", want)
+		}
+	}
+}
+
+// TestParseArgsInterspersed verifies flags are accepted before and after the output directory
+func TestParseArgsInterspersed(t *testing.T) {
+	tests := []struct {
+		name    string
+		args    []string
+		wantPos []string
+		sort    bool
+		create  bool
+		format  string
+	}{
+		{"flags-first", []string{"-f", "-", "-d", "-s", "out"}, []string{"out"}, true, true, "yaml"},
+		{"flags-after-dir", []string{"-f", "-", "-d", "out", "-s"}, []string{"out"}, true, true, "yaml"},
+		{"mixed", []string{"out", "-f", "in.yaml", "-o", "json"}, []string{"out"}, false, false, "json"},
+		{"terminator", []string{"-f", "-", "--", "-s"}, []string{"-s"}, false, false, "yaml"},
+		{"two-dirs", []string{"-f", "-", "a", "b"}, []string{"a", "b"}, false, false, "yaml"},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			var config Config
+			var cli cliFlags
+			fs := newFlagSet("test", &config, &cli)
+			pos, err := parseArgs(fs, tt.args)
+			if err != nil {
+				t.Fatal(err)
+			}
+			if strings.Join(pos, "|") != strings.Join(tt.wantPos, "|") {
+				t.Errorf("positional = %q, want %q", pos, tt.wantPos)
+			}
+			if config.sortKeys != tt.sort || config.createDir != tt.create || config.outputFormat != tt.format {
+				t.Errorf("flags: sort=%v create=%v format=%q", config.sortKeys, config.createDir, config.outputFormat)
+			}
+		})
 	}
 }
