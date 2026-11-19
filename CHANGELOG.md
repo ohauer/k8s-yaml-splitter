@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0-rc2] - 2026-11-19
+
 ### Changed
 - Dockerfile builder image pinned by digest; Dependabot also updates Docker base images
 - CI hardened: least-privilege `permissions`, `persist-credentials: false`, concurrency, `workflow_dispatch`, golangci-lint step, coverage gate (55%), fuzz via `make fuzz FUZZTIME=10s` (anchored target names, `-run='^$'`)
@@ -29,6 +31,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `kind: List` support (e.g. `kubectl get -o yaml` output, `*List` kinds with items): each item is split into its own file; filters, namespace dirs, sorting and JSON output apply per item; nesting limited to 2 levels
 - Fuzz test `FuzzProcessObjectList`
 - Fuzz tests: `FuzzSplitYAMLDocument`, `FuzzFormatOutput`, `FuzzShouldIncludeResource`, `FuzzGetOutputPath` (also wired into `make fuzz` and CI)
+
+---
+
+## [0.2.0-rc1] - 2026-02-23
 
 ### Security - COMPLETED 2026-02-23
 - **AUDIT COMPLETED** - Comprehensive security audit identified 26 issues
