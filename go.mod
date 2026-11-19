@@ -2,4 +2,4 @@ module github.com/ohauer/k8s-yaml-splitter
 
 go 1.27.4
 
-require gopkg.in/yaml.v3 v3.0.1
+require go.yaml.in/yaml/v3 v3.0.6
