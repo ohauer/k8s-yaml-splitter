@@ -62,7 +62,7 @@ coverage:
 fuzz:
 	@echo "Running fuzz tests (30s each)..."
 	@go test -fuzz=FuzzSanitizeFilename -fuzztime=30s
-	@go test -fuzz=FuzzProcessObject -fuzztime=30s
+	@go test -fuzz='^FuzzProcessObject$$' -fuzztime=30s
 	@go test -fuzz=FuzzParseFilterList -fuzztime=30s
 	@go test -fuzz=FuzzSplitYAMLDocument -fuzztime=30s
 	@go test -fuzz=FuzzFormatOutput -fuzztime=30s
