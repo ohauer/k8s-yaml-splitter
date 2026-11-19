@@ -35,7 +35,7 @@ jobs:
     - name: Run fuzz tests
       run: |
         go test -fuzz=FuzzSanitizeFilename -fuzztime=10s
-        go test -fuzz=FuzzProcessObject -fuzztime=10s
+        go test -fuzz='^FuzzProcessObject$' -fuzztime=10s
         go test -fuzz=FuzzParseFilterList -fuzztime=10s
         go test -fuzz=FuzzSplitYAMLDocument -fuzztime=10s
         go test -fuzz=FuzzFormatOutput -fuzztime=10s
