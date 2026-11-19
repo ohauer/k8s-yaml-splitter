@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- `-h` printed no options (flags were defined after the help call) and differed from the usage shown for invalid flags or missing arguments. All paths now print the same complete help: `-h`/`--help`/`help` to stdout with exit 0, errors to stderr with exit 2
+
 ## [0.2.0-rc3] - 2026-11-19
 
 ### Fixed

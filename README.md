@@ -37,27 +37,32 @@ sudo mv k8s-yaml-splitter /usr/local/bin/
 ## Usage
 
 ```console
-Usage: k8s-yaml-splitter -f <input-file> <output-dir>
-   or: k8s-yaml-splitter -f - <output-dir>  (read from stdin)
+Usage: k8s-yaml-splitter -f <input-file> [options] <output-dir>
+   or: k8s-yaml-splitter -f - [options] <output-dir>  (read from stdin)
+
+Commands:
+  help, -h, --help     Show this help message
+  version, -v          Show version information
+
 Options:
   -continue-on-error
-        Continue processing on individual document errors (default true)
+          Continue processing on individual document errors (default true)
   -d    Create output directory if it doesn't exist
   -dry-run
-        Dry run mode
+          Dry run mode
   -exclude string
-        Comma-separated list of resource kinds to exclude (e.g., 'Secret,ConfigMap')
+          Comma-separated list of resource kinds to exclude (e.g., 'Secret,ConfigMap')
   -f string
-        Input file (use '-' for stdin)
+          Input file (use '-' for stdin)
   -include string
-        Comma-separated list of resource kinds to include (e.g., 'Deployment,Service')
+          Comma-separated list of resource kinds to include (e.g., 'Deployment,Service')
   -namespace-dirs
-        Organize output files by namespace directories
+          Organize output files by namespace directories
   -o string
-        Output format (yaml or json) (default "yaml")
+          Output format (yaml or json) (default "yaml")
   -s    Sort keys in output
   -version
-        Show version information
+          Show version information
 ```
 
 ## Examples:

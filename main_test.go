@@ -2,6 +2,8 @@ package main
 
 import (
 	"bufio"
+	"bytes"
+	"flag"
 	"os"
 	"path/filepath"
 	"strings"
@@ -736,5 +738,37 @@ func TestProcessObjectVulnList(t *testing.T) {
 	entries, err := os.ReadDir(dir)
 	if err != nil || len(entries) != 11 {
 		t.Errorf("expected 11 files, got %d (err %v)", len(entries), err)
+	}
+}
+
+// TestUsageConsistent ensures help and error paths print the same, complete option list
+func TestUsageConsistent(t *testing.T) {
+	var config Config
+	var cli cliFlags
+	fs := newFlagSet("k8s-yaml-splitter", &config, &cli)
+
+	var help bytes.Buffer
+	writeUsage(&help, fs)
+
+	var errOut bytes.Buffer
+	fs.SetOutput(&errOut)
+	if err := fs.Parse([]string{"-invalid"}); err == nil {
+		t.Fatal("expected error for undefined flag")
+	}
+	got := strings.Replace(errOut.String(), "flag provided but not defined: -invalid\n", "", 1)
+	if got != help.String() {
+		t.Errorf("usage on invalid flag differs from help:\n--- help\n%s\n--- invalid\n%s", help.String(), got)
+	}
+
+	// Every defined flag must appear in the help text
+	fs.VisitAll(func(f *flag.Flag) {
+		if !strings.Contains(help.String(), "-"+f.Name) {
+			t.Errorf("flag -%s missing from help", f.Name)
+		}
+	})
+	for _, want := range []string{"Usage:", "Commands:", "Options:"} {
+		if !strings.Contains(help.String(), want) {
+			t.Errorf("help missing %q", want)
+		}
 	}
 }

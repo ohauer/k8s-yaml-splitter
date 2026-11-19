@@ -7,6 +7,7 @@ import (
 	"crypto/rand"
 	"encoding/hex"
 	"encoding/json"
+	"errors"
 	"flag"
 	"fmt"
 	"io"
@@ -575,16 +576,45 @@ func readInput(inputFile string) ([]byte, error) {
 	return os.ReadFile(inputFile)
 }
 
-// printHelp displays usage information
-func printHelp() {
-	fmt.Printf("Usage: %s -f <input-file> <output-dir>\n", os.Args[0])
-	fmt.Printf("   or: %s -f - <output-dir>  (read from stdin)\n\n", os.Args[0])
-	fmt.Println("Commands:")
-	fmt.Println("  help, -h, --help     Show this help message")
-	fmt.Println("  version, -v          Show version information")
-	fmt.Println()
-	fmt.Println("Options:")
-	flag.PrintDefaults()
+// cliFlags holds flag values that are not stored directly in Config
+type cliFlags struct {
+	includeFilter string
+	excludeFilter string
+	showVersion   bool
+}
+
+// newFlagSet defines all command-line flags on a new FlagSet and installs
+// writeUsage as its usage function, so every help path prints the same text
+func newFlagSet(name string, config *Config, cli *cliFlags) *flag.FlagSet {
+	fs := flag.NewFlagSet(name, flag.ContinueOnError)
+	fs.StringVar(&config.inputFile, "f", "", "Input file (use '-' for stdin)")
+	fs.StringVar(&config.outputFormat, "o", "yaml", "Output format (yaml or json)")
+	fs.BoolVar(&config.sortKeys, "s", false, "Sort keys in output")
+	fs.BoolVar(&config.createDir, "d", false, "Create output directory if it doesn't exist")
+	fs.BoolVar(&config.dryRun, "dry-run", false, "Dry run mode")
+	fs.BoolVar(&config.namespaceDirs, "namespace-dirs", false, "Organize output files by namespace directories")
+	fs.StringVar(&cli.includeFilter, "include", "", "Comma-separated list of resource kinds to include (e.g., 'Deployment,Service')")
+	fs.StringVar(&cli.excludeFilter, "exclude", "", "Comma-separated list of resource kinds to exclude (e.g., 'Secret,ConfigMap')")
+	fs.BoolVar(&config.continueOnErr, "continue-on-error", true, "Continue processing on individual document errors")
+	fs.BoolVar(&cli.showVersion, "version", false, "Show version information")
+	fs.Usage = func() { writeUsage(fs.Output(), fs) }
+	return fs
+}
+
+// writeUsage writes the complete help text (usage, commands, options) to w
+func writeUsage(w io.Writer, fs *flag.FlagSet) {
+	name := fs.Name()
+	header := fmt.Sprintf("Usage: %[1]s -f <input-file> [options] <output-dir>\n"+
+		"   or: %[1]s -f - [options] <output-dir>  (read from stdin)\n\n"+
+		"Commands:\n"+
+		"  help, -h, --help     Show this help message\n"+
+		"  version, -v          Show version information\n\n"+
+		"Options:\n", name)
+	_, _ = io.WriteString(w, header)
+	out := fs.Output()
+	fs.SetOutput(w)
+	fs.PrintDefaults()
+	fs.SetOutput(out)
 }
 
 // printVersion displays version information
@@ -596,52 +626,45 @@ func printVersion() {
 
 // main function handles command-line parsing and orchestrates the splitting process
 func main() {
-	// Handle subcommands before flag parsing
+	var config Config
+	var cli cliFlags
+	fs := newFlagSet(os.Args[0], &config, &cli)
+
+	// Handle subcommands before flag parsing (help goes to stdout, exit 0)
 	if len(os.Args) > 1 {
 		switch os.Args[1] {
-		case "help", "-h", "--help":
-			printHelp()
-			os.Exit(0)
+		case "help", "-h", "-help", "--help":
+			writeUsage(os.Stdout, fs)
+			os.Exit(ExitSuccess)
 		case "version", "-v":
 			printVersion()
-			os.Exit(0)
+			os.Exit(ExitSuccess)
 		}
 	}
 
-	var config Config
-	var includeFilter, excludeFilter string
-	var showVersion bool
-
-	// Define command-line flags
-	flag.StringVar(&config.inputFile, "f", "", "Input file (use '-' for stdin)")
-	flag.StringVar(&config.outputFormat, "o", "yaml", "Output format (yaml or json)")
-	flag.BoolVar(&config.sortKeys, "s", false, "Sort keys in output")
-	flag.BoolVar(&config.createDir, "d", false, "Create output directory if it doesn't exist")
-	flag.BoolVar(&config.dryRun, "dry-run", false, "Dry run mode")
-	flag.BoolVar(&config.namespaceDirs, "namespace-dirs", false, "Organize output files by namespace directories")
-	flag.StringVar(&includeFilter, "include", "", "Comma-separated list of resource kinds to include (e.g., 'Deployment,Service')")
-	flag.StringVar(&excludeFilter, "exclude", "", "Comma-separated list of resource kinds to exclude (e.g., 'Secret,ConfigMap')")
-	flag.BoolVar(&config.continueOnErr, "continue-on-error", true, "Continue processing on individual document errors")
-	flag.BoolVar(&showVersion, "version", false, "Show version information")
-	flag.Parse()
+	// Invalid flags print the same usage to stderr (via fs.Usage) and exit 2
+	if err := fs.Parse(os.Args[1:]); err != nil {
+		if errors.Is(err, flag.ErrHelp) {
+			os.Exit(ExitSuccess)
+		}
+		os.Exit(ExitInvalidArgs)
+	}
 
 	// Handle version flag (for backward compatibility)
-	if showVersion {
+	if cli.showVersion {
 		printVersion()
-		os.Exit(0)
+		os.Exit(ExitSuccess)
 	}
 
 	// Parse filter lists
-	config.includeKinds = parseFilterList(includeFilter)
-	config.excludeKinds = parseFilterList(excludeFilter)
+	config.includeKinds = parseFilterList(cli.includeFilter)
+	config.excludeKinds = parseFilterList(cli.excludeFilter)
 
 	// Validate required parameters
-	args := flag.Args()
+	args := fs.Args()
 	if config.inputFile == "" || len(args) != 1 {
-		fmt.Printf("Usage: %s -f <input-file> <output-dir>\n", os.Args[0])
-		fmt.Printf("   or: %s -f - <output-dir>  (read from stdin)\n", os.Args[0])
-		fmt.Println("Options:")
-		flag.PrintDefaults()
+		fmt.Fprintln(os.Stderr, "Error: -f <input-file> and exactly one <output-dir> are required")
+		fs.Usage()
 		os.Exit(ExitInvalidArgs)
 	}
 
