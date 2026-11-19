@@ -1,0 +1,4749 @@
+apiVersion: v1
+items:
+- apiVersion: aquasecurity.github.io/v1alpha1
+  kind: VulnerabilityReport
+  metadata:
+    annotations:
+      trivy-operator.aquasecurity.github.io/report-ttl: 24h0m0s
+    creationTimestamp: "2026-11-19T00:44:48Z"
+    generation: 2
+    labels:
+      app.kubernetes.io/managed-by: trivy-operator
+      resource-spec-hash: c4cc4f87f
+      trivy-operator.container.name: calico-node
+      trivy-operator.resource.kind: DaemonSet
+      trivy-operator.resource.name: calico-node
+      trivy-operator.resource.namespace: calico-system
+    name: daemonset-calico-node-calico-node
+    namespace: calico-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: false
+      controller: true
+      kind: DaemonSet
+      name: calico-node
+      uid: 4d83c7da-06d1-592f-aebf-8f54ea1defe7
+    resourceVersion: "67914269"
+    uid: 9d5ad7d5-f99c-5895-a7bf-88104239abe6
+  report:
+    artifact:
+      digest: sha256:3487797085dbb163652640249d5e9e8d1fe85f3d87e53e839586741684a21da0
+      repository: quay.io/calico/node
+      tag: v3.32.4
+    os:
+      family: redhat
+      name: "9.8"
+    registry:
+      server: harbor.example.com
+    scanner:
+      name: Trivy
+      vendor: Aqua Security
+      version: 0.75.0
+    summary:
+      criticalCount: 0
+      highCount: 5
+      lowCount: 29
+      mediumCount: 47
+      noneCount: 0
+      unknownCount: 3
+    updateTimestamp: "2026-11-19T18:27:37Z"
+    vulnerabilities:
+    - fixedVersion: ""
+      installedVersion: 1.0.8-11.el9
+      lastModifiedDate: "2026-06-17T10:47:34Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/bzip2-libs@1.0.8-11.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-42250
+      publishedDate: "2026-05-28T14:16:19Z"
+      resource: bzip2-libs
+      score: 5
+      severity: MEDIUM
+      target: ""
+      title: 'bzip2: bzip2: Denial of Service in bzip2recover via a specially crafted
+        file'
+      vulnerabilityID: CVE-2026-42250
+    - fixedVersion: ""
+      installedVersion: 8.32-41.el9_8.1
+      lastModifiedDate: "2026-10-24T13:10:00Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/coreutils-single@8.32-41.el9_8.1?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-56391
+      publishedDate: "2026-07-24T09:16:25Z"
+      resource: coreutils-single
+      score: 6.1
+      severity: MEDIUM
+      target: ""
+      title: 'coreutils: GNU coreutils uniq: Denial of Service and information disclosure
+        via out-of-bounds read with multibyte input'
+      vulnerabilityID: CVE-2026-56391
+    - fixedVersion: ""
+      installedVersion: 0.194-1.el9
+      lastModifiedDate: "2026-06-17T07:15:47Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/elfutils-libelf@0.194-1.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2024-25260
+      publishedDate: "2024-02-20T18:15:52Z"
+      resource: elfutils-libelf
+      score: 4
+      severity: LOW
+      target: ""
+      title: 'elfutils: global-buffer-overflow exists in the function ebl_machine_flag_name
+        in eblmachineflagname.c'
+      vulnerabilityID: CVE-2024-25260
+    - fixedVersion: ""
+      installedVersion: 0.194-1.el9
+      lastModifiedDate: "2026-06-17T08:39:00Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/elfutils-libelf@0.194-1.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2025-1371
+      publishedDate: "2025-02-17T03:15:09Z"
+      resource: elfutils-libelf
+      score: 3.3
+      severity: LOW
+      target: ""
+      title: 'elfutils: GNU elfutils eu-read readelf.c handle_dynamic_symtab null
+        pointer dereference'
+      vulnerabilityID: CVE-2025-1371
+    - fixedVersion: ""
+      installedVersion: 0.194-1.el9
+      lastModifiedDate: "2026-06-17T08:39:00Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/elfutils-libelf@0.194-1.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2025-1376
+      publishedDate: "2025-02-17T05:15:09Z"
+      resource: elfutils-libelf
+      score: 2.5
+      severity: LOW
+      target: ""
+      title: 'elfutils: GNU elfutils eu-strip elf_strptr.c elf_strptr denial of service'
+      vulnerabilityID: CVE-2025-1376
+    - fixedVersion: ""
+      installedVersion: 0.194-1.el9
+      lastModifiedDate: "2026-06-17T08:39:01Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/elfutils-libelf@0.194-1.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2025-1377
+      publishedDate: "2025-02-17T05:15:10Z"
+      resource: elfutils-libelf
+      score: 3.3
+      severity: LOW
+      target: ""
+      title: 'elfutils: GNU elfutils eu-strip strip.c gelf_getsymshndx denial of service'
+      vulnerabilityID: CVE-2025-1377
+    - fixedVersion: ""
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-11-17T15:17:31Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-115819
+      publishedDate: "2026-11-11T16:17:24Z"
+      resource: glibc
+      score: 4.8
+      severity: MEDIUM
+      target: ""
+      title: 'glibc: glibc: Memory corruption via out-of-bounds write in wide scanf
+        functions'
+      vulnerabilityID: CVE-2026-115819
+    - fixedVersion: ""
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-10-31T04:18:21Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-84243
+      publishedDate: "2026-10-30T18:18:13Z"
+      resource: glibc
+      score: 7
+      severity: MEDIUM
+      target: ""
+      title: 'glibc: glibc: Arbitrary code execution via directory traversal in LANGUAGE
+        environment variable'
+      vulnerabilityID: CVE-2026-84243
+    - fixedVersion: 2.34-290.el9_9
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-09-23T04:17:57Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-86805
+      publishedDate: "2026-09-22T16:18:06Z"
+      resource: glibc
+      score: 7
+      severity: MEDIUM
+      target: ""
+      title: 'glibc: glibc: Privilege escalation and arbitrary code execution via
+        TOCTOU race condition in dynamic loader'
+      vulnerabilityID: CVE-2026-86805
+    - fixedVersion: 2.34-290.el9_9
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-10-26T23:10:00Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-89092
+      publishedDate: "2026-09-11T02:18:35Z"
+      resource: glibc
+      score: 4.2
+      severity: MEDIUM
+      target: ""
+      title: 'glibc: nscd stack overflow leads to degraded DNS resolution'
+      vulnerabilityID: CVE-2026-89092
+    - fixedVersion: 2.34-290.el9_9
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-09-22T19:56:19Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-95818
+      publishedDate: "2026-09-22T17:17:32Z"
+      resource: glibc
+      score: 7
+      severity: MEDIUM
+      target: ""
+      title: 'glibc: glibc: Local attacker can cause denial of service and information
+        disclosure via stack-based buffer overflow.'
+      vulnerabilityID: CVE-2026-95818
+    - fixedVersion: ""
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-11-17T15:17:27Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-100290
+      publishedDate: "2026-11-11T16:17:24Z"
+      resource: glibc
+      score: 3.7
+      severity: LOW
+      target: ""
+      title: 'glibc: glibc: Denial of Service via memory allocation failure during
+        regular expression processing'
+      vulnerabilityID: CVE-2026-100290
+    - fixedVersion: ""
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-09-29T21:36:39Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97399
+      publishedDate: "2026-09-28T16:17:18Z"
+      resource: glibc
+      score: 3.7
+      severity: LOW
+      target: ""
+      title: 'glibc: glibc: Denial of Service via out-of-bounds read in strncasecmp'
+      vulnerabilityID: CVE-2026-97399
+    - fixedVersion: ""
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-11-17T15:17:31Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc-common@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-115819
+      publishedDate: "2026-11-11T16:17:24Z"
+      resource: glibc-common
+      score: 4.8
+      severity: MEDIUM
+      target: ""
+      title: 'glibc: glibc: Memory corruption via out-of-bounds write in wide scanf
+        functions'
+      vulnerabilityID: CVE-2026-115819
+    - fixedVersion: ""
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-10-31T04:18:21Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc-common@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-84243
+      publishedDate: "2026-10-30T18:18:13Z"
+      resource: glibc-common
+      score: 7
+      severity: MEDIUM
+      target: ""
+      title: 'glibc: glibc: Arbitrary code execution via directory traversal in LANGUAGE
+        environment variable'
+      vulnerabilityID: CVE-2026-84243
+    - fixedVersion: 2.34-290.el9_9
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-09-23T04:17:57Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc-common@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-86805
+      publishedDate: "2026-09-22T16:18:06Z"
+      resource: glibc-common
+      score: 7
+      severity: MEDIUM
+      target: ""
+      title: 'glibc: glibc: Privilege escalation and arbitrary code execution via
+        TOCTOU race condition in dynamic loader'
+      vulnerabilityID: CVE-2026-86805
+    - fixedVersion: 2.34-290.el9_9
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-10-26T23:10:00Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc-common@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-89092
+      publishedDate: "2026-09-11T02:18:35Z"
+      resource: glibc-common
+      score: 4.2
+      severity: MEDIUM
+      target: ""
+      title: 'glibc: nscd stack overflow leads to degraded DNS resolution'
+      vulnerabilityID: CVE-2026-89092
+    - fixedVersion: 2.34-290.el9_9
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-09-22T19:56:19Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc-common@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-95818
+      publishedDate: "2026-09-22T17:17:32Z"
+      resource: glibc-common
+      score: 7
+      severity: MEDIUM
+      target: ""
+      title: 'glibc: glibc: Local attacker can cause denial of service and information
+        disclosure via stack-based buffer overflow.'
+      vulnerabilityID: CVE-2026-95818
+    - fixedVersion: ""
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-11-17T15:17:27Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc-common@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-100290
+      publishedDate: "2026-11-11T16:17:24Z"
+      resource: glibc-common
+      score: 3.7
+      severity: LOW
+      target: ""
+      title: 'glibc: glibc: Denial of Service via memory allocation failure during
+        regular expression processing'
+      vulnerabilityID: CVE-2026-100290
+    - fixedVersion: ""
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-09-29T21:36:39Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc-common@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97399
+      publishedDate: "2026-09-28T16:17:18Z"
+      resource: glibc-common
+      score: 3.7
+      severity: LOW
+      target: ""
+      title: 'glibc: glibc: Denial of Service via out-of-bounds read in strncasecmp'
+      vulnerabilityID: CVE-2026-97399
+    - fixedVersion: ""
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-11-17T15:17:31Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc-minimal-langpack@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-115819
+      publishedDate: "2026-11-11T16:17:24Z"
+      resource: glibc-minimal-langpack
+      score: 4.8
+      severity: MEDIUM
+      target: ""
+      title: 'glibc: glibc: Memory corruption via out-of-bounds write in wide scanf
+        functions'
+      vulnerabilityID: CVE-2026-115819
+    - fixedVersion: ""
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-10-31T04:18:21Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc-minimal-langpack@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-84243
+      publishedDate: "2026-10-30T18:18:13Z"
+      resource: glibc-minimal-langpack
+      score: 7
+      severity: MEDIUM
+      target: ""
+      title: 'glibc: glibc: Arbitrary code execution via directory traversal in LANGUAGE
+        environment variable'
+      vulnerabilityID: CVE-2026-84243
+    - fixedVersion: 2.34-290.el9_9
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-09-23T04:17:57Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc-minimal-langpack@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-86805
+      publishedDate: "2026-09-22T16:18:06Z"
+      resource: glibc-minimal-langpack
+      score: 7
+      severity: MEDIUM
+      target: ""
+      title: 'glibc: glibc: Privilege escalation and arbitrary code execution via
+        TOCTOU race condition in dynamic loader'
+      vulnerabilityID: CVE-2026-86805
+    - fixedVersion: 2.34-290.el9_9
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-10-26T23:10:00Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc-minimal-langpack@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-89092
+      publishedDate: "2026-09-11T02:18:35Z"
+      resource: glibc-minimal-langpack
+      score: 4.2
+      severity: MEDIUM
+      target: ""
+      title: 'glibc: nscd stack overflow leads to degraded DNS resolution'
+      vulnerabilityID: CVE-2026-89092
+    - fixedVersion: 2.34-290.el9_9
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-09-22T19:56:19Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc-minimal-langpack@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-95818
+      publishedDate: "2026-09-22T17:17:32Z"
+      resource: glibc-minimal-langpack
+      score: 7
+      severity: MEDIUM
+      target: ""
+      title: 'glibc: glibc: Local attacker can cause denial of service and information
+        disclosure via stack-based buffer overflow.'
+      vulnerabilityID: CVE-2026-95818
+    - fixedVersion: ""
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-11-17T15:17:27Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc-minimal-langpack@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-100290
+      publishedDate: "2026-11-11T16:17:24Z"
+      resource: glibc-minimal-langpack
+      score: 3.7
+      severity: LOW
+      target: ""
+      title: 'glibc: glibc: Denial of Service via memory allocation failure during
+        regular expression processing'
+      vulnerabilityID: CVE-2026-100290
+    - fixedVersion: ""
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-09-29T21:36:39Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc-minimal-langpack@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97399
+      publishedDate: "2026-09-28T16:17:18Z"
+      resource: glibc-minimal-langpack
+      score: 3.7
+      severity: LOW
+      target: ""
+      title: 'glibc: glibc: Denial of Service via out-of-bounds read in strncasecmp'
+      vulnerabilityID: CVE-2026-97399
+    - fixedVersion: 11.5.0-16.el9_9
+      installedVersion: 11.5.0-14.el9
+      lastModifiedDate: "2026-11-11T20:17:04Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/libgcc@11.5.0-14.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-102010
+      publishedDate: "2026-09-28T19:16:48Z"
+      resource: libgcc
+      score: 7
+      severity: MEDIUM
+      target: ""
+      title: 'gcc-toolset-15-gcc: gcc: gcc-toolset-16: gcc: Denial of Service via
+        use-after-free in binary heap erase_if'
+      vulnerabilityID: CVE-2026-102010
+    - fixedVersion: 11.5.0-17.el9_9
+      installedVersion: 11.5.0-14.el9
+      lastModifiedDate: "2026-11-13T13:17:50Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/libgcc@11.5.0-14.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-114690
+      publishedDate: "2026-10-30T08:16:55Z"
+      resource: libgcc
+      score: 6.2
+      severity: MEDIUM
+      target: ""
+      title: 'gcc: Confirmed out-of-bounds read/write in libstdc++ parallel `std'
+      vulnerabilityID: CVE-2026-114690
+    - fixedVersion: 11.5.0-17.el9_9
+      installedVersion: 11.5.0-14.el9
+      lastModifiedDate: "2026-11-13T13:17:51Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/libgcc@11.5.0-14.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-114691
+      publishedDate: "2026-10-30T08:16:55Z"
+      resource: libgcc
+      score: 5.9
+      severity: MEDIUM
+      target: ""
+      title: 'gcc: Integer wrap in `std'
+      vulnerabilityID: CVE-2026-114691
+    - fixedVersion: ""
+      installedVersion: 11.5.0-14.el9
+      lastModifiedDate: "2026-11-14T07:17:19Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/libgcc@11.5.0-14.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-125709
+      publishedDate: "2026-11-10T12:17:18Z"
+      resource: libgcc
+      score: 4.2
+      severity: MEDIUM
+      target: ""
+      title: 'libstdc++: overflow leaves streambuf in inconsistent state on I/O error.'
+      vulnerabilityID: CVE-2026-125709
+    - fixedVersion: 11.5.0-16.el9_9
+      installedVersion: 11.5.0-14.el9
+      lastModifiedDate: "2026-11-11T20:17:10Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/libgcc@11.5.0-14.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-95619
+      publishedDate: "2026-09-22T13:17:13Z"
+      resource: libgcc
+      score: 7.7
+      severity: MEDIUM
+      target: ""
+      title: 'gcc: libstdc++ integer overflow in `new` operator'
+      vulnerabilityID: CVE-2026-95619
+    - fixedVersion: ""
+      installedVersion: 11.5.0-14.el9
+      lastModifiedDate: "2026-10-14T13:17:12Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/libgcc@11.5.0-14.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2021-46195
+      publishedDate: "2022-01-14T20:15:15Z"
+      resource: libgcc
+      score: 3.3
+      severity: LOW
+      target: ""
+      title: 'gcc: uncontrolled recursion in libiberty/rust-demangle.c'
+      vulnerabilityID: CVE-2021-46195
+    - fixedVersion: ""
+      installedVersion: 11.5.0-14.el9
+      lastModifiedDate: "2026-10-14T17:17:37Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/libgcc@11.5.0-14.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2022-27943
+      publishedDate: "2022-03-26T13:15:07Z"
+      resource: libgcc
+      score: 5.5
+      severity: LOW
+      target: ""
+      title: 'binutils: libiberty/rust-demangle.c in GNU GCC 11.2 allows stack exhaustion
+        in demangle_const'
+      vulnerabilityID: CVE-2022-27943
+    - fixedVersion: 11.5.0-17.el9_9
+      installedVersion: 11.5.0-14.el9
+      lastModifiedDate: "2026-11-13T14:17:47Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/libgcc@11.5.0-14.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-115456
+      publishedDate: "2026-10-30T09:17:14Z"
+      resource: libgcc
+      score: 3.7
+      severity: LOW
+      target: ""
+      title: 'gcc: Out-of-bounds read in std::from_chars'
+      vulnerabilityID: CVE-2026-115456
+    - fixedVersion: 14:1.10.0-4.el9_9.2
+      installedVersion: 14:1.10.0-4.el9_8.1
+      lastModifiedDate: "2026-10-22T21:17:21Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/libpcap@1.10.0-4.el9_8.1?arch=x86_64&distro=redhat-9.8&epoch=14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-6554
+      publishedDate: "2026-09-05T19:16:56Z"
+      resource: libpcap
+      score: 7.5
+      severity: HIGH
+      target: ""
+      title: 'libpcap: libpcap: Denial of Service via infinite loop in BPF interpreter'
+      vulnerabilityID: CVE-2026-6554
+    - fixedVersion: ""
+      installedVersion: 14:1.10.0-4.el9_8.1
+      lastModifiedDate: "2026-09-08T19:20:25Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/libpcap@1.10.0-4.el9_8.1?arch=x86_64&distro=redhat-9.8&epoch=14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-18238
+      publishedDate: "2026-09-05T19:16:55Z"
+      resource: libpcap
+      score: 5
+      severity: MEDIUM
+      target: ""
+      title: 'libpcap: libpcap: Information disclosure via out-of-bounds read in rpcap
+        client'
+      vulnerabilityID: CVE-2026-18238
+    - fixedVersion: ""
+      installedVersion: 14:1.10.0-4.el9_8.1
+      lastModifiedDate: "2026-09-08T19:20:25Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/libpcap@1.10.0-4.el9_8.1?arch=x86_64&distro=redhat-9.8&epoch=14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-18313
+      publishedDate: "2026-09-05T19:16:55Z"
+      resource: libpcap
+      score: 4.3
+      severity: MEDIUM
+      target: ""
+      title: 'libpcap: libpcap: Denial of Service via memory leak in rpcapd'
+      vulnerabilityID: CVE-2026-18313
+    - fixedVersion: ""
+      installedVersion: 14:1.10.0-4.el9_8.1
+      lastModifiedDate: "2026-09-08T19:20:25Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/libpcap@1.10.0-4.el9_8.1?arch=x86_64&distro=redhat-9.8&epoch=14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-31911
+      publishedDate: "2026-09-05T19:16:55Z"
+      resource: libpcap
+      score: 5.5
+      severity: MEDIUM
+      target: ""
+      title: 'libpcap: libpcap: Denial of Service via crafted BPF opcode'
+      vulnerabilityID: CVE-2026-31911
+    - fixedVersion: ""
+      installedVersion: 14:1.10.0-4.el9_8.1
+      lastModifiedDate: "2026-09-08T19:20:25Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/libpcap@1.10.0-4.el9_8.1?arch=x86_64&distro=redhat-9.8&epoch=14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-31912
+      publishedDate: "2026-09-05T19:16:55Z"
+      resource: libpcap
+      score: 6.1
+      severity: MEDIUM
+      target: ""
+      title: 'libpcap: libpcap: Denial of service via crafted BPF filter program'
+      vulnerabilityID: CVE-2026-31912
+    - fixedVersion: ""
+      installedVersion: 14:1.10.0-4.el9_8.1
+      lastModifiedDate: "2026-09-08T19:20:25Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/libpcap@1.10.0-4.el9_8.1?arch=x86_64&distro=redhat-9.8&epoch=14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-6244
+      publishedDate: "2026-09-05T19:16:55Z"
+      resource: libpcap
+      score: 5.5
+      severity: MEDIUM
+      target: ""
+      title: 'libpcap: libpcap: Denial of Service via crafted BPF filter program'
+      vulnerabilityID: CVE-2026-6244
+    - fixedVersion: ""
+      installedVersion: 14:1.10.0-4.el9_8.1
+      lastModifiedDate: "2026-06-17T08:31:29Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/libpcap@1.10.0-4.el9_8.1?arch=x86_64&distro=redhat-9.8&epoch=14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2025-11961
+      publishedDate: "2025-12-31T01:15:54Z"
+      resource: libpcap
+      score: 1.9
+      severity: LOW
+      target: ""
+      title: 'libpcap: libpcap: Memory corruption via malformed MAC-48 address input'
+      vulnerabilityID: CVE-2025-11961
+    - fixedVersion: ""
+      installedVersion: 6.2-12.20210508.el9
+      lastModifiedDate: "2026-10-15T01:17:11Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/ncurses-base@6.2-12.20210508.el9?arch=noarch&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2023-50495
+      publishedDate: "2023-12-12T15:15:07Z"
+      resource: ncurses-base
+      score: 6.5
+      severity: LOW
+      target: ""
+      title: 'ncurses: segmentation fault via _nc_wrap_entry()'
+      vulnerabilityID: CVE-2023-50495
+    - fixedVersion: ""
+      installedVersion: 6.2-12.20210508.el9
+      lastModifiedDate: "2026-10-15T01:17:11Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/ncurses-libs@6.2-12.20210508.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2023-50495
+      publishedDate: "2023-12-12T15:15:07Z"
+      resource: ncurses-libs
+      score: 6.5
+      severity: LOW
+      target: ""
+      title: 'ncurses: segmentation fault via _nc_wrap_entry()'
+      vulnerabilityID: CVE-2023-50495
+    - fixedVersion: 1:3.5.9-1.el9_9
+      installedVersion: 1:3.5.8-2.el9_8
+      lastModifiedDate: "2026-10-08T01:18:57Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/openssl-libs@3.5.8-2.el9_8?arch=x86_64&distro=redhat-9.8&epoch=1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-42772
+      publishedDate: "2026-09-29T16:17:07Z"
+      resource: openssl-libs
+      score: 5.3
+      severity: MEDIUM
+      target: ""
+      title: 'openssl: openssl: Denial of Service via inefficient QUIC stream reassembly'
+      vulnerabilityID: CVE-2026-42772
+    - fixedVersion: 1:3.5.9-1.el9_9
+      installedVersion: 1:3.5.8-2.el9_8
+      lastModifiedDate: "2026-11-10T13:19:26Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/openssl-libs@3.5.8-2.el9_8?arch=x86_64&distro=redhat-9.8&epoch=1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-54872
+      publishedDate: "2026-09-29T16:17:08Z"
+      resource: openssl-libs
+      score: 5.9
+      severity: MEDIUM
+      target: ""
+      title: 'openssl: OpenSSL: Private key recovery via timing side-channel in generic
+        elliptic curve operations'
+      vulnerabilityID: CVE-2026-54872
+    - fixedVersion: 1:3.5.9-1.el9_9
+      installedVersion: 1:3.5.8-2.el9_8
+      lastModifiedDate: "2026-10-08T01:19:18Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/openssl-libs@3.5.8-2.el9_8?arch=x86_64&distro=redhat-9.8&epoch=1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-54873
+      publishedDate: "2026-09-29T16:17:08Z"
+      resource: openssl-libs
+      score: 5.3
+      severity: MEDIUM
+      target: ""
+      title: 'openssl: openssl: Denial of Service via excessive QUIC packet buffer
+        retention'
+      vulnerabilityID: CVE-2026-54873
+    - fixedVersion: 1:3.5.9-1.el9_9
+      installedVersion: 1:3.5.8-2.el9_8
+      lastModifiedDate: "2026-10-08T01:19:29Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/openssl-libs@3.5.8-2.el9_8?arch=x86_64&distro=redhat-9.8&epoch=1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-54875
+      publishedDate: "2026-09-29T16:17:08Z"
+      resource: openssl-libs
+      score: 4.7
+      severity: MEDIUM
+      target: ""
+      title: 'openssl: openssl: information disclosure via non-constant-time SM2 scalar
+        multiplication on ARM64 and RISC-V'
+      vulnerabilityID: CVE-2026-54875
+    - fixedVersion: 1:3.5.9-1.el9_9
+      installedVersion: 1:3.5.8-2.el9_8
+      lastModifiedDate: "2026-10-08T01:19:41Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/openssl-libs@3.5.8-2.el9_8?arch=x86_64&distro=redhat-9.8&epoch=1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-72897
+      publishedDate: "2026-09-29T16:17:09Z"
+      resource: openssl-libs
+      score: 5.9
+      severity: MEDIUM
+      target: ""
+      title: 'openssl: openssl: Denial of Service via out-of-bounds write during TLS
+        context switch'
+      vulnerabilityID: CVE-2026-72897
+    - fixedVersion: 1:3.5.9-1.el9_9
+      installedVersion: 1:3.5.8-2.el9_8
+      lastModifiedDate: "2026-10-08T01:20:01Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/openssl-libs@3.5.8-2.el9_8?arch=x86_64&distro=redhat-9.8&epoch=1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-75804
+      publishedDate: "2026-09-29T16:17:10Z"
+      resource: openssl-libs
+      score: 5.3
+      severity: MEDIUM
+      target: ""
+      title: 'openssl: OpenSSL: Denial of Service via unenforced QUIC connection flow
+        control'
+      vulnerabilityID: CVE-2026-75804
+    - fixedVersion: 1:3.5.9-1.el9_9
+      installedVersion: 1:3.5.8-2.el9_8
+      lastModifiedDate: "2026-11-10T13:19:39Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/openssl-libs@3.5.8-2.el9_8?arch=x86_64&distro=redhat-9.8&epoch=1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-75805
+      publishedDate: "2026-09-29T16:17:11Z"
+      resource: openssl-libs
+      score: 5.9
+      severity: MEDIUM
+      target: ""
+      title: 'openssl: openssl: Denial of Service via crafted CMP certificate revocation
+        response'
+      vulnerabilityID: CVE-2026-75805
+    - fixedVersion: 1:3.5.9-1.el9_9
+      installedVersion: 1:3.5.8-2.el9_8
+      lastModifiedDate: "2026-11-10T13:19:39Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/openssl-libs@3.5.8-2.el9_8?arch=x86_64&distro=redhat-9.8&epoch=1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-75806
+      publishedDate: "2026-09-29T16:17:11Z"
+      resource: openssl-libs
+      score: 5.3
+      severity: MEDIUM
+      target: ""
+      title: 'openssl: OpenSSL: Denial of Service via undersized DTLS record'
+      vulnerabilityID: CVE-2026-75806
+    - fixedVersion: 1:3.5.9-1.el9_9
+      installedVersion: 1:3.5.8-2.el9_8
+      lastModifiedDate: "2026-11-10T13:19:40Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/openssl-libs@3.5.8-2.el9_8?arch=x86_64&distro=redhat-9.8&epoch=1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-77696
+      publishedDate: "2026-09-29T16:17:11Z"
+      resource: openssl-libs
+      score: 5.9
+      severity: MEDIUM
+      target: ""
+      title: 'openssl: OpenSSL: Private key recovery via SM2 timing side-channel'
+      vulnerabilityID: CVE-2026-77696
+    - fixedVersion: 1:3.5.9-1.el9_9
+      installedVersion: 1:3.5.8-2.el9_8
+      lastModifiedDate: "2026-10-08T01:21:22Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/openssl-libs@3.5.8-2.el9_8?arch=x86_64&distro=redhat-9.8&epoch=1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-84784
+      publishedDate: "2026-09-29T16:17:12Z"
+      resource: openssl-libs
+      score: 5.3
+      severity: MEDIUM
+      target: ""
+      title: 'openssl: OpenSSL: Denial of Service via unbounded QUIC connection identifier
+        backlog'
+      vulnerabilityID: CVE-2026-84784
+    - fixedVersion: ""
+      installedVersion: 1:3.5.8-2.el9_8
+      lastModifiedDate: "2026-11-09T20:22:46Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/openssl-libs@3.5.8-2.el9_8?arch=x86_64&distro=redhat-9.8&epoch=1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2024-13176
+      publishedDate: "2025-01-20T14:15:26Z"
+      resource: openssl-libs
+      score: 4.7
+      severity: LOW
+      target: ""
+      title: 'openssl: Timing side-channel in ECDSA signature computation'
+      vulnerabilityID: CVE-2024-13176
+    - fixedVersion: ""
+      installedVersion: 1:3.5.8-2.el9_8
+      lastModifiedDate: "2026-10-15T01:18:41Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/openssl-libs@3.5.8-2.el9_8?arch=x86_64&distro=redhat-9.8&epoch=1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2024-41996
+      publishedDate: "2024-08-26T06:15:04Z"
+      resource: openssl-libs
+      score: 5.9
+      severity: LOW
+      target: ""
+      title: 'openssl: remote attackers (from the client side) to trigger unnecessarily
+        expensive server-side DHE modular-exponentiation calculations'
+      vulnerabilityID: CVE-2024-41996
+    - fixedVersion: ""
+      installedVersion: 1:3.5.8-2.el9_8
+      lastModifiedDate: "2026-11-09T21:02:53Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/openssl-libs@3.5.8-2.el9_8?arch=x86_64&distro=redhat-9.8&epoch=1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2025-9232
+      publishedDate: "2025-09-30T14:15:41Z"
+      resource: openssl-libs
+      score: 3.1
+      severity: LOW
+      target: ""
+      title: 'openssl: Out-of-bounds read in HTTP client no_proxy handling'
+      vulnerabilityID: CVE-2025-9232
+    - fixedVersion: ""
+      installedVersion: 1:3.5.8-2.el9_8
+      lastModifiedDate: "2026-07-24T23:10:00Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/openssl-libs@3.5.8-2.el9_8?arch=x86_64&distro=redhat-9.8&epoch=1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-28387
+      publishedDate: "2026-04-07T22:16:20Z"
+      resource: openssl-libs
+      score: 3.7
+      severity: LOW
+      target: ""
+      title: 'openssl: OpenSSL: Arbitrary code execution due to use-after-free in
+        DANE TLSA authentication'
+      vulnerabilityID: CVE-2026-28387
+    - fixedVersion: ""
+      installedVersion: 1:3.5.8-2.el9_8
+      lastModifiedDate: "2026-07-24T23:10:00Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/openssl-libs@3.5.8-2.el9_8?arch=x86_64&distro=redhat-9.8&epoch=1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-28388
+      publishedDate: "2026-04-07T22:16:20Z"
+      resource: openssl-libs
+      score: 5.9
+      severity: LOW
+      target: ""
+      title: 'openssl: OpenSSL: Denial of Service due to NULL pointer dereference
+        in delta CRL processing'
+      vulnerabilityID: CVE-2026-28388
+    - fixedVersion: ""
+      installedVersion: 1:3.5.8-2.el9_8
+      lastModifiedDate: "2026-07-24T23:10:00Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/openssl-libs@3.5.8-2.el9_8?arch=x86_64&distro=redhat-9.8&epoch=1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-28389
+      publishedDate: "2026-04-07T22:16:21Z"
+      resource: openssl-libs
+      score: 5.9
+      severity: LOW
+      target: ""
+      title: 'openssl: OpenSSL: Denial of Service vulnerability in CMS processing'
+      vulnerabilityID: CVE-2026-28389
+    - fixedVersion: ""
+      installedVersion: 1:3.5.8-2.el9_8
+      lastModifiedDate: "2026-07-24T23:10:00Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/openssl-libs@3.5.8-2.el9_8?arch=x86_64&distro=redhat-9.8&epoch=1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-31789
+      publishedDate: "2026-04-07T22:16:21Z"
+      resource: openssl-libs
+      score: 5.8
+      severity: LOW
+      target: ""
+      title: 'openssl: OpenSSL: Heap buffer overflow on 32-bit systems from large
+        X.509 certificate processing'
+      vulnerabilityID: CVE-2026-31789
+    - fixedVersion: 1:3.5.9-1.el9_9
+      installedVersion: 1:3.5.8-2.el9_8
+      lastModifiedDate: "2026-11-10T13:19:05Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/openssl-libs@3.5.8-2.el9_8?arch=x86_64&distro=redhat-9.8&epoch=1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-35189
+      publishedDate: "2026-09-29T16:17:07Z"
+      resource: openssl-libs
+      score: 3.7
+      severity: LOW
+      target: ""
+      title: 'openssl: openssl: Denial of Service via excessive memory allocation
+        in CRL distribution point processing'
+      vulnerabilityID: CVE-2026-35189
+    - fixedVersion: 1:3.5.9-1.el9_9
+      installedVersion: 1:3.5.8-2.el9_8
+      lastModifiedDate: "2026-10-08T01:02:06Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/openssl-libs@3.5.8-2.el9_8?arch=x86_64&distro=redhat-9.8&epoch=1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-35191
+      publishedDate: "2026-09-29T16:17:07Z"
+      resource: openssl-libs
+      score: 3.7
+      severity: LOW
+      target: ""
+      title: 'openssl: openssl: Traffic amplification Denial of Service via QUIC packet
+        over-accounting'
+      vulnerabilityID: CVE-2026-35191
+    - fixedVersion: ""
+      installedVersion: 1:3.5.8-2.el9_8
+      lastModifiedDate: "2026-07-23T08:10:00Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/openssl-libs@3.5.8-2.el9_8?arch=x86_64&distro=redhat-9.8&epoch=1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-42765
+      publishedDate: "2026-06-09T17:17:07Z"
+      resource: openssl-libs
+      score: 5.9
+      severity: LOW
+      target: ""
+      title: 'openssl: NULL Dereference in Certificate Verification with OCSP Checking'
+      vulnerabilityID: CVE-2026-42765
+    - fixedVersion: ""
+      installedVersion: 10.40-7.el9_8
+      lastModifiedDate: "2026-11-10T12:10:00Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/pcre2@10.40-7.el9_8?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2022-41409
+      publishedDate: "2023-07-18T14:15:12Z"
+      resource: pcre2
+      score: 5.3
+      severity: LOW
+      target: ""
+      title: 'pcre2: negative repeat value in a pcre2test subject line leads to inifinite
+        loop'
+      vulnerabilityID: CVE-2022-41409
+    - fixedVersion: ""
+      installedVersion: 10.40-7.el9_8
+      lastModifiedDate: "2026-11-10T12:10:00Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/pcre2-syntax@10.40-7.el9_8?arch=noarch&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2022-41409
+      publishedDate: "2023-07-18T14:15:12Z"
+      resource: pcre2-syntax
+      score: 7.5
+      severity: LOW
+      target: ""
+      title: 'pcre2: negative repeat value in a pcre2test subject line leads to inifinite
+        loop'
+      vulnerabilityID: CVE-2022-41409
+    - fixedVersion: ""
+      installedVersion: 4.8-10.el9
+      lastModifiedDate: "2026-10-26T21:10:00Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/sed@4.8-10.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-5958
+      publishedDate: "2026-04-20T12:16:08Z"
+      resource: sed
+      score: 6.3
+      severity: MEDIUM
+      target: ""
+      title: 'sed: GNU sed TOCTOU race condition'
+      vulnerabilityID: CVE-2026-5958
+    - fixedVersion: ""
+      installedVersion: 252-67.el9_8.6
+      lastModifiedDate: "2026-10-23T20:10:00Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/systemd-libs@252-67.el9_8.6?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-15059
+      publishedDate: "2026-08-10T14:17:20Z"
+      resource: systemd-libs
+      score: 5.5
+      severity: MEDIUM
+      target: ""
+      title: 'systemd: systemd-oomd: Unprivileged users can terminate arbitrary processes
+        via IPC API'
+      vulnerabilityID: CVE-2026-15059
+    - fixedVersion: ""
+      installedVersion: 252-67.el9_8.6
+      lastModifiedDate: "2026-11-06T08:17:26Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/systemd-libs@252-67.el9_8.6?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-4105
+      publishedDate: "2026-03-13T19:55:13Z"
+      resource: systemd-libs
+      score: 6.7
+      severity: MEDIUM
+      target: ""
+      title: 'systemd: systemd: Privilege escalation via improper access control in
+        RegisterMachine D-Bus method'
+      vulnerabilityID: CVE-2026-4105
+    - fixedVersion: 2.37.4-28.el9_9
+      installedVersion: 2.37.4-25.el9
+      lastModifiedDate: "2026-10-16T16:00:33Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/util-linux@2.37.4-25.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-53613
+      publishedDate: "2026-10-14T15:17:20Z"
+      resource: util-linux
+      score: 7
+      severity: HIGH
+      target: ""
+      title: 'util-linux: TOCTOU in the mount program via ancestor directory swap
+        on target path'
+      vulnerabilityID: CVE-2026-53613
+    - fixedVersion: 2.37.4-28.el9_9.1
+      installedVersion: 2.37.4-25.el9
+      lastModifiedDate: "2026-10-16T16:00:33Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/util-linux@2.37.4-25.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-53615
+      publishedDate: "2026-10-14T16:17:46Z"
+      resource: util-linux
+      score: 8
+      severity: HIGH
+      target: ""
+      title: 'util-linux: util-linux: Partition metadata compromise via integer overflow
+        in DOS partition parser'
+      vulnerabilityID: CVE-2026-53615
+    - fixedVersion: 2.37.4-28.el9_9
+      installedVersion: 2.37.4-25.el9
+      lastModifiedDate: "2026-11-12T11:17:11Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/util-linux@2.37.4-25.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-13595
+      publishedDate: "2026-06-29T09:16:28Z"
+      resource: util-linux
+      score: 5.3
+      severity: MEDIUM
+      target: ""
+      title: 'util-linux: util-linux: heap use-after-free in libblkid nested partition
+        probing'
+      vulnerabilityID: CVE-2026-13595
+    - fixedVersion: ""
+      installedVersion: 2.37.4-25.el9
+      lastModifiedDate: "2026-07-24T22:10:00Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/util-linux@2.37.4-25.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-27456
+      publishedDate: "2026-04-03T22:16:25Z"
+      resource: util-linux
+      score: 4.7
+      severity: MEDIUM
+      target: ""
+      title: 'util-linux: TOCTOU in the mount program when setting up loop devices'
+      vulnerabilityID: CVE-2026-27456
+    - fixedVersion: 2.37.4-28.el9_9
+      installedVersion: 2.37.4-25.el9
+      lastModifiedDate: "2026-10-16T16:00:33Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/util-linux-core@2.37.4-25.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-53613
+      publishedDate: "2026-10-14T15:17:20Z"
+      resource: util-linux-core
+      score: 7
+      severity: HIGH
+      target: ""
+      title: 'util-linux: TOCTOU in the mount program via ancestor directory swap
+        on target path'
+      vulnerabilityID: CVE-2026-53613
+    - fixedVersion: 2.37.4-28.el9_9.1
+      installedVersion: 2.37.4-25.el9
+      lastModifiedDate: "2026-10-16T16:00:33Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/util-linux-core@2.37.4-25.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-53615
+      publishedDate: "2026-10-14T16:17:46Z"
+      resource: util-linux-core
+      score: 8
+      severity: HIGH
+      target: ""
+      title: 'util-linux: util-linux: Partition metadata compromise via integer overflow
+        in DOS partition parser'
+      vulnerabilityID: CVE-2026-53615
+    - fixedVersion: 2.37.4-28.el9_9
+      installedVersion: 2.37.4-25.el9
+      lastModifiedDate: "2026-11-12T11:17:11Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/util-linux-core@2.37.4-25.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-13595
+      publishedDate: "2026-06-29T09:16:28Z"
+      resource: util-linux-core
+      score: 6.8
+      severity: MEDIUM
+      target: ""
+      title: 'util-linux: util-linux: heap use-after-free in libblkid nested partition
+        probing'
+      vulnerabilityID: CVE-2026-13595
+    - fixedVersion: ""
+      installedVersion: 2.37.4-25.el9
+      lastModifiedDate: "2026-07-24T22:10:00Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/util-linux-core@2.37.4-25.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-27456
+      publishedDate: "2026-04-03T22:16:25Z"
+      resource: util-linux-core
+      score: 4.7
+      severity: MEDIUM
+      target: ""
+      title: 'util-linux: TOCTOU in the mount program when setting up loop devices'
+      vulnerabilityID: CVE-2026-27456
+    - fixedVersion: 5.2.5-8.el9_9.1
+      installedVersion: 5.2.5-8.el9_8.1
+      lastModifiedDate: "2026-07-24T21:10:00Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/xz-libs@5.2.5-8.el9_8.1?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-34743
+      publishedDate: "2026-04-02T19:21:33Z"
+      resource: xz-libs
+      score: 5.3
+      severity: MEDIUM
+      target: ""
+      title: 'xz: XZ Utils: Denial of Service via buffer overflow in index decoding'
+      vulnerabilityID: CVE-2026-34743
+    - fixedVersion: ""
+      installedVersion: 1.2.11-40.el9
+      lastModifiedDate: "2026-06-17T10:26:47Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/zlib@1.2.11-40.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-27171
+      publishedDate: "2026-02-18T04:16:01Z"
+      resource: zlib
+      score: 3.3
+      severity: LOW
+      target: ""
+      title: 'zlib: zlib: Denial of Service via infinite loop in CRC32 combine functions'
+      vulnerabilityID: CVE-2026-27171
+    - fixedVersion: 1.7.2
+      installedVersion: v1.6.1
+      lastModifiedDate: "2026-10-30T19:37:07Z"
+      links: []
+      packagePURL: pkg:golang/github.com/gopacket/gopacket@v1.6.1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-119299
+      publishedDate: "2026-10-30T17:17:18Z"
+      resource: github.com/gopacket/gopacket
+      score: 5.9
+      severity: MEDIUM
+      target: ""
+      title: 'github.com/gopacket/gopacket: gopacket: Denial of Service via crafted
+        SCTP packets'
+      vulnerabilityID: CVE-2026-119299
+    - fixedVersion: 1.47.0
+      installedVersion: v1.44.0
+      lastModifiedDate: "2026-11-18T05:19:02Z"
+      links: []
+      packagePURL: pkg:golang/go.opentelemetry.io/otel/trace@v1.44.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-128085
+      publishedDate: "2026-11-13T19:19:31Z"
+      resource: go.opentelemetry.io/otel/trace
+      score: 5.3
+      severity: MEDIUM
+      target: ""
+      title: 'go.opentelemetry.io/otel/sdk: go.opentelemetry.io/otel/sdk/log: go.opentelemetry.io/otel/trace:
+        OpenTelemetry-Go: Denial of Service via attribute truncation bypass using
+        Unicode replacement characters'
+      vulnerabilityID: CVE-2026-128085
+    - fixedVersion: 0.58.1-0.20261009181718-2f1f834330b2
+      installedVersion: v0.58.0
+      lastModifiedDate: ""
+      links: []
+      packagePURL: pkg:golang/golang.org/x/crypto@v0.58.0
+      publishedDate: ""
+      resource: golang.org/x/crypto
+      severity: UNKNOWN
+      target: ""
+      title: The golang.org/x/crypto/openpgp package is unmaintained, unsafe by design,
+        and has known security issues
+      vulnerabilityID: GO-2026-5932
+    - fixedVersion: 1.26.11, 1.27.4
+      installedVersion: v1.26.10
+      lastModifiedDate: "2026-11-16T16:17:56Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.26.10
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97054
+      publishedDate: "2026-11-11T05:19:58Z"
+      resource: stdlib
+      severity: UNKNOWN
+      target: ""
+      title: For HTTP/1 servers, when MaxBytesReader's limit is exceeded, "Connecti
+        ...
+      vulnerabilityID: CVE-2026-97054
+    - fixedVersion: 1.26.11, 1.27.4
+      installedVersion: v1.26.10
+      lastModifiedDate: "2026-11-16T16:17:56Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.26.10
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97054
+      publishedDate: "2026-11-11T05:19:58Z"
+      resource: stdlib
+      severity: UNKNOWN
+      target: ""
+      title: For HTTP/1 servers, when MaxBytesReader's limit is exceeded, "Connecti
+        ...
+      vulnerabilityID: CVE-2026-97054
+- apiVersion: aquasecurity.github.io/v1alpha1
+  kind: VulnerabilityReport
+  metadata:
+    annotations:
+      trivy-operator.aquasecurity.github.io/report-ttl: 24h0m0s
+    creationTimestamp: "2026-11-19T00:44:48Z"
+    generation: 2
+    labels:
+      app.kubernetes.io/managed-by: trivy-operator
+      resource-spec-hash: c4cc4f87f
+      trivy-operator.container.name: ebpf-bootstrap
+      trivy-operator.resource.kind: DaemonSet
+      trivy-operator.resource.name: calico-node
+      trivy-operator.resource.namespace: calico-system
+    name: daemonset-calico-node-ebpf-bootstrap
+    namespace: calico-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: false
+      controller: true
+      kind: DaemonSet
+      name: calico-node
+      uid: 4d83c7da-06d1-592f-aebf-8f54ea1defe7
+    resourceVersion: "67914266"
+    uid: de256cb1-9fbe-501f-aa7f-8cc82a40f0bf
+  report:
+    artifact:
+      digest: sha256:3487797085dbb163652640249d5e9e8d1fe85f3d87e53e839586741684a21da0
+      repository: quay.io/calico/node
+      tag: v3.32.4
+    os:
+      family: redhat
+      name: "9.8"
+    registry:
+      server: harbor.example.com
+    scanner:
+      name: Trivy
+      vendor: Aqua Security
+      version: 0.75.0
+    summary:
+      criticalCount: 0
+      highCount: 5
+      lowCount: 29
+      mediumCount: 47
+      noneCount: 0
+      unknownCount: 3
+    updateTimestamp: "2026-11-19T18:27:37Z"
+    vulnerabilities:
+    - fixedVersion: ""
+      installedVersion: 1.0.8-11.el9
+      lastModifiedDate: "2026-06-17T10:47:34Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/bzip2-libs@1.0.8-11.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-42250
+      publishedDate: "2026-05-28T14:16:19Z"
+      resource: bzip2-libs
+      score: 5
+      severity: MEDIUM
+      target: ""
+      title: 'bzip2: bzip2: Denial of Service in bzip2recover via a specially crafted
+        file'
+      vulnerabilityID: CVE-2026-42250
+    - fixedVersion: ""
+      installedVersion: 8.32-41.el9_8.1
+      lastModifiedDate: "2026-10-24T13:10:00Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/coreutils-single@8.32-41.el9_8.1?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-56391
+      publishedDate: "2026-07-24T09:16:25Z"
+      resource: coreutils-single
+      score: 6.1
+      severity: MEDIUM
+      target: ""
+      title: 'coreutils: GNU coreutils uniq: Denial of Service and information disclosure
+        via out-of-bounds read with multibyte input'
+      vulnerabilityID: CVE-2026-56391
+    - fixedVersion: ""
+      installedVersion: 0.194-1.el9
+      lastModifiedDate: "2026-06-17T07:15:47Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/elfutils-libelf@0.194-1.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2024-25260
+      publishedDate: "2024-02-20T18:15:52Z"
+      resource: elfutils-libelf
+      score: 4
+      severity: LOW
+      target: ""
+      title: 'elfutils: global-buffer-overflow exists in the function ebl_machine_flag_name
+        in eblmachineflagname.c'
+      vulnerabilityID: CVE-2024-25260
+    - fixedVersion: ""
+      installedVersion: 0.194-1.el9
+      lastModifiedDate: "2026-06-17T08:39:00Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/elfutils-libelf@0.194-1.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2025-1371
+      publishedDate: "2025-02-17T03:15:09Z"
+      resource: elfutils-libelf
+      score: 3.3
+      severity: LOW
+      target: ""
+      title: 'elfutils: GNU elfutils eu-read readelf.c handle_dynamic_symtab null
+        pointer dereference'
+      vulnerabilityID: CVE-2025-1371
+    - fixedVersion: ""
+      installedVersion: 0.194-1.el9
+      lastModifiedDate: "2026-06-17T08:39:00Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/elfutils-libelf@0.194-1.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2025-1376
+      publishedDate: "2025-02-17T05:15:09Z"
+      resource: elfutils-libelf
+      score: 2.5
+      severity: LOW
+      target: ""
+      title: 'elfutils: GNU elfutils eu-strip elf_strptr.c elf_strptr denial of service'
+      vulnerabilityID: CVE-2025-1376
+    - fixedVersion: ""
+      installedVersion: 0.194-1.el9
+      lastModifiedDate: "2026-06-17T08:39:01Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/elfutils-libelf@0.194-1.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2025-1377
+      publishedDate: "2025-02-17T05:15:10Z"
+      resource: elfutils-libelf
+      score: 3.3
+      severity: LOW
+      target: ""
+      title: 'elfutils: GNU elfutils eu-strip strip.c gelf_getsymshndx denial of service'
+      vulnerabilityID: CVE-2025-1377
+    - fixedVersion: ""
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-11-17T15:17:31Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-115819
+      publishedDate: "2026-11-11T16:17:24Z"
+      resource: glibc
+      score: 4.8
+      severity: MEDIUM
+      target: ""
+      title: 'glibc: glibc: Memory corruption via out-of-bounds write in wide scanf
+        functions'
+      vulnerabilityID: CVE-2026-115819
+    - fixedVersion: ""
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-10-31T04:18:21Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-84243
+      publishedDate: "2026-10-30T18:18:13Z"
+      resource: glibc
+      score: 7
+      severity: MEDIUM
+      target: ""
+      title: 'glibc: glibc: Arbitrary code execution via directory traversal in LANGUAGE
+        environment variable'
+      vulnerabilityID: CVE-2026-84243
+    - fixedVersion: 2.34-290.el9_9
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-09-23T04:17:57Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-86805
+      publishedDate: "2026-09-22T16:18:06Z"
+      resource: glibc
+      score: 7
+      severity: MEDIUM
+      target: ""
+      title: 'glibc: glibc: Privilege escalation and arbitrary code execution via
+        TOCTOU race condition in dynamic loader'
+      vulnerabilityID: CVE-2026-86805
+    - fixedVersion: 2.34-290.el9_9
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-10-26T23:10:00Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-89092
+      publishedDate: "2026-09-11T02:18:35Z"
+      resource: glibc
+      score: 4.2
+      severity: MEDIUM
+      target: ""
+      title: 'glibc: nscd stack overflow leads to degraded DNS resolution'
+      vulnerabilityID: CVE-2026-89092
+    - fixedVersion: 2.34-290.el9_9
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-09-22T19:56:19Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-95818
+      publishedDate: "2026-09-22T17:17:32Z"
+      resource: glibc
+      score: 7
+      severity: MEDIUM
+      target: ""
+      title: 'glibc: glibc: Local attacker can cause denial of service and information
+        disclosure via stack-based buffer overflow.'
+      vulnerabilityID: CVE-2026-95818
+    - fixedVersion: ""
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-11-17T15:17:27Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-100290
+      publishedDate: "2026-11-11T16:17:24Z"
+      resource: glibc
+      score: 3.7
+      severity: LOW
+      target: ""
+      title: 'glibc: glibc: Denial of Service via memory allocation failure during
+        regular expression processing'
+      vulnerabilityID: CVE-2026-100290
+    - fixedVersion: ""
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-09-29T21:36:39Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97399
+      publishedDate: "2026-09-28T16:17:18Z"
+      resource: glibc
+      score: 3.7
+      severity: LOW
+      target: ""
+      title: 'glibc: glibc: Denial of Service via out-of-bounds read in strncasecmp'
+      vulnerabilityID: CVE-2026-97399
+    - fixedVersion: ""
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-11-17T15:17:31Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc-common@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-115819
+      publishedDate: "2026-11-11T16:17:24Z"
+      resource: glibc-common
+      score: 4.8
+      severity: MEDIUM
+      target: ""
+      title: 'glibc: glibc: Memory corruption via out-of-bounds write in wide scanf
+        functions'
+      vulnerabilityID: CVE-2026-115819
+    - fixedVersion: ""
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-10-31T04:18:21Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc-common@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-84243
+      publishedDate: "2026-10-30T18:18:13Z"
+      resource: glibc-common
+      score: 7
+      severity: MEDIUM
+      target: ""
+      title: 'glibc: glibc: Arbitrary code execution via directory traversal in LANGUAGE
+        environment variable'
+      vulnerabilityID: CVE-2026-84243
+    - fixedVersion: 2.34-290.el9_9
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-09-23T04:17:57Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc-common@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-86805
+      publishedDate: "2026-09-22T16:18:06Z"
+      resource: glibc-common
+      score: 7
+      severity: MEDIUM
+      target: ""
+      title: 'glibc: glibc: Privilege escalation and arbitrary code execution via
+        TOCTOU race condition in dynamic loader'
+      vulnerabilityID: CVE-2026-86805
+    - fixedVersion: 2.34-290.el9_9
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-10-26T23:10:00Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc-common@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-89092
+      publishedDate: "2026-09-11T02:18:35Z"
+      resource: glibc-common
+      score: 4.2
+      severity: MEDIUM
+      target: ""
+      title: 'glibc: nscd stack overflow leads to degraded DNS resolution'
+      vulnerabilityID: CVE-2026-89092
+    - fixedVersion: 2.34-290.el9_9
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-09-22T19:56:19Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc-common@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-95818
+      publishedDate: "2026-09-22T17:17:32Z"
+      resource: glibc-common
+      score: 7
+      severity: MEDIUM
+      target: ""
+      title: 'glibc: glibc: Local attacker can cause denial of service and information
+        disclosure via stack-based buffer overflow.'
+      vulnerabilityID: CVE-2026-95818
+    - fixedVersion: ""
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-11-17T15:17:27Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc-common@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-100290
+      publishedDate: "2026-11-11T16:17:24Z"
+      resource: glibc-common
+      score: 3.7
+      severity: LOW
+      target: ""
+      title: 'glibc: glibc: Denial of Service via memory allocation failure during
+        regular expression processing'
+      vulnerabilityID: CVE-2026-100290
+    - fixedVersion: ""
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-09-29T21:36:39Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc-common@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97399
+      publishedDate: "2026-09-28T16:17:18Z"
+      resource: glibc-common
+      score: 3.7
+      severity: LOW
+      target: ""
+      title: 'glibc: glibc: Denial of Service via out-of-bounds read in strncasecmp'
+      vulnerabilityID: CVE-2026-97399
+    - fixedVersion: ""
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-11-17T15:17:31Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc-minimal-langpack@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-115819
+      publishedDate: "2026-11-11T16:17:24Z"
+      resource: glibc-minimal-langpack
+      score: 4.8
+      severity: MEDIUM
+      target: ""
+      title: 'glibc: glibc: Memory corruption via out-of-bounds write in wide scanf
+        functions'
+      vulnerabilityID: CVE-2026-115819
+    - fixedVersion: ""
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-10-31T04:18:21Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc-minimal-langpack@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-84243
+      publishedDate: "2026-10-30T18:18:13Z"
+      resource: glibc-minimal-langpack
+      score: 7
+      severity: MEDIUM
+      target: ""
+      title: 'glibc: glibc: Arbitrary code execution via directory traversal in LANGUAGE
+        environment variable'
+      vulnerabilityID: CVE-2026-84243
+    - fixedVersion: 2.34-290.el9_9
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-09-23T04:17:57Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc-minimal-langpack@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-86805
+      publishedDate: "2026-09-22T16:18:06Z"
+      resource: glibc-minimal-langpack
+      score: 7
+      severity: MEDIUM
+      target: ""
+      title: 'glibc: glibc: Privilege escalation and arbitrary code execution via
+        TOCTOU race condition in dynamic loader'
+      vulnerabilityID: CVE-2026-86805
+    - fixedVersion: 2.34-290.el9_9
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-10-26T23:10:00Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc-minimal-langpack@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-89092
+      publishedDate: "2026-09-11T02:18:35Z"
+      resource: glibc-minimal-langpack
+      score: 4.2
+      severity: MEDIUM
+      target: ""
+      title: 'glibc: nscd stack overflow leads to degraded DNS resolution'
+      vulnerabilityID: CVE-2026-89092
+    - fixedVersion: 2.34-290.el9_9
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-09-22T19:56:19Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc-minimal-langpack@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-95818
+      publishedDate: "2026-09-22T17:17:32Z"
+      resource: glibc-minimal-langpack
+      score: 7
+      severity: MEDIUM
+      target: ""
+      title: 'glibc: glibc: Local attacker can cause denial of service and information
+        disclosure via stack-based buffer overflow.'
+      vulnerabilityID: CVE-2026-95818
+    - fixedVersion: ""
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-11-17T15:17:27Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc-minimal-langpack@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-100290
+      publishedDate: "2026-11-11T16:17:24Z"
+      resource: glibc-minimal-langpack
+      score: 3.7
+      severity: LOW
+      target: ""
+      title: 'glibc: glibc: Denial of Service via memory allocation failure during
+        regular expression processing'
+      vulnerabilityID: CVE-2026-100290
+    - fixedVersion: ""
+      installedVersion: 2.34-284.el9_8.4
+      lastModifiedDate: "2026-09-29T21:36:39Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/glibc-minimal-langpack@2.34-284.el9_8.4?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97399
+      publishedDate: "2026-09-28T16:17:18Z"
+      resource: glibc-minimal-langpack
+      score: 3.7
+      severity: LOW
+      target: ""
+      title: 'glibc: glibc: Denial of Service via out-of-bounds read in strncasecmp'
+      vulnerabilityID: CVE-2026-97399
+    - fixedVersion: 11.5.0-16.el9_9
+      installedVersion: 11.5.0-14.el9
+      lastModifiedDate: "2026-11-11T20:17:04Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/libgcc@11.5.0-14.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-102010
+      publishedDate: "2026-09-28T19:16:48Z"
+      resource: libgcc
+      score: 7
+      severity: MEDIUM
+      target: ""
+      title: 'gcc-toolset-15-gcc: gcc: gcc-toolset-16: gcc: Denial of Service via
+        use-after-free in binary heap erase_if'
+      vulnerabilityID: CVE-2026-102010
+    - fixedVersion: 11.5.0-17.el9_9
+      installedVersion: 11.5.0-14.el9
+      lastModifiedDate: "2026-11-13T13:17:50Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/libgcc@11.5.0-14.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-114690
+      publishedDate: "2026-10-30T08:16:55Z"
+      resource: libgcc
+      score: 6.2
+      severity: MEDIUM
+      target: ""
+      title: 'gcc: Confirmed out-of-bounds read/write in libstdc++ parallel `std'
+      vulnerabilityID: CVE-2026-114690
+    - fixedVersion: 11.5.0-17.el9_9
+      installedVersion: 11.5.0-14.el9
+      lastModifiedDate: "2026-11-13T13:17:51Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/libgcc@11.5.0-14.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-114691
+      publishedDate: "2026-10-30T08:16:55Z"
+      resource: libgcc
+      score: 5.9
+      severity: MEDIUM
+      target: ""
+      title: 'gcc: Integer wrap in `std'
+      vulnerabilityID: CVE-2026-114691
+    - fixedVersion: ""
+      installedVersion: 11.5.0-14.el9
+      lastModifiedDate: "2026-11-14T07:17:19Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/libgcc@11.5.0-14.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-125709
+      publishedDate: "2026-11-10T12:17:18Z"
+      resource: libgcc
+      score: 4.2
+      severity: MEDIUM
+      target: ""
+      title: 'libstdc++: overflow leaves streambuf in inconsistent state on I/O error.'
+      vulnerabilityID: CVE-2026-125709
+    - fixedVersion: 11.5.0-16.el9_9
+      installedVersion: 11.5.0-14.el9
+      lastModifiedDate: "2026-11-11T20:17:10Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/libgcc@11.5.0-14.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-95619
+      publishedDate: "2026-09-22T13:17:13Z"
+      resource: libgcc
+      score: 7.7
+      severity: MEDIUM
+      target: ""
+      title: 'gcc: libstdc++ integer overflow in `new` operator'
+      vulnerabilityID: CVE-2026-95619
+    - fixedVersion: ""
+      installedVersion: 11.5.0-14.el9
+      lastModifiedDate: "2026-10-14T13:17:12Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/libgcc@11.5.0-14.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2021-46195
+      publishedDate: "2022-01-14T20:15:15Z"
+      resource: libgcc
+      score: 3.3
+      severity: LOW
+      target: ""
+      title: 'gcc: uncontrolled recursion in libiberty/rust-demangle.c'
+      vulnerabilityID: CVE-2021-46195
+    - fixedVersion: ""
+      installedVersion: 11.5.0-14.el9
+      lastModifiedDate: "2026-10-14T17:17:37Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/libgcc@11.5.0-14.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2022-27943
+      publishedDate: "2022-03-26T13:15:07Z"
+      resource: libgcc
+      score: 5.5
+      severity: LOW
+      target: ""
+      title: 'binutils: libiberty/rust-demangle.c in GNU GCC 11.2 allows stack exhaustion
+        in demangle_const'
+      vulnerabilityID: CVE-2022-27943
+    - fixedVersion: 11.5.0-17.el9_9
+      installedVersion: 11.5.0-14.el9
+      lastModifiedDate: "2026-11-13T14:17:47Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/libgcc@11.5.0-14.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-115456
+      publishedDate: "2026-10-30T09:17:14Z"
+      resource: libgcc
+      score: 3.7
+      severity: LOW
+      target: ""
+      title: 'gcc: Out-of-bounds read in std::from_chars'
+      vulnerabilityID: CVE-2026-115456
+    - fixedVersion: 14:1.10.0-4.el9_9.2
+      installedVersion: 14:1.10.0-4.el9_8.1
+      lastModifiedDate: "2026-10-22T21:17:21Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/libpcap@1.10.0-4.el9_8.1?arch=x86_64&distro=redhat-9.8&epoch=14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-6554
+      publishedDate: "2026-09-05T19:16:56Z"
+      resource: libpcap
+      score: 7.5
+      severity: HIGH
+      target: ""
+      title: 'libpcap: libpcap: Denial of Service via infinite loop in BPF interpreter'
+      vulnerabilityID: CVE-2026-6554
+    - fixedVersion: ""
+      installedVersion: 14:1.10.0-4.el9_8.1
+      lastModifiedDate: "2026-09-08T19:20:25Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/libpcap@1.10.0-4.el9_8.1?arch=x86_64&distro=redhat-9.8&epoch=14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-18238
+      publishedDate: "2026-09-05T19:16:55Z"
+      resource: libpcap
+      score: 5
+      severity: MEDIUM
+      target: ""
+      title: 'libpcap: libpcap: Information disclosure via out-of-bounds read in rpcap
+        client'
+      vulnerabilityID: CVE-2026-18238
+    - fixedVersion: ""
+      installedVersion: 14:1.10.0-4.el9_8.1
+      lastModifiedDate: "2026-09-08T19:20:25Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/libpcap@1.10.0-4.el9_8.1?arch=x86_64&distro=redhat-9.8&epoch=14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-18313
+      publishedDate: "2026-09-05T19:16:55Z"
+      resource: libpcap
+      score: 4.3
+      severity: MEDIUM
+      target: ""
+      title: 'libpcap: libpcap: Denial of Service via memory leak in rpcapd'
+      vulnerabilityID: CVE-2026-18313
+    - fixedVersion: ""
+      installedVersion: 14:1.10.0-4.el9_8.1
+      lastModifiedDate: "2026-09-08T19:20:25Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/libpcap@1.10.0-4.el9_8.1?arch=x86_64&distro=redhat-9.8&epoch=14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-31911
+      publishedDate: "2026-09-05T19:16:55Z"
+      resource: libpcap
+      score: 5.5
+      severity: MEDIUM
+      target: ""
+      title: 'libpcap: libpcap: Denial of Service via crafted BPF opcode'
+      vulnerabilityID: CVE-2026-31911
+    - fixedVersion: ""
+      installedVersion: 14:1.10.0-4.el9_8.1
+      lastModifiedDate: "2026-09-08T19:20:25Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/libpcap@1.10.0-4.el9_8.1?arch=x86_64&distro=redhat-9.8&epoch=14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-31912
+      publishedDate: "2026-09-05T19:16:55Z"
+      resource: libpcap
+      score: 6.1
+      severity: MEDIUM
+      target: ""
+      title: 'libpcap: libpcap: Denial of service via crafted BPF filter program'
+      vulnerabilityID: CVE-2026-31912
+    - fixedVersion: ""
+      installedVersion: 14:1.10.0-4.el9_8.1
+      lastModifiedDate: "2026-09-08T19:20:25Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/libpcap@1.10.0-4.el9_8.1?arch=x86_64&distro=redhat-9.8&epoch=14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-6244
+      publishedDate: "2026-09-05T19:16:55Z"
+      resource: libpcap
+      score: 5.5
+      severity: MEDIUM
+      target: ""
+      title: 'libpcap: libpcap: Denial of Service via crafted BPF filter program'
+      vulnerabilityID: CVE-2026-6244
+    - fixedVersion: ""
+      installedVersion: 14:1.10.0-4.el9_8.1
+      lastModifiedDate: "2026-06-17T08:31:29Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/libpcap@1.10.0-4.el9_8.1?arch=x86_64&distro=redhat-9.8&epoch=14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2025-11961
+      publishedDate: "2025-12-31T01:15:54Z"
+      resource: libpcap
+      score: 1.9
+      severity: LOW
+      target: ""
+      title: 'libpcap: libpcap: Memory corruption via malformed MAC-48 address input'
+      vulnerabilityID: CVE-2025-11961
+    - fixedVersion: ""
+      installedVersion: 6.2-12.20210508.el9
+      lastModifiedDate: "2026-10-15T01:17:11Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/ncurses-base@6.2-12.20210508.el9?arch=noarch&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2023-50495
+      publishedDate: "2023-12-12T15:15:07Z"
+      resource: ncurses-base
+      score: 6.5
+      severity: LOW
+      target: ""
+      title: 'ncurses: segmentation fault via _nc_wrap_entry()'
+      vulnerabilityID: CVE-2023-50495
+    - fixedVersion: ""
+      installedVersion: 6.2-12.20210508.el9
+      lastModifiedDate: "2026-10-15T01:17:11Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/ncurses-libs@6.2-12.20210508.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2023-50495
+      publishedDate: "2023-12-12T15:15:07Z"
+      resource: ncurses-libs
+      score: 6.5
+      severity: LOW
+      target: ""
+      title: 'ncurses: segmentation fault via _nc_wrap_entry()'
+      vulnerabilityID: CVE-2023-50495
+    - fixedVersion: 1:3.5.9-1.el9_9
+      installedVersion: 1:3.5.8-2.el9_8
+      lastModifiedDate: "2026-10-08T01:18:57Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/openssl-libs@3.5.8-2.el9_8?arch=x86_64&distro=redhat-9.8&epoch=1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-42772
+      publishedDate: "2026-09-29T16:17:07Z"
+      resource: openssl-libs
+      score: 5.3
+      severity: MEDIUM
+      target: ""
+      title: 'openssl: openssl: Denial of Service via inefficient QUIC stream reassembly'
+      vulnerabilityID: CVE-2026-42772
+    - fixedVersion: 1:3.5.9-1.el9_9
+      installedVersion: 1:3.5.8-2.el9_8
+      lastModifiedDate: "2026-11-10T13:19:26Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/openssl-libs@3.5.8-2.el9_8?arch=x86_64&distro=redhat-9.8&epoch=1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-54872
+      publishedDate: "2026-09-29T16:17:08Z"
+      resource: openssl-libs
+      score: 5.9
+      severity: MEDIUM
+      target: ""
+      title: 'openssl: OpenSSL: Private key recovery via timing side-channel in generic
+        elliptic curve operations'
+      vulnerabilityID: CVE-2026-54872
+    - fixedVersion: 1:3.5.9-1.el9_9
+      installedVersion: 1:3.5.8-2.el9_8
+      lastModifiedDate: "2026-10-08T01:19:18Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/openssl-libs@3.5.8-2.el9_8?arch=x86_64&distro=redhat-9.8&epoch=1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-54873
+      publishedDate: "2026-09-29T16:17:08Z"
+      resource: openssl-libs
+      score: 5.3
+      severity: MEDIUM
+      target: ""
+      title: 'openssl: openssl: Denial of Service via excessive QUIC packet buffer
+        retention'
+      vulnerabilityID: CVE-2026-54873
+    - fixedVersion: 1:3.5.9-1.el9_9
+      installedVersion: 1:3.5.8-2.el9_8
+      lastModifiedDate: "2026-10-08T01:19:29Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/openssl-libs@3.5.8-2.el9_8?arch=x86_64&distro=redhat-9.8&epoch=1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-54875
+      publishedDate: "2026-09-29T16:17:08Z"
+      resource: openssl-libs
+      score: 4.7
+      severity: MEDIUM
+      target: ""
+      title: 'openssl: openssl: information disclosure via non-constant-time SM2 scalar
+        multiplication on ARM64 and RISC-V'
+      vulnerabilityID: CVE-2026-54875
+    - fixedVersion: 1:3.5.9-1.el9_9
+      installedVersion: 1:3.5.8-2.el9_8
+      lastModifiedDate: "2026-10-08T01:19:41Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/openssl-libs@3.5.8-2.el9_8?arch=x86_64&distro=redhat-9.8&epoch=1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-72897
+      publishedDate: "2026-09-29T16:17:09Z"
+      resource: openssl-libs
+      score: 5.9
+      severity: MEDIUM
+      target: ""
+      title: 'openssl: openssl: Denial of Service via out-of-bounds write during TLS
+        context switch'
+      vulnerabilityID: CVE-2026-72897
+    - fixedVersion: 1:3.5.9-1.el9_9
+      installedVersion: 1:3.5.8-2.el9_8
+      lastModifiedDate: "2026-10-08T01:20:01Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/openssl-libs@3.5.8-2.el9_8?arch=x86_64&distro=redhat-9.8&epoch=1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-75804
+      publishedDate: "2026-09-29T16:17:10Z"
+      resource: openssl-libs
+      score: 5.3
+      severity: MEDIUM
+      target: ""
+      title: 'openssl: OpenSSL: Denial of Service via unenforced QUIC connection flow
+        control'
+      vulnerabilityID: CVE-2026-75804
+    - fixedVersion: 1:3.5.9-1.el9_9
+      installedVersion: 1:3.5.8-2.el9_8
+      lastModifiedDate: "2026-11-10T13:19:39Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/openssl-libs@3.5.8-2.el9_8?arch=x86_64&distro=redhat-9.8&epoch=1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-75805
+      publishedDate: "2026-09-29T16:17:11Z"
+      resource: openssl-libs
+      score: 5.9
+      severity: MEDIUM
+      target: ""
+      title: 'openssl: openssl: Denial of Service via crafted CMP certificate revocation
+        response'
+      vulnerabilityID: CVE-2026-75805
+    - fixedVersion: 1:3.5.9-1.el9_9
+      installedVersion: 1:3.5.8-2.el9_8
+      lastModifiedDate: "2026-11-10T13:19:39Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/openssl-libs@3.5.8-2.el9_8?arch=x86_64&distro=redhat-9.8&epoch=1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-75806
+      publishedDate: "2026-09-29T16:17:11Z"
+      resource: openssl-libs
+      score: 5.3
+      severity: MEDIUM
+      target: ""
+      title: 'openssl: OpenSSL: Denial of Service via undersized DTLS record'
+      vulnerabilityID: CVE-2026-75806
+    - fixedVersion: 1:3.5.9-1.el9_9
+      installedVersion: 1:3.5.8-2.el9_8
+      lastModifiedDate: "2026-11-10T13:19:40Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/openssl-libs@3.5.8-2.el9_8?arch=x86_64&distro=redhat-9.8&epoch=1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-77696
+      publishedDate: "2026-09-29T16:17:11Z"
+      resource: openssl-libs
+      score: 5.9
+      severity: MEDIUM
+      target: ""
+      title: 'openssl: OpenSSL: Private key recovery via SM2 timing side-channel'
+      vulnerabilityID: CVE-2026-77696
+    - fixedVersion: 1:3.5.9-1.el9_9
+      installedVersion: 1:3.5.8-2.el9_8
+      lastModifiedDate: "2026-10-08T01:21:22Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/openssl-libs@3.5.8-2.el9_8?arch=x86_64&distro=redhat-9.8&epoch=1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-84784
+      publishedDate: "2026-09-29T16:17:12Z"
+      resource: openssl-libs
+      score: 5.3
+      severity: MEDIUM
+      target: ""
+      title: 'openssl: OpenSSL: Denial of Service via unbounded QUIC connection identifier
+        backlog'
+      vulnerabilityID: CVE-2026-84784
+    - fixedVersion: ""
+      installedVersion: 1:3.5.8-2.el9_8
+      lastModifiedDate: "2026-11-09T20:22:46Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/openssl-libs@3.5.8-2.el9_8?arch=x86_64&distro=redhat-9.8&epoch=1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2024-13176
+      publishedDate: "2025-01-20T14:15:26Z"
+      resource: openssl-libs
+      score: 4.7
+      severity: LOW
+      target: ""
+      title: 'openssl: Timing side-channel in ECDSA signature computation'
+      vulnerabilityID: CVE-2024-13176
+    - fixedVersion: ""
+      installedVersion: 1:3.5.8-2.el9_8
+      lastModifiedDate: "2026-10-15T01:18:41Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/openssl-libs@3.5.8-2.el9_8?arch=x86_64&distro=redhat-9.8&epoch=1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2024-41996
+      publishedDate: "2024-08-26T06:15:04Z"
+      resource: openssl-libs
+      score: 5.9
+      severity: LOW
+      target: ""
+      title: 'openssl: remote attackers (from the client side) to trigger unnecessarily
+        expensive server-side DHE modular-exponentiation calculations'
+      vulnerabilityID: CVE-2024-41996
+    - fixedVersion: ""
+      installedVersion: 1:3.5.8-2.el9_8
+      lastModifiedDate: "2026-11-09T21:02:53Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/openssl-libs@3.5.8-2.el9_8?arch=x86_64&distro=redhat-9.8&epoch=1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2025-9232
+      publishedDate: "2025-09-30T14:15:41Z"
+      resource: openssl-libs
+      score: 3.1
+      severity: LOW
+      target: ""
+      title: 'openssl: Out-of-bounds read in HTTP client no_proxy handling'
+      vulnerabilityID: CVE-2025-9232
+    - fixedVersion: ""
+      installedVersion: 1:3.5.8-2.el9_8
+      lastModifiedDate: "2026-07-24T23:10:00Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/openssl-libs@3.5.8-2.el9_8?arch=x86_64&distro=redhat-9.8&epoch=1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-28387
+      publishedDate: "2026-04-07T22:16:20Z"
+      resource: openssl-libs
+      score: 3.7
+      severity: LOW
+      target: ""
+      title: 'openssl: OpenSSL: Arbitrary code execution due to use-after-free in
+        DANE TLSA authentication'
+      vulnerabilityID: CVE-2026-28387
+    - fixedVersion: ""
+      installedVersion: 1:3.5.8-2.el9_8
+      lastModifiedDate: "2026-07-24T23:10:00Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/openssl-libs@3.5.8-2.el9_8?arch=x86_64&distro=redhat-9.8&epoch=1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-28388
+      publishedDate: "2026-04-07T22:16:20Z"
+      resource: openssl-libs
+      score: 5.9
+      severity: LOW
+      target: ""
+      title: 'openssl: OpenSSL: Denial of Service due to NULL pointer dereference
+        in delta CRL processing'
+      vulnerabilityID: CVE-2026-28388
+    - fixedVersion: ""
+      installedVersion: 1:3.5.8-2.el9_8
+      lastModifiedDate: "2026-07-24T23:10:00Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/openssl-libs@3.5.8-2.el9_8?arch=x86_64&distro=redhat-9.8&epoch=1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-28389
+      publishedDate: "2026-04-07T22:16:21Z"
+      resource: openssl-libs
+      score: 5.9
+      severity: LOW
+      target: ""
+      title: 'openssl: OpenSSL: Denial of Service vulnerability in CMS processing'
+      vulnerabilityID: CVE-2026-28389
+    - fixedVersion: ""
+      installedVersion: 1:3.5.8-2.el9_8
+      lastModifiedDate: "2026-07-24T23:10:00Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/openssl-libs@3.5.8-2.el9_8?arch=x86_64&distro=redhat-9.8&epoch=1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-31789
+      publishedDate: "2026-04-07T22:16:21Z"
+      resource: openssl-libs
+      score: 9.8
+      severity: LOW
+      target: ""
+      title: 'openssl: OpenSSL: Heap buffer overflow on 32-bit systems from large
+        X.509 certificate processing'
+      vulnerabilityID: CVE-2026-31789
+    - fixedVersion: 1:3.5.9-1.el9_9
+      installedVersion: 1:3.5.8-2.el9_8
+      lastModifiedDate: "2026-11-10T13:19:05Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/openssl-libs@3.5.8-2.el9_8?arch=x86_64&distro=redhat-9.8&epoch=1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-35189
+      publishedDate: "2026-09-29T16:17:07Z"
+      resource: openssl-libs
+      score: 3.7
+      severity: LOW
+      target: ""
+      title: 'openssl: openssl: Denial of Service via excessive memory allocation
+        in CRL distribution point processing'
+      vulnerabilityID: CVE-2026-35189
+    - fixedVersion: 1:3.5.9-1.el9_9
+      installedVersion: 1:3.5.8-2.el9_8
+      lastModifiedDate: "2026-10-08T01:02:06Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/openssl-libs@3.5.8-2.el9_8?arch=x86_64&distro=redhat-9.8&epoch=1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-35191
+      publishedDate: "2026-09-29T16:17:07Z"
+      resource: openssl-libs
+      score: 3.7
+      severity: LOW
+      target: ""
+      title: 'openssl: openssl: Traffic amplification Denial of Service via QUIC packet
+        over-accounting'
+      vulnerabilityID: CVE-2026-35191
+    - fixedVersion: ""
+      installedVersion: 1:3.5.8-2.el9_8
+      lastModifiedDate: "2026-07-23T08:10:00Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/openssl-libs@3.5.8-2.el9_8?arch=x86_64&distro=redhat-9.8&epoch=1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-42765
+      publishedDate: "2026-06-09T17:17:07Z"
+      resource: openssl-libs
+      score: 5.9
+      severity: LOW
+      target: ""
+      title: 'openssl: NULL Dereference in Certificate Verification with OCSP Checking'
+      vulnerabilityID: CVE-2026-42765
+    - fixedVersion: ""
+      installedVersion: 10.40-7.el9_8
+      lastModifiedDate: "2026-11-10T12:10:00Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/pcre2@10.40-7.el9_8?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2022-41409
+      publishedDate: "2023-07-18T14:15:12Z"
+      resource: pcre2
+      score: 5.3
+      severity: LOW
+      target: ""
+      title: 'pcre2: negative repeat value in a pcre2test subject line leads to inifinite
+        loop'
+      vulnerabilityID: CVE-2022-41409
+    - fixedVersion: ""
+      installedVersion: 10.40-7.el9_8
+      lastModifiedDate: "2026-11-10T12:10:00Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/pcre2-syntax@10.40-7.el9_8?arch=noarch&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2022-41409
+      publishedDate: "2023-07-18T14:15:12Z"
+      resource: pcre2-syntax
+      score: 5.3
+      severity: LOW
+      target: ""
+      title: 'pcre2: negative repeat value in a pcre2test subject line leads to inifinite
+        loop'
+      vulnerabilityID: CVE-2022-41409
+    - fixedVersion: ""
+      installedVersion: 4.8-10.el9
+      lastModifiedDate: "2026-10-26T21:10:00Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/sed@4.8-10.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-5958
+      publishedDate: "2026-04-20T12:16:08Z"
+      resource: sed
+      severity: MEDIUM
+      target: ""
+      title: 'sed: GNU sed TOCTOU race condition'
+      vulnerabilityID: CVE-2026-5958
+    - fixedVersion: ""
+      installedVersion: 252-67.el9_8.6
+      lastModifiedDate: "2026-10-23T20:10:00Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/systemd-libs@252-67.el9_8.6?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-15059
+      publishedDate: "2026-08-10T14:17:20Z"
+      resource: systemd-libs
+      score: 5.5
+      severity: MEDIUM
+      target: ""
+      title: 'systemd: systemd-oomd: Unprivileged users can terminate arbitrary processes
+        via IPC API'
+      vulnerabilityID: CVE-2026-15059
+    - fixedVersion: ""
+      installedVersion: 252-67.el9_8.6
+      lastModifiedDate: "2026-11-06T08:17:26Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/systemd-libs@252-67.el9_8.6?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-4105
+      publishedDate: "2026-03-13T19:55:13Z"
+      resource: systemd-libs
+      score: 6.7
+      severity: MEDIUM
+      target: ""
+      title: 'systemd: systemd: Privilege escalation via improper access control in
+        RegisterMachine D-Bus method'
+      vulnerabilityID: CVE-2026-4105
+    - fixedVersion: 2.37.4-28.el9_9
+      installedVersion: 2.37.4-25.el9
+      lastModifiedDate: "2026-10-16T16:00:33Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/util-linux@2.37.4-25.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-53613
+      publishedDate: "2026-10-14T15:17:20Z"
+      resource: util-linux
+      score: 7
+      severity: HIGH
+      target: ""
+      title: 'util-linux: TOCTOU in the mount program via ancestor directory swap
+        on target path'
+      vulnerabilityID: CVE-2026-53613
+    - fixedVersion: 2.37.4-28.el9_9.1
+      installedVersion: 2.37.4-25.el9
+      lastModifiedDate: "2026-10-16T16:00:33Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/util-linux@2.37.4-25.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-53615
+      publishedDate: "2026-10-14T16:17:46Z"
+      resource: util-linux
+      score: 8
+      severity: HIGH
+      target: ""
+      title: 'util-linux: util-linux: Partition metadata compromise via integer overflow
+        in DOS partition parser'
+      vulnerabilityID: CVE-2026-53615
+    - fixedVersion: 2.37.4-28.el9_9
+      installedVersion: 2.37.4-25.el9
+      lastModifiedDate: "2026-11-12T11:17:11Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/util-linux@2.37.4-25.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-13595
+      publishedDate: "2026-06-29T09:16:28Z"
+      resource: util-linux
+      score: 6.8
+      severity: MEDIUM
+      target: ""
+      title: 'util-linux: util-linux: heap use-after-free in libblkid nested partition
+        probing'
+      vulnerabilityID: CVE-2026-13595
+    - fixedVersion: ""
+      installedVersion: 2.37.4-25.el9
+      lastModifiedDate: "2026-07-24T22:10:00Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/util-linux@2.37.4-25.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-27456
+      publishedDate: "2026-04-03T22:16:25Z"
+      resource: util-linux
+      score: 4.7
+      severity: MEDIUM
+      target: ""
+      title: 'util-linux: TOCTOU in the mount program when setting up loop devices'
+      vulnerabilityID: CVE-2026-27456
+    - fixedVersion: 2.37.4-28.el9_9
+      installedVersion: 2.37.4-25.el9
+      lastModifiedDate: "2026-10-16T16:00:33Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/util-linux-core@2.37.4-25.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-53613
+      publishedDate: "2026-10-14T15:17:20Z"
+      resource: util-linux-core
+      score: 7
+      severity: HIGH
+      target: ""
+      title: 'util-linux: TOCTOU in the mount program via ancestor directory swap
+        on target path'
+      vulnerabilityID: CVE-2026-53613
+    - fixedVersion: 2.37.4-28.el9_9.1
+      installedVersion: 2.37.4-25.el9
+      lastModifiedDate: "2026-10-16T16:00:33Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/util-linux-core@2.37.4-25.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-53615
+      publishedDate: "2026-10-14T16:17:46Z"
+      resource: util-linux-core
+      score: 8
+      severity: HIGH
+      target: ""
+      title: 'util-linux: util-linux: Partition metadata compromise via integer overflow
+        in DOS partition parser'
+      vulnerabilityID: CVE-2026-53615
+    - fixedVersion: 2.37.4-28.el9_9
+      installedVersion: 2.37.4-25.el9
+      lastModifiedDate: "2026-11-12T11:17:11Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/util-linux-core@2.37.4-25.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-13595
+      publishedDate: "2026-06-29T09:16:28Z"
+      resource: util-linux-core
+      score: 5.3
+      severity: MEDIUM
+      target: ""
+      title: 'util-linux: util-linux: heap use-after-free in libblkid nested partition
+        probing'
+      vulnerabilityID: CVE-2026-13595
+    - fixedVersion: ""
+      installedVersion: 2.37.4-25.el9
+      lastModifiedDate: "2026-07-24T22:10:00Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/util-linux-core@2.37.4-25.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-27456
+      publishedDate: "2026-04-03T22:16:25Z"
+      resource: util-linux-core
+      score: 4.7
+      severity: MEDIUM
+      target: ""
+      title: 'util-linux: TOCTOU in the mount program when setting up loop devices'
+      vulnerabilityID: CVE-2026-27456
+    - fixedVersion: 5.2.5-8.el9_9.1
+      installedVersion: 5.2.5-8.el9_8.1
+      lastModifiedDate: "2026-07-24T21:10:00Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/xz-libs@5.2.5-8.el9_8.1?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-34743
+      publishedDate: "2026-04-02T19:21:33Z"
+      resource: xz-libs
+      score: 5.3
+      severity: MEDIUM
+      target: ""
+      title: 'xz: XZ Utils: Denial of Service via buffer overflow in index decoding'
+      vulnerabilityID: CVE-2026-34743
+    - fixedVersion: ""
+      installedVersion: 1.2.11-40.el9
+      lastModifiedDate: "2026-06-17T10:26:47Z"
+      links: []
+      packagePURL: pkg:rpm/redhat/zlib@1.2.11-40.el9?arch=x86_64&distro=redhat-9.8
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-27171
+      publishedDate: "2026-02-18T04:16:01Z"
+      resource: zlib
+      score: 5.5
+      severity: LOW
+      target: ""
+      title: 'zlib: zlib: Denial of Service via infinite loop in CRC32 combine functions'
+      vulnerabilityID: CVE-2026-27171
+    - fixedVersion: 1.7.2
+      installedVersion: v1.6.1
+      lastModifiedDate: "2026-10-30T19:37:07Z"
+      links: []
+      packagePURL: pkg:golang/github.com/gopacket/gopacket@v1.6.1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-119299
+      publishedDate: "2026-10-30T17:17:18Z"
+      resource: github.com/gopacket/gopacket
+      score: 5.9
+      severity: MEDIUM
+      target: ""
+      title: 'github.com/gopacket/gopacket: gopacket: Denial of Service via crafted
+        SCTP packets'
+      vulnerabilityID: CVE-2026-119299
+    - fixedVersion: 1.47.0
+      installedVersion: v1.44.0
+      lastModifiedDate: "2026-11-18T05:19:02Z"
+      links: []
+      packagePURL: pkg:golang/go.opentelemetry.io/otel/trace@v1.44.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-128085
+      publishedDate: "2026-11-13T19:19:31Z"
+      resource: go.opentelemetry.io/otel/trace
+      score: 5.3
+      severity: MEDIUM
+      target: ""
+      title: 'go.opentelemetry.io/otel/sdk: go.opentelemetry.io/otel/sdk/log: go.opentelemetry.io/otel/trace:
+        OpenTelemetry-Go: Denial of Service via attribute truncation bypass using
+        Unicode replacement characters'
+      vulnerabilityID: CVE-2026-128085
+    - fixedVersion: 0.58.1-0.20261009181718-2f1f834330b2
+      installedVersion: v0.58.0
+      lastModifiedDate: ""
+      links: []
+      packagePURL: pkg:golang/golang.org/x/crypto@v0.58.0
+      publishedDate: ""
+      resource: golang.org/x/crypto
+      severity: UNKNOWN
+      target: ""
+      title: The golang.org/x/crypto/openpgp package is unmaintained, unsafe by design,
+        and has known security issues
+      vulnerabilityID: GO-2026-5932
+    - fixedVersion: 1.26.11, 1.27.4
+      installedVersion: v1.26.10
+      lastModifiedDate: "2026-11-16T16:17:56Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.26.10
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97054
+      publishedDate: "2026-11-11T05:19:58Z"
+      resource: stdlib
+      severity: UNKNOWN
+      target: ""
+      title: For HTTP/1 servers, when MaxBytesReader's limit is exceeded, "Connecti
+        ...
+      vulnerabilityID: CVE-2026-97054
+    - fixedVersion: 1.26.11, 1.27.4
+      installedVersion: v1.26.10
+      lastModifiedDate: "2026-11-16T16:17:56Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.26.10
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97054
+      publishedDate: "2026-11-11T05:19:58Z"
+      resource: stdlib
+      severity: UNKNOWN
+      target: ""
+      title: For HTTP/1 servers, when MaxBytesReader's limit is exceeded, "Connecti
+        ...
+      vulnerabilityID: CVE-2026-97054
+- apiVersion: aquasecurity.github.io/v1alpha1
+  kind: VulnerabilityReport
+  metadata:
+    annotations:
+      trivy-operator.aquasecurity.github.io/report-ttl: 24h0m0s
+    creationTimestamp: "2026-11-19T18:27:37Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/managed-by: trivy-operator
+      resource-spec-hash: c4cc4f87f
+      trivy-operator.container.name: flexvol-driver
+      trivy-operator.resource.kind: DaemonSet
+      trivy-operator.resource.name: calico-node
+      trivy-operator.resource.namespace: calico-system
+    name: daemonset-calico-node-flexvol-driver
+    namespace: calico-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: false
+      controller: true
+      kind: DaemonSet
+      name: calico-node
+      uid: 4d83c7da-06d1-592f-aebf-8f54ea1defe7
+    resourceVersion: "67914267"
+    uid: 77ef5e32-bdaf-5a18-81f6-a15c17b34e2d
+  report:
+    artifact:
+      digest: sha256:2d952c25775e438445427fe5926f14701785594182c9ae35592b250a6f153b69
+      repository: quay.io/calico/pod2daemon-flexvol
+      tag: v3.32.4
+    os:
+      family: redhat
+      name: "9.8"
+    registry:
+      server: harbor.example.com
+    scanner:
+      name: Trivy
+      vendor: Aqua Security
+      version: 0.75.0
+    summary:
+      criticalCount: 0
+      highCount: 0
+      lowCount: 0
+      mediumCount: 0
+      noneCount: 0
+      unknownCount: 1
+    updateTimestamp: "2026-11-19T18:27:37Z"
+    vulnerabilities:
+    - fixedVersion: 1.26.11, 1.27.4
+      installedVersion: v1.26.10
+      lastModifiedDate: "2026-11-16T16:17:56Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.26.10
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97054
+      publishedDate: "2026-11-11T05:19:58Z"
+      resource: stdlib
+      severity: UNKNOWN
+      target: ""
+      title: For HTTP/1 servers, when MaxBytesReader's limit is exceeded, "Connecti
+        ...
+      vulnerabilityID: CVE-2026-97054
+- apiVersion: aquasecurity.github.io/v1alpha1
+  kind: VulnerabilityReport
+  metadata:
+    annotations:
+      trivy-operator.aquasecurity.github.io/report-ttl: 24h0m0s
+    creationTimestamp: "2026-11-19T00:44:49Z"
+    generation: 2
+    labels:
+      app.kubernetes.io/managed-by: trivy-operator
+      resource-spec-hash: c4cc4f87f
+      trivy-operator.container.name: install-cni
+      trivy-operator.resource.kind: DaemonSet
+      trivy-operator.resource.name: calico-node
+      trivy-operator.resource.namespace: calico-system
+    name: daemonset-calico-node-install-cni
+    namespace: calico-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: false
+      controller: true
+      kind: DaemonSet
+      name: calico-node
+      uid: 4d83c7da-06d1-592f-aebf-8f54ea1defe7
+    resourceVersion: "67914268"
+    uid: c89699f3-b58a-5c0f-a54b-04040102c5ff
+  report:
+    artifact:
+      digest: sha256:a7fb275dccb6638c6dc7c16466c808a2839434f29f7e86f999a5a715e6da4809
+      repository: quay.io/calico/cni
+      tag: v3.32.4
+    os:
+      family: redhat
+      name: "9.8"
+    registry:
+      server: harbor.example.com
+    scanner:
+      name: Trivy
+      vendor: Aqua Security
+      version: 0.75.0
+    summary:
+      criticalCount: 0
+      highCount: 0
+      lowCount: 0
+      mediumCount: 1
+      noneCount: 0
+      unknownCount: 22
+    updateTimestamp: "2026-11-19T18:27:37Z"
+    vulnerabilities:
+    - fixedVersion: 1.47.0
+      installedVersion: v1.44.0
+      lastModifiedDate: "2026-11-18T05:19:02Z"
+      links: []
+      packagePURL: pkg:golang/go.opentelemetry.io/otel/trace@v1.44.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-128085
+      publishedDate: "2026-11-13T19:19:31Z"
+      resource: go.opentelemetry.io/otel/trace
+      score: 5.3
+      severity: MEDIUM
+      target: ""
+      title: 'go.opentelemetry.io/otel/sdk: go.opentelemetry.io/otel/sdk/log: go.opentelemetry.io/otel/trace:
+        OpenTelemetry-Go: Denial of Service via attribute truncation bypass using
+        Unicode replacement characters'
+      vulnerabilityID: CVE-2026-128085
+    - fixedVersion: 0.58.1-0.20261009181718-2f1f834330b2
+      installedVersion: v0.58.0
+      lastModifiedDate: ""
+      links: []
+      packagePURL: pkg:golang/golang.org/x/crypto@v0.58.0
+      publishedDate: ""
+      resource: golang.org/x/crypto
+      severity: UNKNOWN
+      target: ""
+      title: The golang.org/x/crypto/openpgp package is unmaintained, unsafe by design,
+        and has known security issues
+      vulnerabilityID: GO-2026-5932
+    - fixedVersion: 1.26.11, 1.27.4
+      installedVersion: v1.26.10
+      lastModifiedDate: "2026-11-16T16:17:56Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.26.10
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97054
+      publishedDate: "2026-11-11T05:19:58Z"
+      resource: stdlib
+      severity: UNKNOWN
+      target: ""
+      title: For HTTP/1 servers, when MaxBytesReader's limit is exceeded, "Connecti
+        ...
+      vulnerabilityID: CVE-2026-97054
+    - fixedVersion: 1.26.11, 1.27.4
+      installedVersion: v1.26.10
+      lastModifiedDate: "2026-11-16T16:17:56Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.26.10
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97054
+      publishedDate: "2026-11-11T05:19:58Z"
+      resource: stdlib
+      severity: UNKNOWN
+      target: ""
+      title: For HTTP/1 servers, when MaxBytesReader's limit is exceeded, "Connecti
+        ...
+      vulnerabilityID: CVE-2026-97054
+    - fixedVersion: 0.62.0
+      installedVersion: v0.58.0
+      lastModifiedDate: "2026-11-04T17:17:37Z"
+      links: []
+      packagePURL: pkg:golang/golang.org/x/net@v0.58.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-78661
+      publishedDate: "2026-10-27T22:18:05Z"
+      resource: golang.org/x/net
+      score: 7.5
+      severity: UNKNOWN
+      target: ""
+      title: 'golang.org/x/net/html: golang.org/x/net/html: Denial of Service via
+        crafted HTML input'
+      vulnerabilityID: CVE-2026-78661
+    - fixedVersion: 0.60.0
+      installedVersion: v0.58.0
+      lastModifiedDate: "2026-10-09T17:16:49Z"
+      links: []
+      packagePURL: pkg:golang/golang.org/x/net@v0.58.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-78669
+      publishedDate: "2026-10-08T23:17:04Z"
+      resource: golang.org/x/net
+      score: 7.5
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: net/http/internal/http2: golang.org/x/net/http2: net/http:
+        Denial of Service via excessive HTTP/2 SETTINGS frames'
+      vulnerabilityID: CVE-2026-78669
+    - fixedVersion: 0.60.0
+      installedVersion: v0.58.0
+      lastModifiedDate: "2026-10-09T16:35:35Z"
+      links: []
+      packagePURL: pkg:golang/golang.org/x/net@v0.58.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-78659
+      publishedDate: "2026-10-08T23:17:03Z"
+      resource: golang.org/x/net
+      score: 7.5
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: golang.org/x/net/http2: golang: net/http: Denial of Service
+        via HTTP/2 trailer header memory exhaustion'
+      vulnerabilityID: CVE-2026-78659
+    - fixedVersion: 0.60.0
+      installedVersion: v0.58.0
+      lastModifiedDate: "2026-10-09T17:16:49Z"
+      links: []
+      packagePURL: pkg:golang/golang.org/x/net@v0.58.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-78660
+      publishedDate: "2026-10-08T23:17:03Z"
+      resource: golang.org/x/net
+      score: 7.5
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: golang: golang.org/x/net/http2: net/http: HTTP response smuggling
+        via malformed HTTP/2 framing headers'
+      vulnerabilityID: CVE-2026-78660
+    - fixedVersion: 0.60.0
+      installedVersion: v0.58.0
+      lastModifiedDate: "2026-10-09T17:16:49Z"
+      links: []
+      packagePURL: pkg:golang/golang.org/x/net@v0.58.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-78663
+      publishedDate: "2026-10-08T23:17:03Z"
+      resource: golang.org/x/net
+      score: 9.1
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: net/http/internal/http2: golang: golang.org/x/net/http2: golang:
+        flow control limit bypass via double refund in HTTP/2 server'
+      vulnerabilityID: CVE-2026-78663
+    - fixedVersion: 0.60.0
+      installedVersion: v0.58.0
+      lastModifiedDate: "2026-10-15T16:18:24Z"
+      links: []
+      packagePURL: pkg:golang/golang.org/x/net@v0.58.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97032
+      publishedDate: "2026-10-08T23:17:06Z"
+      resource: golang.org/x/net
+      score: 5.9
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: net/http/internal/http2: golang: golang.org/x/net/http2: net/http:
+        Denial of Service via concurrent HPACK encoder modification'
+      vulnerabilityID: CVE-2026-97032
+    - fixedVersion: 0.62.0
+      installedVersion: v0.58.0
+      lastModifiedDate: "2026-11-04T17:17:38Z"
+      links: []
+      packagePURL: pkg:golang/golang.org/x/net@v0.58.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97045
+      publishedDate: "2026-10-27T22:19:22Z"
+      resource: golang.org/x/net
+      score: 6.1
+      severity: UNKNOWN
+      target: ""
+      title: 'golang.org/x/net/html: golang.org/x/net/html: Cross-Site Scripting via
+        improper namespace handling during HTML rendering'
+      vulnerabilityID: CVE-2026-97045
+    - fixedVersion: 1.26.11, 1.27.4
+      installedVersion: v1.26.10
+      lastModifiedDate: "2026-11-16T16:17:56Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.26.10
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97054
+      publishedDate: "2026-11-11T05:19:58Z"
+      resource: stdlib
+      severity: UNKNOWN
+      target: ""
+      title: For HTTP/1 servers, when MaxBytesReader's limit is exceeded, "Connecti
+        ...
+      vulnerabilityID: CVE-2026-97054
+    - fixedVersion: 1.26.11, 1.27.4
+      installedVersion: v1.26.10
+      lastModifiedDate: "2026-11-16T16:17:56Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.26.10
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97054
+      publishedDate: "2026-11-11T05:19:58Z"
+      resource: stdlib
+      severity: UNKNOWN
+      target: ""
+      title: For HTTP/1 servers, when MaxBytesReader's limit is exceeded, "Connecti
+        ...
+      vulnerabilityID: CVE-2026-97054
+    - fixedVersion: 1.26.11, 1.27.4
+      installedVersion: v1.26.10
+      lastModifiedDate: "2026-11-16T16:17:56Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.26.10
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97054
+      publishedDate: "2026-11-11T05:19:58Z"
+      resource: stdlib
+      severity: UNKNOWN
+      target: ""
+      title: For HTTP/1 servers, when MaxBytesReader's limit is exceeded, "Connecti
+        ...
+      vulnerabilityID: CVE-2026-97054
+    - fixedVersion: 0.62.0
+      installedVersion: v0.58.0
+      lastModifiedDate: "2026-11-04T17:17:37Z"
+      links: []
+      packagePURL: pkg:golang/golang.org/x/net@v0.58.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-78661
+      publishedDate: "2026-10-27T22:18:05Z"
+      resource: golang.org/x/net
+      score: 7.5
+      severity: UNKNOWN
+      target: ""
+      title: 'golang.org/x/net/html: golang.org/x/net/html: Denial of Service via
+        crafted HTML input'
+      vulnerabilityID: CVE-2026-78661
+    - fixedVersion: 0.60.0
+      installedVersion: v0.58.0
+      lastModifiedDate: "2026-10-09T17:16:49Z"
+      links: []
+      packagePURL: pkg:golang/golang.org/x/net@v0.58.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-78669
+      publishedDate: "2026-10-08T23:17:04Z"
+      resource: golang.org/x/net
+      score: 7.5
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: net/http/internal/http2: golang.org/x/net/http2: net/http:
+        Denial of Service via excessive HTTP/2 SETTINGS frames'
+      vulnerabilityID: CVE-2026-78669
+    - fixedVersion: 0.60.0
+      installedVersion: v0.58.0
+      lastModifiedDate: "2026-10-09T16:35:35Z"
+      links: []
+      packagePURL: pkg:golang/golang.org/x/net@v0.58.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-78659
+      publishedDate: "2026-10-08T23:17:03Z"
+      resource: golang.org/x/net
+      score: 7.5
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: golang.org/x/net/http2: golang: net/http: Denial of Service
+        via HTTP/2 trailer header memory exhaustion'
+      vulnerabilityID: CVE-2026-78659
+    - fixedVersion: 0.60.0
+      installedVersion: v0.58.0
+      lastModifiedDate: "2026-10-09T17:16:49Z"
+      links: []
+      packagePURL: pkg:golang/golang.org/x/net@v0.58.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-78660
+      publishedDate: "2026-10-08T23:17:03Z"
+      resource: golang.org/x/net
+      score: 7.5
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: golang: golang.org/x/net/http2: net/http: HTTP response smuggling
+        via malformed HTTP/2 framing headers'
+      vulnerabilityID: CVE-2026-78660
+    - fixedVersion: 0.60.0
+      installedVersion: v0.58.0
+      lastModifiedDate: "2026-10-09T17:16:49Z"
+      links: []
+      packagePURL: pkg:golang/golang.org/x/net@v0.58.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-78663
+      publishedDate: "2026-10-08T23:17:03Z"
+      resource: golang.org/x/net
+      score: 5.3
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: net/http/internal/http2: golang: golang.org/x/net/http2: golang:
+        flow control limit bypass via double refund in HTTP/2 server'
+      vulnerabilityID: CVE-2026-78663
+    - fixedVersion: 0.60.0
+      installedVersion: v0.58.0
+      lastModifiedDate: "2026-10-15T16:18:24Z"
+      links: []
+      packagePURL: pkg:golang/golang.org/x/net@v0.58.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97032
+      publishedDate: "2026-10-08T23:17:06Z"
+      resource: golang.org/x/net
+      score: 5.9
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: net/http/internal/http2: golang: golang.org/x/net/http2: net/http:
+        Denial of Service via concurrent HPACK encoder modification'
+      vulnerabilityID: CVE-2026-97032
+    - fixedVersion: 0.62.0
+      installedVersion: v0.58.0
+      lastModifiedDate: "2026-11-04T17:17:38Z"
+      links: []
+      packagePURL: pkg:golang/golang.org/x/net@v0.58.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97045
+      publishedDate: "2026-10-27T22:19:22Z"
+      resource: golang.org/x/net
+      score: 6.1
+      severity: UNKNOWN
+      target: ""
+      title: 'golang.org/x/net/html: golang.org/x/net/html: Cross-Site Scripting via
+        improper namespace handling during HTML rendering'
+      vulnerabilityID: CVE-2026-97045
+    - fixedVersion: 1.26.11, 1.27.4
+      installedVersion: v1.26.10
+      lastModifiedDate: "2026-11-16T16:17:56Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.26.10
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97054
+      publishedDate: "2026-11-11T05:19:58Z"
+      resource: stdlib
+      severity: UNKNOWN
+      target: ""
+      title: For HTTP/1 servers, when MaxBytesReader's limit is exceeded, "Connecti
+        ...
+      vulnerabilityID: CVE-2026-97054
+    - fixedVersion: 1.26.11, 1.27.4
+      installedVersion: v1.26.10
+      lastModifiedDate: "2026-11-16T16:17:56Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.26.10
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97054
+      publishedDate: "2026-11-11T05:19:58Z"
+      resource: stdlib
+      severity: UNKNOWN
+      target: ""
+      title: For HTTP/1 servers, when MaxBytesReader's limit is exceeded, "Connecti
+        ...
+      vulnerabilityID: CVE-2026-97054
+- apiVersion: aquasecurity.github.io/v1alpha1
+  kind: VulnerabilityReport
+  metadata:
+    annotations:
+      trivy-operator.aquasecurity.github.io/report-ttl: 24h0m0s
+    creationTimestamp: "2026-11-19T00:44:34Z"
+    generation: 2
+    labels:
+      app.kubernetes.io/managed-by: trivy-operator
+      resource-spec-hash: 544cc5c586
+      trivy-operator.container.name: install-cni
+      trivy-operator.resource.kind: DaemonSet
+      trivy-operator.resource.name: istio-cni-node
+      trivy-operator.resource.namespace: calico-system
+    name: daemonset-istio-cni-node-install-cni
+    namespace: calico-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: false
+      controller: true
+      kind: DaemonSet
+      name: istio-cni-node
+      uid: 5bbd0455-54b7-528c-8e21-009bd8be8f1b
+    resourceVersion: "67913887"
+    uid: 0b404a60-b044-540e-aeea-451e53fe03e4
+  report:
+    artifact:
+      digest: sha256:f4ac6672f0915393f46dbf759de59ccef72bbd85ff7e2e1edaa529e53159848a
+      repository: quay.io/calico/istio-install-cni
+      tag: v3.32.4
+    os:
+      family: redhat
+      name: "9.8"
+    registry:
+      server: harbor.example.com
+    scanner:
+      name: Trivy
+      vendor: Aqua Security
+      version: 0.75.0
+    summary:
+      criticalCount: 0
+      highCount: 1
+      lowCount: 0
+      mediumCount: 4
+      noneCount: 0
+      unknownCount: 8
+    updateTimestamp: "2026-11-19T18:27:21Z"
+    vulnerabilities:
+    - fixedVersion: 1.47.0
+      installedVersion: v1.46.0
+      lastModifiedDate: "2026-11-18T05:19:02Z"
+      links: []
+      packagePURL: pkg:golang/go.opentelemetry.io/otel/sdk@v1.46.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-128085
+      publishedDate: "2026-11-13T19:19:31Z"
+      resource: go.opentelemetry.io/otel/sdk
+      score: 5.3
+      severity: MEDIUM
+      target: ""
+      title: 'go.opentelemetry.io/otel/sdk: go.opentelemetry.io/otel/sdk/log: go.opentelemetry.io/otel/trace:
+        OpenTelemetry-Go: Denial of Service via attribute truncation bypass using
+        Unicode replacement characters'
+      vulnerabilityID: CVE-2026-128085
+    - fixedVersion: 1.47.0
+      installedVersion: v1.46.0
+      lastModifiedDate: "2026-11-18T05:19:02Z"
+      links: []
+      packagePURL: pkg:golang/go.opentelemetry.io/otel/trace@v1.46.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-128085
+      publishedDate: "2026-11-13T19:19:31Z"
+      resource: go.opentelemetry.io/otel/trace
+      score: 5.3
+      severity: MEDIUM
+      target: ""
+      title: 'go.opentelemetry.io/otel/sdk: go.opentelemetry.io/otel/sdk/log: go.opentelemetry.io/otel/trace:
+        OpenTelemetry-Go: Denial of Service via attribute truncation bypass using
+        Unicode replacement characters'
+      vulnerabilityID: CVE-2026-128085
+    - fixedVersion: 0.58.1-0.20261009181718-2f1f834330b2
+      installedVersion: v0.58.0
+      lastModifiedDate: ""
+      links: []
+      packagePURL: pkg:golang/golang.org/x/crypto@v0.58.0
+      publishedDate: ""
+      resource: golang.org/x/crypto
+      severity: UNKNOWN
+      target: ""
+      title: The golang.org/x/crypto/openpgp package is unmaintained, unsafe by design,
+        and has known security issues
+      vulnerabilityID: GO-2026-5932
+    - fixedVersion: 0.62.0
+      installedVersion: v0.61.0
+      lastModifiedDate: "2026-11-04T17:17:37Z"
+      links: []
+      packagePURL: pkg:golang/golang.org/x/net@v0.61.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-78661
+      publishedDate: "2026-10-27T22:18:05Z"
+      resource: golang.org/x/net
+      score: 7.5
+      severity: UNKNOWN
+      target: ""
+      title: 'golang.org/x/net/html: golang.org/x/net/html: Denial of Service via
+        crafted HTML input'
+      vulnerabilityID: CVE-2026-78661
+    - fixedVersion: 0.62.0
+      installedVersion: v0.61.0
+      lastModifiedDate: "2026-11-04T17:17:38Z"
+      links: []
+      packagePURL: pkg:golang/golang.org/x/net@v0.61.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97045
+      publishedDate: "2026-10-27T22:19:22Z"
+      resource: golang.org/x/net
+      score: 6.1
+      severity: UNKNOWN
+      target: ""
+      title: 'golang.org/x/net/html: golang.org/x/net/html: Cross-Site Scripting via
+        improper namespace handling during HTML rendering'
+      vulnerabilityID: CVE-2026-97045
+    - fixedVersion: 1.26.11, 1.27.4
+      installedVersion: v1.26.10
+      lastModifiedDate: "2026-11-16T16:17:56Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.26.10
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97054
+      publishedDate: "2026-11-11T05:19:58Z"
+      resource: stdlib
+      severity: UNKNOWN
+      target: ""
+      title: For HTTP/1 servers, when MaxBytesReader's limit is exceeded, "Connecti
+        ...
+      vulnerabilityID: CVE-2026-97054
+    - fixedVersion: 4.1.6
+      installedVersion: v4.1.5
+      lastModifiedDate: "2026-10-27T15:16:40Z"
+      links: []
+      packagePURL: pkg:golang/github.com/go-jose/go-jose/v4@v4.1.5
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-116587
+      publishedDate: "2026-10-26T22:16:55Z"
+      resource: github.com/go-jose/go-jose/v4
+      score: 7.5
+      severity: HIGH
+      target: ""
+      title: 'github.com/go-jose/go-jose: go-jose: Denial of Service via crafted RSA
+        parameters in JWKs'
+      vulnerabilityID: CVE-2026-116587
+    - fixedVersion: 1.47.0
+      installedVersion: v1.46.0
+      lastModifiedDate: "2026-11-18T05:19:02Z"
+      links: []
+      packagePURL: pkg:golang/go.opentelemetry.io/otel/sdk@v1.46.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-128085
+      publishedDate: "2026-11-13T19:19:31Z"
+      resource: go.opentelemetry.io/otel/sdk
+      score: 5.3
+      severity: MEDIUM
+      target: ""
+      title: 'go.opentelemetry.io/otel/sdk: go.opentelemetry.io/otel/sdk/log: go.opentelemetry.io/otel/trace:
+        OpenTelemetry-Go: Denial of Service via attribute truncation bypass using
+        Unicode replacement characters'
+      vulnerabilityID: CVE-2026-128085
+    - fixedVersion: 1.47.0
+      installedVersion: v1.46.0
+      lastModifiedDate: "2026-11-18T05:19:02Z"
+      links: []
+      packagePURL: pkg:golang/go.opentelemetry.io/otel/trace@v1.46.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-128085
+      publishedDate: "2026-11-13T19:19:31Z"
+      resource: go.opentelemetry.io/otel/trace
+      score: 5.3
+      severity: MEDIUM
+      target: ""
+      title: 'go.opentelemetry.io/otel/sdk: go.opentelemetry.io/otel/sdk/log: go.opentelemetry.io/otel/trace:
+        OpenTelemetry-Go: Denial of Service via attribute truncation bypass using
+        Unicode replacement characters'
+      vulnerabilityID: CVE-2026-128085
+    - fixedVersion: 0.58.1-0.20261009181718-2f1f834330b2
+      installedVersion: v0.58.0
+      lastModifiedDate: ""
+      links: []
+      packagePURL: pkg:golang/golang.org/x/crypto@v0.58.0
+      publishedDate: ""
+      resource: golang.org/x/crypto
+      severity: UNKNOWN
+      target: ""
+      title: The golang.org/x/crypto/openpgp package is unmaintained, unsafe by design,
+        and has known security issues
+      vulnerabilityID: GO-2026-5932
+    - fixedVersion: 0.62.0
+      installedVersion: v0.61.0
+      lastModifiedDate: "2026-11-04T17:17:37Z"
+      links: []
+      packagePURL: pkg:golang/golang.org/x/net@v0.61.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-78661
+      publishedDate: "2026-10-27T22:18:05Z"
+      resource: golang.org/x/net
+      score: 7.5
+      severity: UNKNOWN
+      target: ""
+      title: 'golang.org/x/net/html: golang.org/x/net/html: Denial of Service via
+        crafted HTML input'
+      vulnerabilityID: CVE-2026-78661
+    - fixedVersion: 0.62.0
+      installedVersion: v0.61.0
+      lastModifiedDate: "2026-11-04T17:17:38Z"
+      links: []
+      packagePURL: pkg:golang/golang.org/x/net@v0.61.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97045
+      publishedDate: "2026-10-27T22:19:22Z"
+      resource: golang.org/x/net
+      score: 6.1
+      severity: UNKNOWN
+      target: ""
+      title: 'golang.org/x/net/html: golang.org/x/net/html: Cross-Site Scripting via
+        improper namespace handling during HTML rendering'
+      vulnerabilityID: CVE-2026-97045
+    - fixedVersion: 1.26.11, 1.27.4
+      installedVersion: v1.26.10
+      lastModifiedDate: "2026-11-16T16:17:56Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.26.10
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97054
+      publishedDate: "2026-11-11T05:19:58Z"
+      resource: stdlib
+      severity: UNKNOWN
+      target: ""
+      title: For HTTP/1 servers, when MaxBytesReader's limit is exceeded, "Connecti
+        ...
+      vulnerabilityID: CVE-2026-97054
+- apiVersion: aquasecurity.github.io/v1alpha1
+  kind: VulnerabilityReport
+  metadata:
+    annotations:
+      trivy-operator.aquasecurity.github.io/report-ttl: 24h0m0s
+    creationTimestamp: "2026-11-19T00:45:28Z"
+    generation: 2
+    labels:
+      app.kubernetes.io/managed-by: trivy-operator
+      resource-spec-hash: 5769d68744
+      trivy-operator.container.name: istio-proxy
+      trivy-operator.resource.kind: DaemonSet
+      trivy-operator.resource.name: ztunnel
+      trivy-operator.resource.namespace: calico-system
+    name: daemonset-ztunnel-istio-proxy
+    namespace: calico-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: false
+      controller: true
+      kind: DaemonSet
+      name: ztunnel
+      uid: a687e3df-2e4c-55bc-a5dd-fe8ef605995a
+    resourceVersion: "67913630"
+    uid: 10d6b2a1-4484-5f6a-9ecc-d5d63278984d
+  report:
+    artifact:
+      digest: sha256:b6da1816621a118c439a3562cecf2af7106fe796a5a38c1e2fca192c65fbb1b4
+      repository: quay.io/calico/istio-ztunnel
+      tag: v3.32.4
+    os:
+      family: redhat
+      name: "9.8"
+    registry:
+      server: harbor.example.com
+    scanner:
+      name: Trivy
+      vendor: Aqua Security
+      version: 0.75.0
+    summary:
+      criticalCount: 0
+      highCount: 0
+      lowCount: 6
+      mediumCount: 2
+      noneCount: 0
+      unknownCount: 0
+    updateTimestamp: "2026-11-19T18:27:15Z"
+    vulnerabilities:
+    - fixedVersion: 0.9.3, 0.10.1, 0.8.6
+      installedVersion: 0.7.3
+      lastModifiedDate: "2026-04-22T20:13:40Z"
+      links: []
+      packagePURL: pkg:cargo/rand@0.7.3
+      primaryLink: https://github.com/advisories/GHSA-cq8v-f236-94qc
+      publishedDate: "2026-04-14T01:03:36Z"
+      resource: rand
+      severity: LOW
+      target: ""
+      title: Rand is unsound with a custom logger using rand::rng()
+      vulnerabilityID: GHSA-cq8v-f236-94qc
+    - fixedVersion: 0.9.3, 0.10.1, 0.8.6
+      installedVersion: 0.8.5
+      lastModifiedDate: "2026-04-22T20:13:40Z"
+      links: []
+      packagePURL: pkg:cargo/rand@0.8.5
+      primaryLink: https://github.com/advisories/GHSA-cq8v-f236-94qc
+      publishedDate: "2026-04-14T01:03:36Z"
+      resource: rand
+      severity: LOW
+      target: ""
+      title: Rand is unsound with a custom logger using rand::rng()
+      vulnerabilityID: GHSA-cq8v-f236-94qc
+    - fixedVersion: 0.9.3, 0.10.1, 0.8.6
+      installedVersion: 0.9.2
+      lastModifiedDate: "2026-04-22T20:13:40Z"
+      links: []
+      packagePURL: pkg:cargo/rand@0.9.2
+      primaryLink: https://github.com/advisories/GHSA-cq8v-f236-94qc
+      publishedDate: "2026-04-14T01:03:36Z"
+      resource: rand
+      severity: LOW
+      target: ""
+      title: Rand is unsound with a custom logger using rand::rng()
+      vulnerabilityID: GHSA-cq8v-f236-94qc
+    - fixedVersion: 0.23.45
+      installedVersion: 0.23.44
+      lastModifiedDate: "2026-10-27T15:14:38Z"
+      links: []
+      packagePURL: pkg:cargo/rustls@0.23.44
+      primaryLink: https://github.com/advisories/GHSA-2mjx-qc3c-rqvc
+      publishedDate: "2026-10-05T23:30:17Z"
+      resource: rustls
+      score: 5.3
+      severity: MEDIUM
+      target: ""
+      title: 'Rustls: TLS 1.3 handshake messages incorrectly accepted across encryption
+        level boundaries'
+      vulnerabilityID: GHSA-2mjx-qc3c-rqvc
+    - fixedVersion: 0.23.46, 0.24.0-dev.2
+      installedVersion: 0.23.44
+      lastModifiedDate: "2026-10-27T16:08:47Z"
+      links: []
+      packagePURL: pkg:cargo/rustls@0.23.44
+      primaryLink: https://github.com/advisories/GHSA-c8m5-c952-6cm4
+      publishedDate: "2026-10-27T16:08:47Z"
+      resource: rustls
+      score: 4
+      severity: MEDIUM
+      target: ""
+      title: 'Rustls: Session Debug formatting exposes TLS master secrets and resumption
+        PSKs'
+      vulnerabilityID: GHSA-c8m5-c952-6cm4
+    - fixedVersion: 0.23.46, 0.24.0-dev.2
+      installedVersion: 0.23.44
+      lastModifiedDate: "2026-10-27T16:08:36Z"
+      links: []
+      packagePURL: pkg:cargo/rustls@0.23.44
+      primaryLink: https://github.com/advisories/GHSA-h2v8-394m-p7vv
+      publishedDate: "2026-10-27T16:08:36Z"
+      resource: rustls
+      score: 3.7
+      severity: LOW
+      target: ""
+      title: 'Rustls: Brotli certificate decompression can allocate an attacker-controlled
+        amount of memory up to 1 GiB before authentication.'
+      vulnerabilityID: GHSA-h2v8-394m-p7vv
+    - fixedVersion: 0.23.46, 0.24.0-dev.2
+      installedVersion: 0.23.44
+      lastModifiedDate: "2026-10-27T16:09:00Z"
+      links: []
+      packagePURL: pkg:cargo/rustls@0.23.44
+      primaryLink: https://github.com/advisories/GHSA-vp88-798v-h67f
+      publishedDate: "2026-10-27T16:08:59Z"
+      resource: rustls
+      score: 2.3
+      severity: LOW
+      target: ""
+      title: 'rustls: ECH rejection can expose buffered application data to authenticated
+        outer server before `ech_required` alert'
+      vulnerabilityID: GHSA-vp88-798v-h67f
+    - fixedVersion: 0.23.46, 0.24.0-dev.2
+      installedVersion: 0.23.44
+      lastModifiedDate: "2026-10-27T16:08:54Z"
+      links: []
+      packagePURL: pkg:cargo/rustls@0.23.44
+      primaryLink: https://github.com/advisories/GHSA-w44r-93j7-qv28
+      publishedDate: "2026-10-27T16:08:54Z"
+      resource: rustls
+      score: 3.7
+      severity: LOW
+      target: ""
+      title: 'rustls: An unauthenticated ServerHello poisons the per-name key-exchange
+        record, so later ClientHellos carry only a classical X25519 share'
+      vulnerabilityID: GHSA-w44r-93j7-qv28
+- apiVersion: aquasecurity.github.io/v1alpha1
+  kind: VulnerabilityReport
+  metadata:
+    annotations:
+      trivy-operator.aquasecurity.github.io/report-ttl: 24h0m0s
+    creationTimestamp: "2026-11-19T18:28:24Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/managed-by: trivy-operator
+      resource-spec-hash: 9b78c875c
+      trivy-operator.container.name: calico-kube-controllers
+      trivy-operator.resource.kind: ReplicaSet
+      trivy-operator.resource.name: calico-kube-controllers-648fcbfd5b
+      trivy-operator.resource.namespace: calico-system
+    name: replicaset-59478877b9
+    namespace: calico-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: false
+      controller: true
+      kind: ReplicaSet
+      name: calico-kube-controllers-648fcbfd5b
+      uid: 9a419af4-7fa8-5841-bdd0-3f3829e135b0
+    resourceVersion: "67914962"
+    uid: b63332ab-1c19-53d1-adbf-ea4b515b62da
+  report:
+    artifact:
+      digest: sha256:6f95752c620858ae76c48f0a078788b7481fe3ab5a8be5140836621beb9d8b06
+      repository: quay.io/calico/kube-controllers
+      tag: v3.32.4
+    os:
+      family: redhat
+      name: "9.8"
+    registry:
+      server: harbor.example.com
+    scanner:
+      name: Trivy
+      vendor: Aqua Security
+      version: 0.75.0
+    summary:
+      criticalCount: 0
+      highCount: 0
+      lowCount: 3
+      mediumCount: 2
+      noneCount: 0
+      unknownCount: 4
+    updateTimestamp: "2026-11-19T18:28:24Z"
+    vulnerabilities:
+    - fixedVersion: 1.26.11, 1.27.4
+      installedVersion: v1.26.10
+      lastModifiedDate: "2026-11-16T16:17:56Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.26.10
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97054
+      publishedDate: "2026-11-11T05:19:58Z"
+      resource: stdlib
+      severity: UNKNOWN
+      target: ""
+      title: For HTTP/1 servers, when MaxBytesReader's limit is exceeded, "Connecti
+        ...
+      vulnerabilityID: CVE-2026-97054
+    - fixedVersion: 1.45.0
+      installedVersion: v1.40.0
+      lastModifiedDate: "2026-09-30T17:51:56Z"
+      links: []
+      packagePURL: pkg:golang/go.opentelemetry.io/otel/exporters/otlp/otlptrace@v1.40.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-81870
+      publishedDate: "2026-09-16T20:17:32Z"
+      resource: go.opentelemetry.io/otel/exporters/otlp/otlptrace
+      score: 3.3
+      severity: LOW
+      target: ""
+      title: 'github.com/open-telemetry/opentelemetry-go: OpenTelemetry-Go: Information
+        disclosure via exporter configuration logging'
+      vulnerabilityID: CVE-2026-81870
+    - fixedVersion: 1.45.0
+      installedVersion: v1.40.0
+      lastModifiedDate: "2026-09-30T17:51:56Z"
+      links: []
+      packagePURL: pkg:golang/go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc@v1.40.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-81870
+      publishedDate: "2026-09-16T20:17:32Z"
+      resource: go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc
+      severity: LOW
+      target: ""
+      title: 'github.com/open-telemetry/opentelemetry-go: OpenTelemetry-Go: Information
+        disclosure via exporter configuration logging'
+      vulnerabilityID: CVE-2026-81870
+    - fixedVersion: 1.47.0
+      installedVersion: v1.44.0
+      lastModifiedDate: "2026-11-18T05:19:02Z"
+      links: []
+      packagePURL: pkg:golang/go.opentelemetry.io/otel/sdk@v1.44.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-128085
+      publishedDate: "2026-11-13T19:19:31Z"
+      resource: go.opentelemetry.io/otel/sdk
+      score: 5.3
+      severity: MEDIUM
+      target: ""
+      title: 'go.opentelemetry.io/otel/sdk: go.opentelemetry.io/otel/sdk/log: go.opentelemetry.io/otel/trace:
+        OpenTelemetry-Go: Denial of Service via attribute truncation bypass using
+        Unicode replacement characters'
+      vulnerabilityID: CVE-2026-128085
+    - fixedVersion: 1.45.0
+      installedVersion: v1.44.0
+      lastModifiedDate: "2026-09-30T17:51:56Z"
+      links: []
+      packagePURL: pkg:golang/go.opentelemetry.io/otel/sdk@v1.44.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-81870
+      publishedDate: "2026-09-16T20:17:32Z"
+      resource: go.opentelemetry.io/otel/sdk
+      score: 3.3
+      severity: LOW
+      target: ""
+      title: 'github.com/open-telemetry/opentelemetry-go: OpenTelemetry-Go: Information
+        disclosure via exporter configuration logging'
+      vulnerabilityID: CVE-2026-81870
+    - fixedVersion: 1.47.0
+      installedVersion: v1.44.0
+      lastModifiedDate: "2026-11-18T05:19:02Z"
+      links: []
+      packagePURL: pkg:golang/go.opentelemetry.io/otel/trace@v1.44.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-128085
+      publishedDate: "2026-11-13T19:19:31Z"
+      resource: go.opentelemetry.io/otel/trace
+      score: 5.3
+      severity: MEDIUM
+      target: ""
+      title: 'go.opentelemetry.io/otel/sdk: go.opentelemetry.io/otel/sdk/log: go.opentelemetry.io/otel/trace:
+        OpenTelemetry-Go: Denial of Service via attribute truncation bypass using
+        Unicode replacement characters'
+      vulnerabilityID: CVE-2026-128085
+    - fixedVersion: 0.58.1-0.20261009181718-2f1f834330b2
+      installedVersion: v0.58.0
+      lastModifiedDate: ""
+      links: []
+      packagePURL: pkg:golang/golang.org/x/crypto@v0.58.0
+      publishedDate: ""
+      resource: golang.org/x/crypto
+      severity: UNKNOWN
+      target: ""
+      title: The golang.org/x/crypto/openpgp package is unmaintained, unsafe by design,
+        and has known security issues
+      vulnerabilityID: GO-2026-5932
+    - fixedVersion: 1.26.11, 1.27.4
+      installedVersion: v1.26.10
+      lastModifiedDate: "2026-11-16T16:17:56Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.26.10
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97054
+      publishedDate: "2026-11-11T05:19:58Z"
+      resource: stdlib
+      severity: UNKNOWN
+      target: ""
+      title: For HTTP/1 servers, when MaxBytesReader's limit is exceeded, "Connecti
+        ...
+      vulnerabilityID: CVE-2026-97054
+    - fixedVersion: 1.26.11, 1.27.4
+      installedVersion: v1.26.10
+      lastModifiedDate: "2026-11-16T16:17:56Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.26.10
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97054
+      publishedDate: "2026-11-11T05:19:58Z"
+      resource: stdlib
+      severity: UNKNOWN
+      target: ""
+      title: For HTTP/1 servers, when MaxBytesReader's limit is exceeded, "Connecti
+        ...
+      vulnerabilityID: CVE-2026-97054
+- apiVersion: aquasecurity.github.io/v1alpha1
+  kind: VulnerabilityReport
+  metadata:
+    annotations:
+      trivy-operator.aquasecurity.github.io/report-ttl: 24h0m0s
+    creationTimestamp: "2026-11-19T00:47:34Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/managed-by: trivy-operator
+      resource-spec-hash: bff779ff9
+      trivy-operator.container.name: calico-kube-controllers
+      trivy-operator.resource.kind: ReplicaSet
+      trivy-operator.resource.name: calico-kube-controllers-84c8f7cd8d
+      trivy-operator.resource.namespace: calico-system
+    name: replicaset-b5f987b58
+    namespace: calico-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: false
+      controller: true
+      kind: ReplicaSet
+      name: calico-kube-controllers-84c8f7cd8d
+      uid: 19c17305-e6cd-5299-a5c8-e009581e4126
+    resourceVersion: "67557274"
+    uid: 7fb6ee3d-2962-53b1-a22b-0dcde6beec33
+  report:
+    artifact:
+      digest: sha256:7870b67ebb13fabc3005252b44fe6e78b21635649bd3072b80afa1684b6565d0
+      repository: quay.io/calico/kube-controllers
+      tag: v3.32.2
+    os:
+      family: redhat
+      name: "9.8"
+    registry:
+      server: harbor.example.com
+    scanner:
+      name: Trivy
+      vendor: Aqua Security
+      version: 0.75.0
+    summary:
+      criticalCount: 0
+      highCount: 2
+      lowCount: 3
+      mediumCount: 3
+      noneCount: 0
+      unknownCount: 62
+    updateTimestamp: "2026-11-19T00:47:34Z"
+    vulnerabilities:
+    - fixedVersion: 1.26.10, 1.27.3
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-30T13:18:28Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-111943
+      publishedDate: "2026-10-21T01:17:20Z"
+      resource: stdlib
+      score: 6.8
+      severity: UNKNOWN
+      target: ""
+      title: 'crypto/x509: golang: crypto/x509: Man-in-the-middle attacks via untrusted
+        intermediate certificates'
+      vulnerabilityID: CVE-2026-111943
+    - fixedVersion: 1.26.9, 1.27.2
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-09T17:16:49Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-78667
+      publishedDate: "2026-10-08T23:17:03Z"
+      resource: stdlib
+      score: 7.5
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: golang: golang: Denial of Service via crafted HTTP Range headers'
+      vulnerabilityID: CVE-2026-78667
+    - fixedVersion: 1.26.9, 1.27.2
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-09T17:16:49Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-78669
+      publishedDate: "2026-10-08T23:17:04Z"
+      resource: stdlib
+      score: 7.5
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: net/http/internal/http2: golang.org/x/net/http2: net/http:
+        Denial of Service via excessive HTTP/2 SETTINGS frames'
+      vulnerabilityID: CVE-2026-78669
+    - fixedVersion: 1.26.9, 1.27.2
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-09T16:35:35Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97031
+      publishedDate: "2026-10-08T23:17:06Z"
+      resource: stdlib
+      score: 7.5
+      severity: UNKNOWN
+      target: ""
+      title: 'crypto/tls: golang: crypto/tls: Denial of Service via multiple ECH outer
+        extension references'
+      vulnerabilityID: CVE-2026-97031
+    - fixedVersion: 1.26.9, 1.27.2
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-09T16:35:35Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-56866
+      publishedDate: "2026-10-08T23:17:01Z"
+      resource: stdlib
+      score: 6.5
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: golang: golang: Cross-user response poisoning via desynchronized
+        HTTP CONNECT connections'
+      vulnerabilityID: CVE-2026-56866
+    - fixedVersion: 1.26.9, 1.27.2
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-09T16:35:35Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-78659
+      publishedDate: "2026-10-08T23:17:03Z"
+      resource: stdlib
+      score: 7.5
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: golang.org/x/net/http2: golang: net/http: Denial of Service
+        via HTTP/2 trailer header memory exhaustion'
+      vulnerabilityID: CVE-2026-78659
+    - fixedVersion: 1.26.9, 1.27.2
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-09T17:16:49Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-78660
+      publishedDate: "2026-10-08T23:17:03Z"
+      resource: stdlib
+      score: 7.5
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: golang: golang.org/x/net/http2: net/http: HTTP response smuggling
+        via malformed HTTP/2 framing headers'
+      vulnerabilityID: CVE-2026-78660
+    - fixedVersion: 1.26.9, 1.27.2
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-09T17:16:49Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-78663
+      publishedDate: "2026-10-08T23:17:03Z"
+      resource: stdlib
+      score: 5.3
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: net/http/internal/http2: golang: golang.org/x/net/http2: golang:
+        flow control limit bypass via double refund in HTTP/2 server'
+      vulnerabilityID: CVE-2026-78663
+    - fixedVersion: 1.26.9, 1.27.2
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-09T17:16:50Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-94439
+      publishedDate: "2026-10-08T23:17:04Z"
+      resource: stdlib
+      score: 6.5
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: golang: net/http: HTTP request smuggling via improper handling
+        of HTTP/1 CONNECT responses'
+      vulnerabilityID: CVE-2026-94439
+    - fixedVersion: 1.26.9, 1.27.2
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-09T17:16:50Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-94440
+      publishedDate: "2026-10-08T23:17:04Z"
+      resource: stdlib
+      score: 7.5
+      severity: UNKNOWN
+      target: ""
+      title: 'net/textproto: mime/multipart: golang: golang: Denial of Service via
+        memory limit bypass in multipart form parsing'
+      vulnerabilityID: CVE-2026-94440
+    - fixedVersion: 1.26.9, 1.27.2
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-15T16:18:24Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-94448
+      publishedDate: "2026-10-08T23:17:05Z"
+      resource: stdlib
+      score: 6.1
+      severity: UNKNOWN
+      target: ""
+      title: 'html/template: golang: golang: cross-site scripting via consecutive
+        expressions in JavaScript template literals'
+      vulnerabilityID: CVE-2026-94448
+    - fixedVersion: 1.26.9, 1.27.2
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-15T16:18:24Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97030
+      publishedDate: "2026-10-08T23:17:05Z"
+      resource: stdlib
+      score: 6.1
+      severity: UNKNOWN
+      target: ""
+      title: 'html/template: golang: html/template: Cross-site scripting via improper
+        escaping of yield keyword'
+      vulnerabilityID: CVE-2026-97030
+    - fixedVersion: 1.26.9, 1.27.2
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-15T16:18:24Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97032
+      publishedDate: "2026-10-08T23:17:06Z"
+      resource: stdlib
+      score: 5.9
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: net/http/internal/http2: golang: golang.org/x/net/http2: net/http:
+        Denial of Service via concurrent HPACK encoder modification'
+      vulnerabilityID: CVE-2026-97032
+    - fixedVersion: 1.26.11, 1.27.4
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-11-16T16:17:56Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97054
+      publishedDate: "2026-11-11T05:19:58Z"
+      resource: stdlib
+      severity: UNKNOWN
+      target: ""
+      title: For HTTP/1 servers, when MaxBytesReader's limit is exceeded, "Connecti
+        ...
+      vulnerabilityID: CVE-2026-97054
+    - fixedVersion: 1.26.9, 1.27.2
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-09T16:35:35Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-56857
+      publishedDate: "2026-10-08T23:17:01Z"
+      resource: stdlib
+      score: 3.3
+      severity: UNKNOWN
+      target: ""
+      title: 'os: golang: golang: Directory traversal via Windows junction handling'
+      vulnerabilityID: CVE-2026-56857
+    - fixedVersion: 1.45.0
+      installedVersion: v1.37.0
+      lastModifiedDate: "2026-09-30T17:51:56Z"
+      links: []
+      packagePURL: pkg:golang/go.opentelemetry.io/otel/exporters/otlp/otlptrace@v1.37.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-81870
+      publishedDate: "2026-09-16T20:17:32Z"
+      resource: go.opentelemetry.io/otel/exporters/otlp/otlptrace
+      score: 3.3
+      severity: LOW
+      target: ""
+      title: 'github.com/open-telemetry/opentelemetry-go: OpenTelemetry-Go: Information
+        disclosure via exporter configuration logging'
+      vulnerabilityID: CVE-2026-81870
+    - fixedVersion: 1.45.0
+      installedVersion: v1.37.0
+      lastModifiedDate: "2026-09-30T17:51:56Z"
+      links: []
+      packagePURL: pkg:golang/go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc@v1.37.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-81870
+      publishedDate: "2026-09-16T20:17:32Z"
+      resource: go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc
+      score: 3.3
+      severity: LOW
+      target: ""
+      title: 'github.com/open-telemetry/opentelemetry-go: OpenTelemetry-Go: Information
+        disclosure via exporter configuration logging'
+      vulnerabilityID: CVE-2026-81870
+    - fixedVersion: 1.47.0
+      installedVersion: v1.44.0
+      lastModifiedDate: "2026-11-18T05:19:02Z"
+      links: []
+      packagePURL: pkg:golang/go.opentelemetry.io/otel/sdk@v1.44.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-128085
+      publishedDate: "2026-11-13T19:19:31Z"
+      resource: go.opentelemetry.io/otel/sdk
+      score: 5.3
+      severity: MEDIUM
+      target: ""
+      title: 'go.opentelemetry.io/otel/sdk: go.opentelemetry.io/otel/sdk/log: go.opentelemetry.io/otel/trace:
+        OpenTelemetry-Go: Denial of Service via attribute truncation bypass using
+        Unicode replacement characters'
+      vulnerabilityID: CVE-2026-128085
+    - fixedVersion: 1.45.0
+      installedVersion: v1.44.0
+      lastModifiedDate: "2026-09-30T17:51:56Z"
+      links: []
+      packagePURL: pkg:golang/go.opentelemetry.io/otel/sdk@v1.44.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-81870
+      publishedDate: "2026-09-16T20:17:32Z"
+      resource: go.opentelemetry.io/otel/sdk
+      score: 3.3
+      severity: LOW
+      target: ""
+      title: 'github.com/open-telemetry/opentelemetry-go: OpenTelemetry-Go: Information
+        disclosure via exporter configuration logging'
+      vulnerabilityID: CVE-2026-81870
+    - fixedVersion: 1.47.0
+      installedVersion: v1.44.0
+      lastModifiedDate: "2026-11-18T05:19:02Z"
+      links: []
+      packagePURL: pkg:golang/go.opentelemetry.io/otel/trace@v1.44.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-128085
+      publishedDate: "2026-11-13T19:19:31Z"
+      resource: go.opentelemetry.io/otel/trace
+      score: 5.3
+      severity: MEDIUM
+      target: ""
+      title: 'go.opentelemetry.io/otel/sdk: go.opentelemetry.io/otel/sdk/log: go.opentelemetry.io/otel/trace:
+        OpenTelemetry-Go: Denial of Service via attribute truncation bypass using
+        Unicode replacement characters'
+      vulnerabilityID: CVE-2026-128085
+    - fixedVersion: 0.56.0
+      installedVersion: v0.55.0
+      lastModifiedDate: "2026-09-04T16:34:56Z"
+      links: []
+      packagePURL: pkg:golang/golang.org/x/crypto@v0.55.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-56855
+      publishedDate: "2026-09-02T20:17:36Z"
+      resource: golang.org/x/crypto
+      score: 5.3
+      severity: UNKNOWN
+      target: ""
+      title: 'golang.org/x/crypto/ssh: golang.org/x/crypto/ssh: Denial of Service
+        via crafted messages'
+      vulnerabilityID: CVE-2026-56855
+    - fixedVersion: 0.56.0
+      installedVersion: v0.55.0
+      lastModifiedDate: "2026-09-04T16:33:34Z"
+      links: []
+      packagePURL: pkg:golang/golang.org/x/crypto@v0.55.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-78662
+      publishedDate: "2026-09-02T20:17:37Z"
+      resource: golang.org/x/crypto
+      score: 5.3
+      severity: UNKNOWN
+      target: ""
+      title: 'golang.org/x/crypto/ssh: golang.org/x/crypto/ssh: Denial of Service
+        via channel request flooding'
+      vulnerabilityID: CVE-2026-78662
+    - fixedVersion: 0.58.1-0.20261009181718-2f1f834330b2
+      installedVersion: v0.55.0
+      lastModifiedDate: ""
+      links: []
+      packagePURL: pkg:golang/golang.org/x/crypto@v0.55.0
+      publishedDate: ""
+      resource: golang.org/x/crypto
+      severity: UNKNOWN
+      target: ""
+      title: The golang.org/x/crypto/openpgp package is unmaintained, unsafe by design,
+        and has known security issues
+      vulnerabilityID: GO-2026-5932
+    - fixedVersion: 0.62.0
+      installedVersion: v0.58.0
+      lastModifiedDate: "2026-11-04T17:17:37Z"
+      links: []
+      packagePURL: pkg:golang/golang.org/x/net@v0.58.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-78661
+      publishedDate: "2026-10-27T22:18:05Z"
+      resource: golang.org/x/net
+      score: 7.5
+      severity: UNKNOWN
+      target: ""
+      title: 'golang.org/x/net/html: golang.org/x/net/html: Denial of Service via
+        crafted HTML input'
+      vulnerabilityID: CVE-2026-78661
+    - fixedVersion: 0.60.0
+      installedVersion: v0.58.0
+      lastModifiedDate: "2026-10-09T17:16:49Z"
+      links: []
+      packagePURL: pkg:golang/golang.org/x/net@v0.58.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-78669
+      publishedDate: "2026-10-08T23:17:04Z"
+      resource: golang.org/x/net
+      score: 7.5
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: net/http/internal/http2: golang.org/x/net/http2: net/http:
+        Denial of Service via excessive HTTP/2 SETTINGS frames'
+      vulnerabilityID: CVE-2026-78669
+    - fixedVersion: 0.60.0
+      installedVersion: v0.58.0
+      lastModifiedDate: "2026-10-09T16:35:35Z"
+      links: []
+      packagePURL: pkg:golang/golang.org/x/net@v0.58.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-78659
+      publishedDate: "2026-10-08T23:17:03Z"
+      resource: golang.org/x/net
+      score: 7.5
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: golang.org/x/net/http2: golang: net/http: Denial of Service
+        via HTTP/2 trailer header memory exhaustion'
+      vulnerabilityID: CVE-2026-78659
+    - fixedVersion: 0.60.0
+      installedVersion: v0.58.0
+      lastModifiedDate: "2026-10-09T17:16:49Z"
+      links: []
+      packagePURL: pkg:golang/golang.org/x/net@v0.58.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-78660
+      publishedDate: "2026-10-08T23:17:03Z"
+      resource: golang.org/x/net
+      score: 7.5
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: golang: golang.org/x/net/http2: net/http: HTTP response smuggling
+        via malformed HTTP/2 framing headers'
+      vulnerabilityID: CVE-2026-78660
+    - fixedVersion: 0.60.0
+      installedVersion: v0.58.0
+      lastModifiedDate: "2026-10-09T17:16:49Z"
+      links: []
+      packagePURL: pkg:golang/golang.org/x/net@v0.58.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-78663
+      publishedDate: "2026-10-08T23:17:03Z"
+      resource: golang.org/x/net
+      score: 5.3
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: net/http/internal/http2: golang: golang.org/x/net/http2: golang:
+        flow control limit bypass via double refund in HTTP/2 server'
+      vulnerabilityID: CVE-2026-78663
+    - fixedVersion: 0.60.0
+      installedVersion: v0.58.0
+      lastModifiedDate: "2026-10-15T16:18:24Z"
+      links: []
+      packagePURL: pkg:golang/golang.org/x/net@v0.58.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97032
+      publishedDate: "2026-10-08T23:17:06Z"
+      resource: golang.org/x/net
+      score: 5.9
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: net/http/internal/http2: golang: golang.org/x/net/http2: net/http:
+        Denial of Service via concurrent HPACK encoder modification'
+      vulnerabilityID: CVE-2026-97032
+    - fixedVersion: 0.62.0
+      installedVersion: v0.58.0
+      lastModifiedDate: "2026-11-04T17:17:38Z"
+      links: []
+      packagePURL: pkg:golang/golang.org/x/net@v0.58.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97045
+      publishedDate: "2026-10-27T22:19:22Z"
+      resource: golang.org/x/net
+      score: 6.1
+      severity: UNKNOWN
+      target: ""
+      title: 'golang.org/x/net/html: golang.org/x/net/html: Cross-Site Scripting via
+        improper namespace handling during HTML rendering'
+      vulnerabilityID: CVE-2026-97045
+    - fixedVersion: 1.83.1
+      installedVersion: v1.82.1
+      lastModifiedDate: "2026-09-09T21:09:13Z"
+      links: []
+      packagePURL: pkg:golang/google.golang.org/grpc@v1.82.1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-84304
+      publishedDate: "2026-09-01T19:17:30Z"
+      resource: google.golang.org/grpc
+      score: 7.5
+      severity: HIGH
+      target: ""
+      title: 'google.golang.org/grpc: gRPC-Go: Denial of Service via HTTP/2 DATA Frame
+        Fragmentation'
+      vulnerabilityID: CVE-2026-84304
+    - fixedVersion: 1.82.2, 1.83.2, 1.84.0-dev.0.20260825144003-d5a41119e0e3, 1.85.0-dev.0.20260825072537-93e31b48545e
+      installedVersion: v1.82.1
+      lastModifiedDate: "2026-09-25T14:10:13Z"
+      links: []
+      packagePURL: pkg:golang/google.golang.org/grpc@v1.82.1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-84445
+      publishedDate: "2026-09-14T17:17:51Z"
+      resource: google.golang.org/grpc
+      score: 7.5
+      severity: HIGH
+      target: ""
+      title: 'google.golang.org/grpc: gRPC-Go: Denial of Service via malformed RPC
+        requests'
+      vulnerabilityID: CVE-2026-84445
+    - fixedVersion: 1.83.1
+      installedVersion: v1.82.1
+      lastModifiedDate: "2026-09-09T21:09:13Z"
+      links: []
+      packagePURL: pkg:golang/google.golang.org/grpc@v1.82.1
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-84303
+      publishedDate: "2026-09-01T19:17:30Z"
+      resource: google.golang.org/grpc
+      severity: MEDIUM
+      target: ""
+      title: 'github.com/grpc/grpc-go: gRPC-Go: RBAC policy bypass and validation
+        evasion via mixed-case header matching'
+      vulnerabilityID: CVE-2026-84303
+    - fixedVersion: 1.26.10, 1.27.3
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-30T13:18:28Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-111943
+      publishedDate: "2026-10-21T01:17:20Z"
+      resource: stdlib
+      score: 6.8
+      severity: UNKNOWN
+      target: ""
+      title: 'crypto/x509: golang: crypto/x509: Man-in-the-middle attacks via untrusted
+        intermediate certificates'
+      vulnerabilityID: CVE-2026-111943
+    - fixedVersion: 1.26.9, 1.27.2
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-09T17:16:49Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-78667
+      publishedDate: "2026-10-08T23:17:03Z"
+      resource: stdlib
+      score: 7.5
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: golang: golang: Denial of Service via crafted HTTP Range headers'
+      vulnerabilityID: CVE-2026-78667
+    - fixedVersion: 1.26.9, 1.27.2
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-09T17:16:49Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-78669
+      publishedDate: "2026-10-08T23:17:04Z"
+      resource: stdlib
+      score: 7.5
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: net/http/internal/http2: golang.org/x/net/http2: net/http:
+        Denial of Service via excessive HTTP/2 SETTINGS frames'
+      vulnerabilityID: CVE-2026-78669
+    - fixedVersion: 1.26.9, 1.27.2
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-09T16:35:35Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97031
+      publishedDate: "2026-10-08T23:17:06Z"
+      resource: stdlib
+      score: 7.5
+      severity: UNKNOWN
+      target: ""
+      title: 'crypto/tls: golang: crypto/tls: Denial of Service via multiple ECH outer
+        extension references'
+      vulnerabilityID: CVE-2026-97031
+    - fixedVersion: 1.26.9, 1.27.2
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-09T16:35:35Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-56866
+      publishedDate: "2026-10-08T23:17:01Z"
+      resource: stdlib
+      score: 6.5
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: golang: golang: Cross-user response poisoning via desynchronized
+        HTTP CONNECT connections'
+      vulnerabilityID: CVE-2026-56866
+    - fixedVersion: 1.26.9, 1.27.2
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-09T16:35:35Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-78659
+      publishedDate: "2026-10-08T23:17:03Z"
+      resource: stdlib
+      score: 7.5
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: golang.org/x/net/http2: golang: net/http: Denial of Service
+        via HTTP/2 trailer header memory exhaustion'
+      vulnerabilityID: CVE-2026-78659
+    - fixedVersion: 1.26.9, 1.27.2
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-09T17:16:49Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-78660
+      publishedDate: "2026-10-08T23:17:03Z"
+      resource: stdlib
+      score: 7.5
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: golang: golang.org/x/net/http2: net/http: HTTP response smuggling
+        via malformed HTTP/2 framing headers'
+      vulnerabilityID: CVE-2026-78660
+    - fixedVersion: 1.26.9, 1.27.2
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-09T17:16:49Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-78663
+      publishedDate: "2026-10-08T23:17:03Z"
+      resource: stdlib
+      score: 5.3
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: net/http/internal/http2: golang: golang.org/x/net/http2: golang:
+        flow control limit bypass via double refund in HTTP/2 server'
+      vulnerabilityID: CVE-2026-78663
+    - fixedVersion: 1.26.9, 1.27.2
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-09T17:16:50Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-94439
+      publishedDate: "2026-10-08T23:17:04Z"
+      resource: stdlib
+      score: 7.5
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: golang: net/http: HTTP request smuggling via improper handling
+        of HTTP/1 CONNECT responses'
+      vulnerabilityID: CVE-2026-94439
+    - fixedVersion: 1.26.9, 1.27.2
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-09T17:16:50Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-94440
+      publishedDate: "2026-10-08T23:17:04Z"
+      resource: stdlib
+      score: 7.5
+      severity: UNKNOWN
+      target: ""
+      title: 'net/textproto: mime/multipart: golang: golang: Denial of Service via
+        memory limit bypass in multipart form parsing'
+      vulnerabilityID: CVE-2026-94440
+    - fixedVersion: 1.26.9, 1.27.2
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-15T16:18:24Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-94448
+      publishedDate: "2026-10-08T23:17:05Z"
+      resource: stdlib
+      score: 6.1
+      severity: UNKNOWN
+      target: ""
+      title: 'html/template: golang: golang: cross-site scripting via consecutive
+        expressions in JavaScript template literals'
+      vulnerabilityID: CVE-2026-94448
+    - fixedVersion: 1.26.9, 1.27.2
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-15T16:18:24Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97030
+      publishedDate: "2026-10-08T23:17:05Z"
+      resource: stdlib
+      score: 6.1
+      severity: UNKNOWN
+      target: ""
+      title: 'html/template: golang: html/template: Cross-site scripting via improper
+        escaping of yield keyword'
+      vulnerabilityID: CVE-2026-97030
+    - fixedVersion: 1.26.9, 1.27.2
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-15T16:18:24Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97032
+      publishedDate: "2026-10-08T23:17:06Z"
+      resource: stdlib
+      score: 5.9
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: net/http/internal/http2: golang: golang.org/x/net/http2: net/http:
+        Denial of Service via concurrent HPACK encoder modification'
+      vulnerabilityID: CVE-2026-97032
+    - fixedVersion: 1.26.11, 1.27.4
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-11-16T16:17:56Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97054
+      publishedDate: "2026-11-11T05:19:58Z"
+      resource: stdlib
+      severity: UNKNOWN
+      target: ""
+      title: For HTTP/1 servers, when MaxBytesReader's limit is exceeded, "Connecti
+        ...
+      vulnerabilityID: CVE-2026-97054
+    - fixedVersion: 1.26.9, 1.27.2
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-09T16:35:35Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-56857
+      publishedDate: "2026-10-08T23:17:01Z"
+      resource: stdlib
+      score: 3.3
+      severity: UNKNOWN
+      target: ""
+      title: 'os: golang: golang: Directory traversal via Windows junction handling'
+      vulnerabilityID: CVE-2026-56857
+    - fixedVersion: 0.62.0
+      installedVersion: v0.58.0
+      lastModifiedDate: "2026-11-04T17:17:37Z"
+      links: []
+      packagePURL: pkg:golang/golang.org/x/net@v0.58.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-78661
+      publishedDate: "2026-10-27T22:18:05Z"
+      resource: golang.org/x/net
+      score: 7.5
+      severity: UNKNOWN
+      target: ""
+      title: 'golang.org/x/net/html: golang.org/x/net/html: Denial of Service via
+        crafted HTML input'
+      vulnerabilityID: CVE-2026-78661
+    - fixedVersion: 0.60.0
+      installedVersion: v0.58.0
+      lastModifiedDate: "2026-10-09T17:16:49Z"
+      links: []
+      packagePURL: pkg:golang/golang.org/x/net@v0.58.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-78669
+      publishedDate: "2026-10-08T23:17:04Z"
+      resource: golang.org/x/net
+      score: 7.5
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: net/http/internal/http2: golang.org/x/net/http2: net/http:
+        Denial of Service via excessive HTTP/2 SETTINGS frames'
+      vulnerabilityID: CVE-2026-78669
+    - fixedVersion: 0.60.0
+      installedVersion: v0.58.0
+      lastModifiedDate: "2026-10-09T16:35:35Z"
+      links: []
+      packagePURL: pkg:golang/golang.org/x/net@v0.58.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-78659
+      publishedDate: "2026-10-08T23:17:03Z"
+      resource: golang.org/x/net
+      score: 7.5
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: golang.org/x/net/http2: golang: net/http: Denial of Service
+        via HTTP/2 trailer header memory exhaustion'
+      vulnerabilityID: CVE-2026-78659
+    - fixedVersion: 0.60.0
+      installedVersion: v0.58.0
+      lastModifiedDate: "2026-10-09T17:16:49Z"
+      links: []
+      packagePURL: pkg:golang/golang.org/x/net@v0.58.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-78660
+      publishedDate: "2026-10-08T23:17:03Z"
+      resource: golang.org/x/net
+      score: 7.5
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: golang: golang.org/x/net/http2: net/http: HTTP response smuggling
+        via malformed HTTP/2 framing headers'
+      vulnerabilityID: CVE-2026-78660
+    - fixedVersion: 0.60.0
+      installedVersion: v0.58.0
+      lastModifiedDate: "2026-10-09T17:16:49Z"
+      links: []
+      packagePURL: pkg:golang/golang.org/x/net@v0.58.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-78663
+      publishedDate: "2026-10-08T23:17:03Z"
+      resource: golang.org/x/net
+      score: 9.1
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: net/http/internal/http2: golang: golang.org/x/net/http2: golang:
+        flow control limit bypass via double refund in HTTP/2 server'
+      vulnerabilityID: CVE-2026-78663
+    - fixedVersion: 0.60.0
+      installedVersion: v0.58.0
+      lastModifiedDate: "2026-10-15T16:18:24Z"
+      links: []
+      packagePURL: pkg:golang/golang.org/x/net@v0.58.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97032
+      publishedDate: "2026-10-08T23:17:06Z"
+      resource: golang.org/x/net
+      score: 5.9
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: net/http/internal/http2: golang: golang.org/x/net/http2: net/http:
+        Denial of Service via concurrent HPACK encoder modification'
+      vulnerabilityID: CVE-2026-97032
+    - fixedVersion: 0.62.0
+      installedVersion: v0.58.0
+      lastModifiedDate: "2026-11-04T17:17:38Z"
+      links: []
+      packagePURL: pkg:golang/golang.org/x/net@v0.58.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97045
+      publishedDate: "2026-10-27T22:19:22Z"
+      resource: golang.org/x/net
+      score: 6.1
+      severity: UNKNOWN
+      target: ""
+      title: 'golang.org/x/net/html: golang.org/x/net/html: Cross-Site Scripting via
+        improper namespace handling during HTML rendering'
+      vulnerabilityID: CVE-2026-97045
+    - fixedVersion: 1.26.10, 1.27.3
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-30T13:18:28Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-111943
+      publishedDate: "2026-10-21T01:17:20Z"
+      resource: stdlib
+      score: 6.8
+      severity: UNKNOWN
+      target: ""
+      title: 'crypto/x509: golang: crypto/x509: Man-in-the-middle attacks via untrusted
+        intermediate certificates'
+      vulnerabilityID: CVE-2026-111943
+    - fixedVersion: 1.26.9, 1.27.2
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-09T17:16:49Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-78667
+      publishedDate: "2026-10-08T23:17:03Z"
+      resource: stdlib
+      score: 7.5
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: golang: golang: Denial of Service via crafted HTTP Range headers'
+      vulnerabilityID: CVE-2026-78667
+    - fixedVersion: 1.26.9, 1.27.2
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-09T17:16:49Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-78669
+      publishedDate: "2026-10-08T23:17:04Z"
+      resource: stdlib
+      score: 7.5
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: net/http/internal/http2: golang.org/x/net/http2: net/http:
+        Denial of Service via excessive HTTP/2 SETTINGS frames'
+      vulnerabilityID: CVE-2026-78669
+    - fixedVersion: 1.26.9, 1.27.2
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-09T16:35:35Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97031
+      publishedDate: "2026-10-08T23:17:06Z"
+      resource: stdlib
+      score: 7.5
+      severity: UNKNOWN
+      target: ""
+      title: 'crypto/tls: golang: crypto/tls: Denial of Service via multiple ECH outer
+        extension references'
+      vulnerabilityID: CVE-2026-97031
+    - fixedVersion: 1.26.9, 1.27.2
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-09T16:35:35Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-56866
+      publishedDate: "2026-10-08T23:17:01Z"
+      resource: stdlib
+      score: 6.5
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: golang: golang: Cross-user response poisoning via desynchronized
+        HTTP CONNECT connections'
+      vulnerabilityID: CVE-2026-56866
+    - fixedVersion: 1.26.9, 1.27.2
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-09T16:35:35Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-78659
+      publishedDate: "2026-10-08T23:17:03Z"
+      resource: stdlib
+      score: 7.5
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: golang.org/x/net/http2: golang: net/http: Denial of Service
+        via HTTP/2 trailer header memory exhaustion'
+      vulnerabilityID: CVE-2026-78659
+    - fixedVersion: 1.26.9, 1.27.2
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-09T17:16:49Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-78660
+      publishedDate: "2026-10-08T23:17:03Z"
+      resource: stdlib
+      score: 7.5
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: golang: golang.org/x/net/http2: net/http: HTTP response smuggling
+        via malformed HTTP/2 framing headers'
+      vulnerabilityID: CVE-2026-78660
+    - fixedVersion: 1.26.9, 1.27.2
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-09T17:16:49Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-78663
+      publishedDate: "2026-10-08T23:17:03Z"
+      resource: stdlib
+      score: 9.1
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: net/http/internal/http2: golang: golang.org/x/net/http2: golang:
+        flow control limit bypass via double refund in HTTP/2 server'
+      vulnerabilityID: CVE-2026-78663
+    - fixedVersion: 1.26.9, 1.27.2
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-09T17:16:50Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-94439
+      publishedDate: "2026-10-08T23:17:04Z"
+      resource: stdlib
+      score: 6.5
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: golang: net/http: HTTP request smuggling via improper handling
+        of HTTP/1 CONNECT responses'
+      vulnerabilityID: CVE-2026-94439
+    - fixedVersion: 1.26.9, 1.27.2
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-09T17:16:50Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-94440
+      publishedDate: "2026-10-08T23:17:04Z"
+      resource: stdlib
+      score: 7.5
+      severity: UNKNOWN
+      target: ""
+      title: 'net/textproto: mime/multipart: golang: golang: Denial of Service via
+        memory limit bypass in multipart form parsing'
+      vulnerabilityID: CVE-2026-94440
+    - fixedVersion: 1.26.9, 1.27.2
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-15T16:18:24Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-94448
+      publishedDate: "2026-10-08T23:17:05Z"
+      resource: stdlib
+      score: 6.1
+      severity: UNKNOWN
+      target: ""
+      title: 'html/template: golang: golang: cross-site scripting via consecutive
+        expressions in JavaScript template literals'
+      vulnerabilityID: CVE-2026-94448
+    - fixedVersion: 1.26.9, 1.27.2
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-15T16:18:24Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97030
+      publishedDate: "2026-10-08T23:17:05Z"
+      resource: stdlib
+      score: 6.1
+      severity: UNKNOWN
+      target: ""
+      title: 'html/template: golang: html/template: Cross-site scripting via improper
+        escaping of yield keyword'
+      vulnerabilityID: CVE-2026-97030
+    - fixedVersion: 1.26.9, 1.27.2
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-15T16:18:24Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97032
+      publishedDate: "2026-10-08T23:17:06Z"
+      resource: stdlib
+      score: 5.9
+      severity: UNKNOWN
+      target: ""
+      title: 'net/http: net/http/internal/http2: golang: golang.org/x/net/http2: net/http:
+        Denial of Service via concurrent HPACK encoder modification'
+      vulnerabilityID: CVE-2026-97032
+    - fixedVersion: 1.26.11, 1.27.4
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-11-16T16:17:56Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97054
+      publishedDate: "2026-11-11T05:19:58Z"
+      resource: stdlib
+      severity: UNKNOWN
+      target: ""
+      title: For HTTP/1 servers, when MaxBytesReader's limit is exceeded, "Connecti
+        ...
+      vulnerabilityID: CVE-2026-97054
+    - fixedVersion: 1.26.9, 1.27.2
+      installedVersion: v1.25.14
+      lastModifiedDate: "2026-10-09T16:35:35Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.25.14
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-56857
+      publishedDate: "2026-10-08T23:17:01Z"
+      resource: stdlib
+      score: 3.3
+      severity: UNKNOWN
+      target: ""
+      title: 'os: golang: golang: Directory traversal via Windows junction handling'
+      vulnerabilityID: CVE-2026-56857
+- apiVersion: aquasecurity.github.io/v1alpha1
+  kind: VulnerabilityReport
+  metadata:
+    annotations:
+      trivy-operator.aquasecurity.github.io/report-ttl: 24h0m0s
+    creationTimestamp: "2026-11-19T18:27:17Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/managed-by: trivy-operator
+      resource-spec-hash: 79bfd56d9c
+      trivy-operator.container.name: calico-apiserver
+      trivy-operator.resource.kind: ReplicaSet
+      trivy-operator.resource.name: calico-apiserver-57fbbcbb7b
+      trivy-operator.resource.namespace: calico-system
+    name: replicaset-calico-apiserver-57fbbcbb7b-calico-apiserver
+    namespace: calico-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: false
+      controller: true
+      kind: ReplicaSet
+      name: calico-apiserver-57fbbcbb7b
+      uid: 280f1031-42f0-5add-aa06-06b33caed038
+    resourceVersion: "67913714"
+    uid: 695fdaa8-707a-59a9-943b-b91871287d45
+  report:
+    artifact:
+      digest: sha256:0d84946410fb6a1f6faa1b685be82023742d2d54349cd064d2f905124524742b
+      repository: quay.io/calico/apiserver
+      tag: v3.32.4
+    os:
+      family: redhat
+      name: "9.8"
+    registry:
+      server: harbor.example.com
+    scanner:
+      name: Trivy
+      vendor: Aqua Security
+      version: 0.75.0
+    summary:
+      criticalCount: 0
+      highCount: 0
+      lowCount: 3
+      mediumCount: 2
+      noneCount: 0
+      unknownCount: 2
+    updateTimestamp: "2026-11-19T18:27:17Z"
+    vulnerabilities:
+    - fixedVersion: 1.45.0
+      installedVersion: v1.40.0
+      lastModifiedDate: "2026-09-30T17:51:56Z"
+      links: []
+      packagePURL: pkg:golang/go.opentelemetry.io/otel/exporters/otlp/otlptrace@v1.40.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-81870
+      publishedDate: "2026-09-16T20:17:32Z"
+      resource: go.opentelemetry.io/otel/exporters/otlp/otlptrace
+      score: 3.3
+      severity: LOW
+      target: ""
+      title: 'github.com/open-telemetry/opentelemetry-go: OpenTelemetry-Go: Information
+        disclosure via exporter configuration logging'
+      vulnerabilityID: CVE-2026-81870
+    - fixedVersion: 1.45.0
+      installedVersion: v1.40.0
+      lastModifiedDate: "2026-09-30T17:51:56Z"
+      links: []
+      packagePURL: pkg:golang/go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc@v1.40.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-81870
+      publishedDate: "2026-09-16T20:17:32Z"
+      resource: go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc
+      score: 3.3
+      severity: LOW
+      target: ""
+      title: 'github.com/open-telemetry/opentelemetry-go: OpenTelemetry-Go: Information
+        disclosure via exporter configuration logging'
+      vulnerabilityID: CVE-2026-81870
+    - fixedVersion: 1.47.0
+      installedVersion: v1.44.0
+      lastModifiedDate: "2026-11-18T05:19:02Z"
+      links: []
+      packagePURL: pkg:golang/go.opentelemetry.io/otel/sdk@v1.44.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-128085
+      publishedDate: "2026-11-13T19:19:31Z"
+      resource: go.opentelemetry.io/otel/sdk
+      score: 5.3
+      severity: MEDIUM
+      target: ""
+      title: 'go.opentelemetry.io/otel/sdk: go.opentelemetry.io/otel/sdk/log: go.opentelemetry.io/otel/trace:
+        OpenTelemetry-Go: Denial of Service via attribute truncation bypass using
+        Unicode replacement characters'
+      vulnerabilityID: CVE-2026-128085
+    - fixedVersion: 1.45.0
+      installedVersion: v1.44.0
+      lastModifiedDate: "2026-09-30T17:51:56Z"
+      links: []
+      packagePURL: pkg:golang/go.opentelemetry.io/otel/sdk@v1.44.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-81870
+      publishedDate: "2026-09-16T20:17:32Z"
+      resource: go.opentelemetry.io/otel/sdk
+      score: 3.3
+      severity: LOW
+      target: ""
+      title: 'github.com/open-telemetry/opentelemetry-go: OpenTelemetry-Go: Information
+        disclosure via exporter configuration logging'
+      vulnerabilityID: CVE-2026-81870
+    - fixedVersion: 1.47.0
+      installedVersion: v1.44.0
+      lastModifiedDate: "2026-11-18T05:19:02Z"
+      links: []
+      packagePURL: pkg:golang/go.opentelemetry.io/otel/trace@v1.44.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-128085
+      publishedDate: "2026-11-13T19:19:31Z"
+      resource: go.opentelemetry.io/otel/trace
+      score: 5.3
+      severity: MEDIUM
+      target: ""
+      title: 'go.opentelemetry.io/otel/sdk: go.opentelemetry.io/otel/sdk/log: go.opentelemetry.io/otel/trace:
+        OpenTelemetry-Go: Denial of Service via attribute truncation bypass using
+        Unicode replacement characters'
+      vulnerabilityID: CVE-2026-128085
+    - fixedVersion: 0.58.1-0.20261009181718-2f1f834330b2
+      installedVersion: v0.58.0
+      lastModifiedDate: ""
+      links: []
+      packagePURL: pkg:golang/golang.org/x/crypto@v0.58.0
+      publishedDate: ""
+      resource: golang.org/x/crypto
+      severity: UNKNOWN
+      target: ""
+      title: The golang.org/x/crypto/openpgp package is unmaintained, unsafe by design,
+        and has known security issues
+      vulnerabilityID: GO-2026-5932
+    - fixedVersion: 1.26.11, 1.27.4
+      installedVersion: v1.26.10
+      lastModifiedDate: "2026-11-16T16:17:56Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.26.10
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97054
+      publishedDate: "2026-11-11T05:19:58Z"
+      resource: stdlib
+      severity: UNKNOWN
+      target: ""
+      title: For HTTP/1 servers, when MaxBytesReader's limit is exceeded, "Connecti
+        ...
+      vulnerabilityID: CVE-2026-97054
+- apiVersion: aquasecurity.github.io/v1alpha1
+  kind: VulnerabilityReport
+  metadata:
+    annotations:
+      trivy-operator.aquasecurity.github.io/report-ttl: 24h0m0s
+    creationTimestamp: "2026-11-19T18:28:22Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/managed-by: trivy-operator
+      resource-spec-hash: 7f54579f6b
+      trivy-operator.container.name: calico-typha
+      trivy-operator.resource.kind: ReplicaSet
+      trivy-operator.resource.name: calico-typha-5c56d8d8f4
+      trivy-operator.resource.namespace: calico-system
+    name: replicaset-calico-typha-5c56d8d8f4-calico-typha
+    namespace: calico-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: false
+      controller: true
+      kind: ReplicaSet
+      name: calico-typha-5c56d8d8f4
+      uid: de63a30b-eadb-5daf-9320-73454c1eade3
+    resourceVersion: "67914918"
+    uid: 0b35e71c-6843-56e3-b429-4636eb3e8350
+  report:
+    artifact:
+      digest: sha256:fd28a050bd9a3a597c2c510326b45e8c062de36b5ac911fa53e7d750df75170e
+      repository: quay.io/calico/typha
+      tag: v3.32.4
+    os:
+      family: redhat
+      name: "9.8"
+    registry:
+      server: harbor.example.com
+    scanner:
+      name: Trivy
+      vendor: Aqua Security
+      version: 0.75.0
+    summary:
+      criticalCount: 0
+      highCount: 0
+      lowCount: 0
+      mediumCount: 1
+      noneCount: 0
+      unknownCount: 2
+    updateTimestamp: "2026-11-19T18:28:22Z"
+    vulnerabilities:
+    - fixedVersion: 1.47.0
+      installedVersion: v1.44.0
+      lastModifiedDate: "2026-11-18T05:19:02Z"
+      links: []
+      packagePURL: pkg:golang/go.opentelemetry.io/otel/trace@v1.44.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-128085
+      publishedDate: "2026-11-13T19:19:31Z"
+      resource: go.opentelemetry.io/otel/trace
+      score: 5.3
+      severity: MEDIUM
+      target: ""
+      title: 'go.opentelemetry.io/otel/sdk: go.opentelemetry.io/otel/sdk/log: go.opentelemetry.io/otel/trace:
+        OpenTelemetry-Go: Denial of Service via attribute truncation bypass using
+        Unicode replacement characters'
+      vulnerabilityID: CVE-2026-128085
+    - fixedVersion: 0.58.1-0.20261009181718-2f1f834330b2
+      installedVersion: v0.58.0
+      lastModifiedDate: ""
+      links: []
+      packagePURL: pkg:golang/golang.org/x/crypto@v0.58.0
+      publishedDate: ""
+      resource: golang.org/x/crypto
+      severity: UNKNOWN
+      target: ""
+      title: The golang.org/x/crypto/openpgp package is unmaintained, unsafe by design,
+        and has known security issues
+      vulnerabilityID: GO-2026-5932
+    - fixedVersion: 1.26.11, 1.27.4
+      installedVersion: v1.26.10
+      lastModifiedDate: "2026-11-16T16:17:56Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.26.10
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97054
+      publishedDate: "2026-11-11T05:19:58Z"
+      resource: stdlib
+      severity: UNKNOWN
+      target: ""
+      title: For HTTP/1 servers, when MaxBytesReader's limit is exceeded, "Connecti
+        ...
+      vulnerabilityID: CVE-2026-97054
+- apiVersion: aquasecurity.github.io/v1alpha1
+  kind: VulnerabilityReport
+  metadata:
+    annotations:
+      trivy-operator.aquasecurity.github.io/report-ttl: 24h0m0s
+    creationTimestamp: "2026-11-19T18:27:16Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/managed-by: trivy-operator
+      resource-spec-hash: 858cc9df58
+      trivy-operator.container.name: discovery
+      trivy-operator.resource.kind: ReplicaSet
+      trivy-operator.resource.name: istiod-d6bb9b69c
+      trivy-operator.resource.namespace: calico-system
+    name: replicaset-istiod-d6bb9b69c-discovery
+    namespace: calico-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: false
+      controller: true
+      kind: ReplicaSet
+      name: istiod-d6bb9b69c
+      uid: 1bcb31a4-83b0-56b2-b826-dd72dc5f1401
+    resourceVersion: "67913645"
+    uid: dbea72dd-1bc6-578c-a7a7-1ee8c1b59cb0
+  report:
+    artifact:
+      digest: sha256:5e02aeefed3ca33a3c2f44f458d8cc4030f66299faef8d5a3ed9bc8bc2ddef2d
+      repository: quay.io/calico/istio-pilot
+      tag: v3.32.4
+    os:
+      family: redhat
+      name: "9.8"
+    registry:
+      server: harbor.example.com
+    scanner:
+      name: Trivy
+      vendor: Aqua Security
+      version: 0.75.0
+    summary:
+      criticalCount: 0
+      highCount: 1
+      lowCount: 0
+      mediumCount: 2
+      noneCount: 0
+      unknownCount: 4
+    updateTimestamp: "2026-11-19T18:27:16Z"
+    vulnerabilities:
+    - fixedVersion: 4.1.6
+      installedVersion: v4.1.5
+      lastModifiedDate: "2026-10-27T15:16:40Z"
+      links: []
+      packagePURL: pkg:golang/github.com/go-jose/go-jose/v4@v4.1.5
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-116587
+      publishedDate: "2026-10-26T22:16:55Z"
+      resource: github.com/go-jose/go-jose/v4
+      score: 7.5
+      severity: HIGH
+      target: ""
+      title: 'github.com/go-jose/go-jose: go-jose: Denial of Service via crafted RSA
+        parameters in JWKs'
+      vulnerabilityID: CVE-2026-116587
+    - fixedVersion: 1.47.0
+      installedVersion: v1.46.0
+      lastModifiedDate: "2026-11-18T05:19:02Z"
+      links: []
+      packagePURL: pkg:golang/go.opentelemetry.io/otel/sdk@v1.46.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-128085
+      publishedDate: "2026-11-13T19:19:31Z"
+      resource: go.opentelemetry.io/otel/sdk
+      score: 5.3
+      severity: MEDIUM
+      target: ""
+      title: 'go.opentelemetry.io/otel/sdk: go.opentelemetry.io/otel/sdk/log: go.opentelemetry.io/otel/trace:
+        OpenTelemetry-Go: Denial of Service via attribute truncation bypass using
+        Unicode replacement characters'
+      vulnerabilityID: CVE-2026-128085
+    - fixedVersion: 1.47.0
+      installedVersion: v1.46.0
+      lastModifiedDate: "2026-11-18T05:19:02Z"
+      links: []
+      packagePURL: pkg:golang/go.opentelemetry.io/otel/trace@v1.46.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-128085
+      publishedDate: "2026-11-13T19:19:31Z"
+      resource: go.opentelemetry.io/otel/trace
+      score: 5.3
+      severity: MEDIUM
+      target: ""
+      title: 'go.opentelemetry.io/otel/sdk: go.opentelemetry.io/otel/sdk/log: go.opentelemetry.io/otel/trace:
+        OpenTelemetry-Go: Denial of Service via attribute truncation bypass using
+        Unicode replacement characters'
+      vulnerabilityID: CVE-2026-128085
+    - fixedVersion: 0.58.1-0.20261009181718-2f1f834330b2
+      installedVersion: v0.58.0
+      lastModifiedDate: ""
+      links: []
+      packagePURL: pkg:golang/golang.org/x/crypto@v0.58.0
+      publishedDate: ""
+      resource: golang.org/x/crypto
+      severity: UNKNOWN
+      target: ""
+      title: The golang.org/x/crypto/openpgp package is unmaintained, unsafe by design,
+        and has known security issues
+      vulnerabilityID: GO-2026-5932
+    - fixedVersion: 0.62.0
+      installedVersion: v0.61.0
+      lastModifiedDate: "2026-11-04T17:17:37Z"
+      links: []
+      packagePURL: pkg:golang/golang.org/x/net@v0.61.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-78661
+      publishedDate: "2026-10-27T22:18:05Z"
+      resource: golang.org/x/net
+      score: 7.5
+      severity: UNKNOWN
+      target: ""
+      title: 'golang.org/x/net/html: golang.org/x/net/html: Denial of Service via
+        crafted HTML input'
+      vulnerabilityID: CVE-2026-78661
+    - fixedVersion: 0.62.0
+      installedVersion: v0.61.0
+      lastModifiedDate: "2026-11-04T17:17:38Z"
+      links: []
+      packagePURL: pkg:golang/golang.org/x/net@v0.61.0
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97045
+      publishedDate: "2026-10-27T22:19:22Z"
+      resource: golang.org/x/net
+      score: 6.1
+      severity: UNKNOWN
+      target: ""
+      title: 'golang.org/x/net/html: golang.org/x/net/html: Cross-Site Scripting via
+        improper namespace handling during HTML rendering'
+      vulnerabilityID: CVE-2026-97045
+    - fixedVersion: 1.26.11, 1.27.4
+      installedVersion: v1.26.10
+      lastModifiedDate: "2026-11-16T16:17:56Z"
+      links: []
+      packagePURL: pkg:golang/stdlib@v1.26.10
+      primaryLink: https://avd.aquasec.com/nvd/cve-2026-97054
+      publishedDate: "2026-11-11T05:19:58Z"
+      resource: stdlib
+      severity: UNKNOWN
+      target: ""
+      title: For HTTP/1 servers, when MaxBytesReader's limit is exceeded, "Connecti
+        ...
+      vulnerabilityID: CVE-2026-97054
+kind: List
+metadata:
+  resourceVersion: ""

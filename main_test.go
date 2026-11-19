@@ -717,3 +717,24 @@ func TestProcessObjectListNestingLimit(t *testing.T) {
 		t.Errorf("expected nesting error, got %+v", stats)
 	}
 }
+
+// TestProcessObjectVulnList splits a real trivy-operator "kind: List" report (anonymized)
+func TestProcessObjectVulnList(t *testing.T) {
+	data, err := os.ReadFile("testdata/VULN_list.yaml")
+	if err != nil {
+		t.Fatal(err)
+	}
+	dir := t.TempDir()
+	stats := &ProcessingStats{}
+	config := Config{outputDir: dir, outputFormat: "yaml", continueOnErr: true}
+	if err := processObject(data, config, stats, 1); err != nil {
+		t.Fatal(err)
+	}
+	if stats.Processed != 11 || stats.Errors != 0 || stats.Total != 11 {
+		t.Errorf("unexpected stats: %+v", stats)
+	}
+	entries, err := os.ReadDir(dir)
+	if err != nil || len(entries) != 11 {
+		t.Errorf("expected 11 files, got %d (err %v)", len(entries), err)
+	}
+}
