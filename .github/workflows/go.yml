@@ -122,5 +122,13 @@ jobs:
           bin/checksums.txt
         generate_release_notes: true
         prerelease: ${{ contains(github.ref_name, '-rc') }}
+        # Immutable releases only accept assets before publishing:
+        # create as draft with all assets, then publish in the next step
+        draft: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Publish Release
+      run: gh release edit "${GITHUB_REF_NAME}" --repo "${GITHUB_REPOSITORY}" --draft=false
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
