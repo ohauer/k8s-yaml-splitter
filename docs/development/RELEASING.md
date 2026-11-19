@@ -15,6 +15,7 @@ Releases are published by GitHub Actions when a version tag is pushed.
    ```
    The script checks branch, clean tree and sync with `origin/main`, runs `make lint vuln test-all`, then creates and pushes an annotated tag.
 4. The workflow `.github/workflows/go.yml` builds static binaries (linux/darwin/freebsd amd64), creates `checksums.txt` and publishes the GitHub release with generated notes. Tags containing `-rc` are marked as pre-release.
+   The release is created as a draft, assets are uploaded, then it is published. This is required because the repository has immutable releases enabled: once published, a release and its assets cannot be changed and the tag cannot be reused.
 
 ## Notes
 

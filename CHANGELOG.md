@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Release workflow: create release as draft, upload assets, then publish (required because the repository uses immutable releases; v0.2.0-rc2 was published without binaries)
+
 ## [0.2.0-rc2] - 2026-11-19
 
 ### Changed
