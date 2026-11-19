@@ -141,7 +141,7 @@ func TestGetOutputPath(t *testing.T) {
 
 				// Verify path is within output directory
 				absOutput, _ := filepath.Abs(tmpDir)
-				if !filepath.HasPrefix(result, absOutput+string(filepath.Separator)) {
+				if !strings.HasPrefix(result, absOutput+string(filepath.Separator)) {
 					t.Errorf("path escapes output directory: %s", result)
 				}
 			}
@@ -383,7 +383,7 @@ func TestProcessObject(t *testing.T) {
 func TestRandomString(t *testing.T) {
 	// Generate multiple random strings
 	seen := make(map[string]bool)
-	for i := 0; i < 100; i++ {
+	for range 100 {
 		s := randomString(8)
 		if len(s) != 8 {
 			t.Errorf("expected length 8, got %d", len(s))
@@ -428,7 +428,7 @@ func TestWriteFileAtomic(t *testing.T) {
 		path := filepath.Join(tmpDir, "overwrite.txt")
 
 		// Write initial content
-		os.WriteFile(path, []byte("old"), 0644)
+		_ = os.WriteFile(path, []byte("old"), 0644)
 
 		// Overwrite atomically
 		newData := []byte("new content")
@@ -451,7 +451,7 @@ func TestValidateDirectory(t *testing.T) {
 
 	t.Run("valid-directory", func(t *testing.T) {
 		dir := filepath.Join(tmpDir, "valid")
-		os.Mkdir(dir, 0755)
+		_ = os.Mkdir(dir, 0755)
 
 		err := validateDirectory(dir)
 		if err != nil {
@@ -470,7 +470,7 @@ func TestValidateDirectory(t *testing.T) {
 
 	t.Run("file-not-directory", func(t *testing.T) {
 		file := filepath.Join(tmpDir, "file.txt")
-		os.WriteFile(file, []byte("test"), 0644)
+		_ = os.WriteFile(file, []byte("test"), 0644)
 
 		err := validateDirectory(file)
 		if err == nil {
@@ -481,7 +481,7 @@ func TestValidateDirectory(t *testing.T) {
 	t.Run("symlink-directory", func(t *testing.T) {
 		realDir := filepath.Join(tmpDir, "real")
 		symlinkDir := filepath.Join(tmpDir, "symlink")
-		os.Mkdir(realDir, 0755)
+		_ = os.Mkdir(realDir, 0755)
 
 		if err := os.Symlink(realDir, symlinkDir); err != nil {
 			t.Skip("Cannot create symlinks on this system")
@@ -499,9 +499,9 @@ func TestCleanupOrphanedTempFiles(t *testing.T) {
 	tmpDir := t.TempDir()
 
 	// Create some temp files
-	os.WriteFile(filepath.Join(tmpDir, "file.tmp.abc123"), []byte("test"), 0644)
-	os.WriteFile(filepath.Join(tmpDir, "file.tmp.xyz789"), []byte("test"), 0644)
-	os.WriteFile(filepath.Join(tmpDir, "normal.yaml"), []byte("test"), 0644)
+	_ = os.WriteFile(filepath.Join(tmpDir, "file.tmp.abc123"), []byte("test"), 0644)
+	_ = os.WriteFile(filepath.Join(tmpDir, "file.tmp.xyz789"), []byte("test"), 0644)
+	_ = os.WriteFile(filepath.Join(tmpDir, "normal.yaml"), []byte("test"), 0644)
 
 	cleanupOrphanedTempFiles(tmpDir)
 
@@ -556,13 +556,13 @@ func TestSplitYAMLDocument(t *testing.T) {
 // TestSortMapKeys tests recursive map key sorting
 func TestSortMapKeys(t *testing.T) {
 	t.Run("simple-map", func(t *testing.T) {
-		input := map[string]interface{}{
+		input := map[string]any{
 			"z": "last",
 			"a": "first",
 			"m": "middle",
 		}
 		result := sortMapKeys(input)
-		sorted := result.(map[string]interface{})
+		sorted := result.(map[string]any)
 
 		// Just verify it returns a map with same keys
 		if len(sorted) != 3 {
@@ -574,15 +574,15 @@ func TestSortMapKeys(t *testing.T) {
 	})
 
 	t.Run("nested-map", func(t *testing.T) {
-		input := map[string]interface{}{
-			"outer": map[string]interface{}{
+		input := map[string]any{
+			"outer": map[string]any{
 				"z": "last",
 				"a": "first",
 			},
 		}
 		result := sortMapKeys(input)
-		sorted := result.(map[string]interface{})
-		nested := sorted["outer"].(map[string]interface{})
+		sorted := result.(map[string]any)
+		nested := sorted["outer"].(map[string]any)
 
 		if len(nested) != 2 {
 			t.Errorf("nested map size changed: got %d, want 2", len(nested))
@@ -593,13 +593,13 @@ func TestSortMapKeys(t *testing.T) {
 	})
 
 	t.Run("array", func(t *testing.T) {
-		input := []interface{}{
-			map[string]interface{}{"z": 1, "a": 2},
+		input := []any{
+			map[string]any{"z": 1, "a": 2},
 			"string",
 			123,
 		}
 		result := sortMapKeys(input)
-		arr := result.([]interface{})
+		arr := result.([]any)
 
 		if len(arr) != 3 {
 			t.Errorf("array length changed: got %d, want 3", len(arr))
@@ -612,7 +612,7 @@ func TestReadInput(t *testing.T) {
 	t.Run("read-file", func(t *testing.T) {
 		tmpFile := filepath.Join(t.TempDir(), "test.yaml")
 		content := []byte("test content")
-		os.WriteFile(tmpFile, content, 0644)
+		_ = os.WriteFile(tmpFile, content, 0644)
 
 		result, err := readInput(tmpFile)
 		if err != nil {
@@ -629,4 +629,112 @@ func TestReadInput(t *testing.T) {
 			t.Error("expected error for non-existent file")
 		}
 	})
+}
+
+// listYAML is a v1 List with two items in different namespaces
+const listYAML = `apiVersion: v1
+kind: List
+items:
+- apiVersion: v1
+  kind: ConfigMap
+  metadata:
+    name: cm1
+    namespace: ns1
+  data:
+    b: "1"
+    a: "2"
+- apiVersion: v1
+  kind: Secret
+  metadata:
+    name: s1
+    namespace: ns2
+`
+
+func TestProcessObjectList(t *testing.T) {
+	dir := t.TempDir()
+	stats := &ProcessingStats{}
+	config := Config{outputDir: dir, outputFormat: "yaml", continueOnErr: true}
+	if err := processObject([]byte(listYAML), config, stats, 1); err != nil {
+		t.Fatal(err)
+	}
+	if stats.Total != 2 || stats.Processed != 2 || stats.Errors != 0 {
+		t.Errorf("unexpected stats: %+v", stats)
+	}
+	for _, f := range []string{"ConfigMap-ns1-cm1.yaml", "Secret-ns2-s1.yaml"} {
+		if _, err := os.Stat(filepath.Join(dir, f)); err != nil {
+			t.Errorf("missing %s: %v", f, err)
+		}
+	}
+}
+
+func TestProcessObjectListFilterAndNamespaceDirs(t *testing.T) {
+	dir := t.TempDir()
+	stats := &ProcessingStats{}
+	config := Config{outputDir: dir, outputFormat: "json", namespaceDirs: true,
+		excludeKinds: []string{"Secret"}, continueOnErr: true}
+	if err := processObject([]byte(listYAML), config, stats, 1); err != nil {
+		t.Fatal(err)
+	}
+	if stats.Processed != 1 || stats.Skipped != 1 {
+		t.Errorf("unexpected stats: %+v", stats)
+	}
+	if _, err := os.Stat(filepath.Join(dir, "ns1", "ConfigMap-cm1.json")); err != nil {
+		t.Error(err)
+	}
+}
+
+func TestProcessObjectEmptyListAndNoItemsKind(t *testing.T) {
+	dir := t.TempDir()
+	stats := &ProcessingStats{}
+	config := Config{outputDir: dir, outputFormat: "yaml", continueOnErr: true}
+	if err := processObject([]byte("apiVersion: v1\nkind: List\nitems: []\n"), config, stats, 1); err != nil {
+		t.Fatal(err)
+	}
+	if stats.Total != 0 || stats.Processed != 0 {
+		t.Errorf("empty list should yield nothing: %+v", stats)
+	}
+	// A CRD-like kind ending in "List" without items is a normal document
+	crd := "apiVersion: example.com/v1\nkind: ShoppingList\nmetadata:\n  name: groceries\n"
+	if err := processObject([]byte(crd), config, stats, 2); err != nil {
+		t.Fatal(err)
+	}
+	if stats.Processed != 1 {
+		t.Errorf("ShoppingList without items should be processed: %+v", stats)
+	}
+}
+
+func TestProcessObjectListNestingLimit(t *testing.T) {
+	doc := "apiVersion: v1\nkind: ConfigMap\nmetadata:\n  name: deep\n"
+	data := doc
+	for range MaxListDepth + 2 {
+		lines := strings.Split(strings.TrimRight(data, "\n"), "\n")
+		data = "apiVersion: v1\nkind: List\nitems:\n- " + strings.Join(lines, "\n  ") + "\n"
+	}
+	stats := &ProcessingStats{}
+	config := Config{outputDir: t.TempDir(), outputFormat: "yaml", continueOnErr: true}
+	_ = processObject([]byte(data), config, stats, 1)
+	if stats.Errors == 0 || stats.Processed != 0 {
+		t.Errorf("expected nesting error, got %+v", stats)
+	}
+}
+
+// TestProcessObjectVulnList splits a real trivy-operator "kind: List" report (anonymized)
+func TestProcessObjectVulnList(t *testing.T) {
+	data, err := os.ReadFile("testdata/VULN_list.yaml")
+	if err != nil {
+		t.Fatal(err)
+	}
+	dir := t.TempDir()
+	stats := &ProcessingStats{}
+	config := Config{outputDir: dir, outputFormat: "yaml", continueOnErr: true}
+	if err := processObject(data, config, stats, 1); err != nil {
+		t.Fatal(err)
+	}
+	if stats.Processed != 11 || stats.Errors != 0 || stats.Total != 11 {
+		t.Errorf("unexpected stats: %+v", stats)
+	}
+	entries, err := os.ReadDir(dir)
+	if err != nil || len(entries) != 11 {
+		t.Errorf("expected 11 files, got %d (err %v)", len(entries), err)
+	}
 }

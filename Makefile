@@ -16,7 +16,8 @@ help:
 	@echo "  coverage     - Generate test coverage report"
 	@echo "  fuzz         - Run fuzz tests (30s each)"
 	@echo "  fmt          - Format Go source code"
-	@echo "  lint         - Run linter (requires golangci-lint)"
+	@echo "  lint         - Run linter (requires golangci-lint v2)"
+	@echo "  vuln         - Run govulncheck (known vulnerability scan)"
 	@echo "  container    - Build container image and extract binaries"
 	@echo "  tidy         - Run go mod tidy"
 	@echo "  vendor       - Download dependencies to vendor/"
@@ -42,7 +43,7 @@ build: vendor
 
 test: build
 	@echo "Running integration tests..."
-	@./test.sh
+	@./scripts/test.sh
 
 test-unit:
 	@echo "Running unit tests with race detector..."
@@ -61,14 +62,24 @@ coverage:
 fuzz:
 	@echo "Running fuzz tests (30s each)..."
 	@go test -fuzz=FuzzSanitizeFilename -fuzztime=30s
-	@go test -fuzz=FuzzProcessObject -fuzztime=30s
+	@go test -fuzz='^FuzzProcessObject$$' -fuzztime=30s
 	@go test -fuzz=FuzzParseFilterList -fuzztime=30s
+	@go test -fuzz=FuzzSplitYAMLDocument -fuzztime=30s
+	@go test -fuzz=FuzzFormatOutput -fuzztime=30s
+	@go test -fuzz=FuzzShouldIncludeResource -fuzztime=30s
+	@go test -fuzz=FuzzGetOutputPath -fuzztime=30s
+	@go test -fuzz=FuzzProcessObjectList -fuzztime=30s
 	@echo "Fuzzing complete"
 
 lint:
 	@echo "Running linter..."
 	@which golangci-lint > /dev/null || (echo "golangci-lint not found. Install from https://golangci-lint.run/usage/install/" && exit 1)
 	@golangci-lint run ./...
+
+vuln:
+	@echo "Running govulncheck..."
+	@which govulncheck > /dev/null || (echo "govulncheck not found. Install: go install golang.org/x/vuln/cmd/govulncheck@v1.8.0" && exit 1)
+	@govulncheck ./...
 
 container:
 	@echo "Building container and extracting binaries"
@@ -88,5 +99,5 @@ clean:
 	rm -f checksums.txt
 	rm -f coverage.out coverage.html
 
-.PHONY: build vendor clean container tidy fmt help test test-unit test-all coverage fuzz lint
+.PHONY: build vendor clean container tidy fmt help test test-unit test-all coverage fuzz lint vuln
 .DEFAULT_GOAL := help

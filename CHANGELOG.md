@@ -7,18 +7,38 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- GitHub Actions updated and pinned by commit SHA (checkout v7, setup-go v7, upload-artifact v7, download-artifact v8, action-gh-release v3)
+- Container image runs as non-root (UID 65534); verified build on Go 1.27.4
+- Replaced placeholder `CVE-2026-XXXX/YYYY/ZZZZ` with internal audit IDs `SA-01/02/03` (no CVEs were assigned)
+- Moved `test.sh` to `scripts/test.sh`; removed `NOTES/` (content consolidated into `docs/development/RELEASING.md`)
+- Simplified `.gitignore` (no longer ignores all `*.json` or `*secret*`/`*token*` paths)
+- Updated Go to 1.27.4 (go.mod, Dockerfile, CI, CONTRIBUTING)
+- Applied `go fix` modernizers (`any`, range-over-int); signal handling now uses `signal.NotifyContext` (finishes current document, prints stats, exits 130)
+- Migrated `.golangci.yml` to golangci-lint v2 format; fixed all lint findings (checked `encoder.Close` error)
+- Cleaned up documentation references to removed tracking files
+
+### Added
+- `.github/dependabot.yml` (monthly: GitHub Actions, Go modules)
+- `scripts/release.sh` (checks, tag, push) and `docs/development/RELEASING.md`; release workflow now uses generated release notes and marks `-rc` tags as pre-release
+- `.editorconfig`, `.gitattributes`, `.vscode/settings.json`
+- `make vuln` and CI step running `govulncheck` (pinned v1.8.0)
+- `kind: List` support (e.g. `kubectl get -o yaml` output, `*List` kinds with items): each item is split into its own file; filters, namespace dirs, sorting and JSON output apply per item; nesting limited to 2 levels
+- Fuzz test `FuzzProcessObjectList`
+- Fuzz tests: `FuzzSplitYAMLDocument`, `FuzzFormatOutput`, `FuzzShouldIncludeResource`, `FuzzGetOutputPath` (also wired into `make fuzz` and CI)
+
 ### Security - COMPLETED 2026-02-23
 - **AUDIT COMPLETED** - Comprehensive security audit identified 26 issues
 - **FIXES IMPLEMENTED** - All critical and medium security issues resolved
 
 #### Critical Fixes (3/3) ✅
-- **Fixed path traversal vulnerability** in filename sanitization (CVE-2026-XXXX)
+- **Fixed path traversal vulnerability** in filename sanitization (SA-01)
   - Apply `filepath.Base()` before character replacement
   - Prevents attacks like `"../../../etc/passwd"`
-- **Added output path validation** to prevent directory escape (CVE-2026-YYYY)
+- **Added output path validation** to prevent directory escape (SA-02)
   - Resolve to absolute paths and verify prefix
   - Ensures all output stays within designated directory
-- **Implemented resource limits** to prevent DoS attacks (CVE-2026-ZZZZ)
+- **Implemented resource limits** to prevent DoS attacks (SA-03)
   - Max 10,000 documents per run
   - Max 10MB per document
   - Max 1GB total output
@@ -45,7 +65,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Security
 - See `docs/development/SECURITY_AUDIT.md` for full audit details
 - See `SECURITY.md` for security policy
-- See `FIXPLAN.md` for implementation tracking
+- See `docs/development/ROADMAP.md` for remaining work
 
 ### Planned for 0.3.0 (Best Practices - Remaining)
 - Make scanner buffer size configurable

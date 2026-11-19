@@ -3,8 +3,9 @@
 **Project:** k8s-yaml-splitter  
 **Audit Date:** 2026-02-10  
 **Fixes Completed:** 2026-02-23  
+**Re-checked:** 2026-11-19 (govulncheck: no known vulnerabilities, Go 1.27.4)  
 **Auditor:** Automated Code Analysis  
-**Next Review:** 2026-03-23
+**Next Review:** 2026-12-19
 
 ---
 
@@ -23,7 +24,7 @@ Comprehensive security analysis of k8s-yaml-splitter identified **26 issues** re
 
 ## Critical Findings
 
-### CVE-2026-XXXX: Path Traversal in Filename Sanitization
+### SA-01: Path Traversal in Filename Sanitization
 
 **Severity:** HIGH  
 **CVSS Score:** 7.5 (High)  
@@ -82,7 +83,7 @@ func sanitizeFilename(name string) string {
 
 ---
 
-### CVE-2026-YYYY: Missing Output Path Validation
+### SA-02: Missing Output Path Validation
 
 **Severity:** HIGH  
 **CVSS Score:** 7.3 (High)  
@@ -139,7 +140,7 @@ func getOutputPath(config Config, base baseObject, ext string) (string, error) {
 
 ---
 
-### CVE-2026-ZZZZ: Resource Exhaustion (DoS)
+### SA-03: Resource Exhaustion (DoS)
 
 **Severity:** MEDIUM-HIGH  
 **CVSS Score:** 6.5 (Medium)  
@@ -273,7 +274,7 @@ Direct writes to final filename create TOCTOU (Time-Of-Check-Time-Of-Use) race c
 - Predictable temp file patterns (if any)
 
 **Remediation:**
-Implement atomic writes with random temp files (see Phase 2.2 in PLAN.md).
+Implement atomic writes with random temp files.
 
 ---
 
@@ -292,7 +293,7 @@ Implement atomic writes with random temp files (see Phase 2.2 in PLAN.md).
 - Symlink attack on directory creation
 
 **Remediation:**
-Validate directory before and after creation (see Phase 2.3 in PLAN.md).
+Validate directory before and after creation.
 
 ---
 
@@ -300,7 +301,7 @@ Validate directory before and after creation (see Phase 2.3 in PLAN.md).
 
 ### Finding 7-26: Best Practices & Code Quality
 
-See FIXPLAN.md for complete list of 20 additional issues related to:
+The remaining 20 findings relate to:
 - Testing gaps (no unit tests, no fuzzing, no security tests)
 - Missing best practices (version vars, linting, subcommands)
 - Code quality (error handling, signal handling, documentation)
@@ -426,11 +427,11 @@ Directory                      Error: refuse to write
 - [Go Security Best Practices](https://go.dev/doc/security/best-practices)
 
 ### Internal References
-- `PLAN.md` - Detailed implementation plan
-- `FIXPLAN.md` - Fix tracking and rollout plan
+- `ROADMAP.md` - Remaining work
+- `../../SECURITY.md` - Security policy
 - Go Project Best Practices (steering documents)
 
 ---
 
-**Last Updated:** 2026-02-23  
-**Next Review:** 2026-03-23
+**Last Updated:** 2026-11-19  
+**Next Review:** 2026-12-19

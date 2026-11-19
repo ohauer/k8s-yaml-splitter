@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"bytes"
+	"context"
 	"crypto/rand"
 	"encoding/hex"
 	"encoding/json"
@@ -29,6 +30,7 @@ const (
 	MaxDocumentSize    = 10 * 1024 * 1024   // 10MB per document
 	MaxTotalOutputSize = 1024 * 1024 * 1024 // 1GB total output
 	MaxInputFileSize   = 100 * 1024 * 1024  // 100MB input file
+	MaxListDepth       = 2                  // Max nesting of List kinds
 )
 
 // Exit codes
@@ -71,9 +73,10 @@ type ProcessingStats struct {
 // baseObject represents the minimal structure needed to identify and name Kubernetes resources
 // We only unmarshal the fields we need for file naming to preserve original formatting
 type baseObject struct {
-	bytes  []byte // Original raw bytes for content preservation
-	Kind   string `yaml:"kind"`
-	ApiVer string `yaml:"apiVersion"`
+	bytes  []byte      // Original raw bytes for content preservation
+	Kind   string      `yaml:"kind"`
+	ApiVer string      `yaml:"apiVersion"`
+	Items  []yaml.Node `yaml:"items"` // Only used to expand "List" kinds
 	Meta   struct {
 		Namespace string `yaml:"namespace"`
 		Name      string `yaml:"name"`
@@ -116,11 +119,11 @@ func splitYAMLDocument(data []byte, atEOF bool) (advance int, token []byte, err 
 
 // sortMapKeys recursively sorts all map keys in a data structure
 // This ensures consistent output ordering for both YAML and JSON formats
-func sortMapKeys(obj interface{}) interface{} {
+func sortMapKeys(obj any) any {
 	switch v := obj.(type) {
-	case map[string]interface{}:
+	case map[string]any:
 		// Create new sorted map
-		sorted := make(map[string]interface{})
+		sorted := make(map[string]any)
 		keys := make([]string, 0, len(v))
 		for k := range v {
 			keys = append(keys, k)
@@ -131,7 +134,7 @@ func sortMapKeys(obj interface{}) interface{} {
 			sorted[k] = sortMapKeys(v[k])
 		}
 		return sorted
-	case []interface{}:
+	case []any:
 		// Sort elements in arrays
 		for i, item := range v {
 			v[i] = sortMapKeys(item)
@@ -152,7 +155,7 @@ func formatOutput(data []byte, format string, sortKeys bool) ([]byte, string, er
 	switch format {
 	case "json":
 		// JSON output is always sorted for consistency
-		var obj interface{}
+		var obj any
 		if err := yaml.Unmarshal(data, &obj); err != nil {
 			return nil, "", err
 		}
@@ -162,7 +165,7 @@ func formatOutput(data []byte, format string, sortKeys bool) ([]byte, string, er
 	default:
 		if sortKeys {
 			// Sort YAML keys by unmarshaling and re-marshaling
-			var obj interface{}
+			var obj any
 			if err := yaml.Unmarshal(data, &obj); err != nil {
 				return nil, "", err
 			}
@@ -174,7 +177,9 @@ func formatOutput(data []byte, format string, sortKeys bool) ([]byte, string, er
 			if err := encoder.Encode(obj); err != nil {
 				return nil, "", err
 			}
-			encoder.Close()
+			if err := encoder.Close(); err != nil {
+				return nil, "", err
+			}
 			return buf.Bytes(), ".yaml", nil
 		} else {
 			// Preserve original formatting when not sorting
@@ -246,7 +251,7 @@ func writeFileAtomic(path string, data []byte, perm os.FileMode) error {
 	// Clean up temp file on error
 	defer func() {
 		if _, err := os.Stat(tmpFile); err == nil {
-			os.Remove(tmpFile)
+			_ = os.Remove(tmpFile)
 		}
 	}()
 
@@ -268,7 +273,7 @@ func cleanupOrphanedTempFiles(dir string) {
 	pattern := filepath.Join(dir, "*.tmp.*")
 	matches, _ := filepath.Glob(pattern)
 	for _, file := range matches {
-		os.Remove(file) // Ignore errors
+		_ = os.Remove(file) // Ignore errors
 	}
 }
 
@@ -377,6 +382,53 @@ func getOutputPath(config Config, base baseObject, ext string) (string, error) {
 // processObject handles a single YAML document from the input stream
 // It extracts metadata for naming, formats the output, and writes the file
 func processObject(data []byte, config Config, stats *ProcessingStats, docNum int) error {
+	return processObjectDepth(data, config, stats, docNum, 0)
+}
+
+// isListKind reports whether the object is a Kubernetes List that should be expanded.
+// "List" is always expanded; other "*List" kinds (e.g. PodList) only when they carry items,
+// so CRDs that merely end in "List" without items are processed as normal documents.
+func isListKind(base baseObject) bool {
+	if base.Kind == "List" {
+		return true
+	}
+	return strings.HasSuffix(base.Kind, "List") && len(base.Items) > 0
+}
+
+// processList expands the items of a List object and processes each as its own document
+func processList(base baseObject, config Config, stats *ProcessingStats, docNum, depth int) error {
+	// The wrapper itself is not counted as a document; its items are
+	stats.Total--
+	if depth >= MaxListDepth {
+		stats.Errors++
+		return fmt.Errorf("document %d: lists nested deeper than %d levels", docNum, MaxListDepth)
+	}
+	fmt.Printf("Expanding %s with %d items (document %d)\n", base.Kind, len(base.Items), docNum)
+	for i := range base.Items {
+		var buf bytes.Buffer
+		enc := yaml.NewEncoder(&buf)
+		enc.SetIndent(2)
+		if err := enc.Encode(&base.Items[i]); err != nil {
+			stats.Errors++
+			if !config.continueOnErr {
+				return fmt.Errorf("document %d item %d: %w", docNum, i+1, err)
+			}
+			fmt.Printf("Error: document %d item %d: %v\n", docNum, i+1, err)
+			continue
+		}
+		_ = enc.Close()
+		if err := processObjectDepth(buf.Bytes(), config, stats, docNum, depth+1); err != nil {
+			if !config.continueOnErr {
+				return err
+			}
+			fmt.Printf("Error: document %d item %d: %v\n", docNum, i+1, err)
+		}
+	}
+	return nil
+}
+
+// processObjectDepth is processObject with list nesting depth tracking
+func processObjectDepth(data []byte, config Config, stats *ProcessingStats, docNum, depth int) error {
 	stats.Total++
 
 	// Enforce document count limit
@@ -407,6 +459,11 @@ func processObject(data []byte, config Config, stats *ProcessingStats, docNum in
 			fmt.Printf("Skipped document %d: missing kind or apiVersion\n", docNum)
 		}
 		return nil
+	}
+
+	// Expand List kinds into their individual items
+	if isListKind(base) {
+		return processList(base, config, stats, docNum, depth)
 	}
 
 	// Apply resource filtering
@@ -636,14 +693,9 @@ func main() {
 		log.Fatalf("Failed to read input: %v", err)
 	}
 
-	// Set up signal handling for graceful shutdown
-	sigCh := make(chan os.Signal, 1)
-	signal.Notify(sigCh, syscall.SIGTERM, syscall.SIGINT)
-	go func() {
-		<-sigCh
-		fmt.Fprintln(os.Stderr, "\nReceived interrupt signal, exiting...")
-		os.Exit(130)
-	}()
+	// Set up signal handling: cancel the context on SIGINT/SIGTERM for graceful shutdown
+	ctx, stop := signal.NotifyContext(context.Background(), syscall.SIGTERM, syscall.SIGINT)
+	defer stop()
 
 	// Set up scanner to split YAML documents
 	// Use large buffer to handle big Kubernetes manifests (like CRDs)
@@ -657,6 +709,12 @@ func main() {
 
 	// Process each YAML document
 	for scanner.Scan() {
+		if ctx.Err() != nil {
+			stop()
+			fmt.Fprintln(os.Stderr, "\nReceived interrupt signal, exiting...")
+			printStats(stats)
+			os.Exit(130)
+		}
 		docNum++
 		// Copy scanner bytes to avoid mutation issues
 		data := make([]byte, len(scanner.Bytes()))
